@@ -5,11 +5,23 @@ using UnityEngine;
 public class Main : MonoBehaviour {
 
     [SerializeField] Panel_Login panel_Login;
+
+
     void Start() {
+
         panel_Login.Ctor();
+        panel_Login.Show();
+        panel_Login.OnStartClickHandle += () => {
+            panel_Login.Close();
+            LoginBusiness.Enter();
+            GameBusiness.Enter();
+        };
+
+
+
+
     }
 
-    // Update is called once per frame
     void Update() {
 
     }

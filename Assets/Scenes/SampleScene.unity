@@ -361,7 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49e9d9328a109644a8b8cd6f5757fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel_Login: {fileID: 0}
+  panel_Login: {fileID: 1543436081}
 --- !u!4 &984601175
 Transform:
   m_ObjectHideFlags: 0
@@ -707,7 +707,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: "\u5F00\u59CB\u6E38\u620F"
 --- !u!222 &2141639655
 CanvasRenderer:
   m_ObjectHideFlags: 0
