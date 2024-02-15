@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Main : MonoBehaviour {
-    // Start is called before the first frame update
-    void Start() {
 
+    [SerializeField] Panel_Login panel_Login;
+    void Start() {
+        panel_Login.Ctor();
     }
 
     // Update is called once per frame
