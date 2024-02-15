@@ -7,15 +7,17 @@ public class Main : MonoBehaviour {
     // [SerializeField] Canvas canvas;
     Canvas canvas;
 
-    [SerializeField] Panel_Login panel_LoginPrefab;
+    AssetsContext assetsContext;
 
 
     void Start() {
 
         canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        assetsContext = GameObject.Find("AssetsContext").GetComponent<AssetsContext>();
+
         // canvans = GameObject.GetComponenetChirld<Canvas>();
         //实例化 GameObject.Instantiate
-        Panel_Login panel_Login = GameObject.Instantiate(panel_LoginPrefab, canvas.transform);
+        Panel_Login panel_Login = GameObject.Instantiate(assetsContext.panel_Login, canvas.transform);
 
         panel_Login.Ctor();
         panel_Login.Show();
