@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HomeEntity : MonoBehaviour {
 
-    public void SetPos(Vector3 pos) {
+    public void SetPos(Vector2 pos) {
         transform.position = pos;
     }
 }   

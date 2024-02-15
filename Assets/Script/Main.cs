@@ -7,7 +7,6 @@ public class Main : MonoBehaviour {
     // [SerializeField] Canvas canvas;
 
     MainContext mainContext;
-    Canvas canvas;
 
     AssetsContext assetsContext;
 
@@ -15,21 +14,22 @@ public class Main : MonoBehaviour {
     void Start() {
         mainContext = new MainContext();
         AssetsContext assetsContext = GameObject.Find("AssetsContext").GetComponent<AssetsContext>();
-        mainContext.Inject(assetsContext);
+        Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        mainContext.Inject(canvas, assetsContext);
 
-        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
 
         // canvans = GameObject.GetComponenetChirld<Canvas>();
         //实例化 GameObject.Instantiate
-        Panel_Login panel_Login = GameObject.Instantiate(assetsContext.panel_Login, canvas.transform);
+        UIApp.Panel_Login_Open(mainContext.uiContext, () => {
+            UIApp.Panel_Login_Close(mainContext.uiContext);
+            GameBusiness.Enter(mainContext.gamaContext);
 
-        panel_Login.Ctor();
-        panel_Login.Show();
-        panel_Login.OnStartClickHandle += () => {
-            panel_Login.Close();
-            LoginBusiness.Enter();
-            GameBusiness.Enter();
-        };
+
+            Debug.Log("Panel_Login_Open");
+        });
+
+
+      
 
 
 
