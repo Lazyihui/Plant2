@@ -5,11 +5,16 @@ public class GamaContext {
 
     public HomeRepository homeRepository;
 
-    public int homeID;
+    public BaseRepository baseRepository;
 
+    public int homeID;
+    public int baseID;
     public GamaContext() {
 
         homeRepository = new HomeRepository();
+        baseRepository = new BaseRepository();
+
+        baseID = 0;
         homeID = 0;
     }
 

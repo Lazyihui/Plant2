@@ -6,5 +6,7 @@ public class AssetsContext : MonoBehaviour {
     public Panel_Login panel_Login;
 
     public HomeEntity homeEntity;
-    
+
+    public BaseEntity baseEntity;
+
 }
