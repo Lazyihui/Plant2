@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+
+//所以UI的东西都在这里
+// 可以直接写在main里面，但是这样会很乱
 public static class UIApp {
 
 
@@ -24,7 +27,4 @@ public static class UIApp {
         }
     }
 
-    public static void Enter() {
-        Debug.Log("UIApp Enter");
-    }
 }
