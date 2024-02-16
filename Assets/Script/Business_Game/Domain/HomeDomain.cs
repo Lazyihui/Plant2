@@ -6,6 +6,8 @@ public static class HomeDomain {
         HomeEntity prafab = ctx.assetsContext.homeEntity;
         HomeEntity homeEntity = GameObject.Instantiate(prafab);
         homeEntity.SetPos(pos);
+        homeEntity.id = ctx.homeID++;
+        ctx.homeRepository.Add(homeEntity);
         return homeEntity;
     }
 }

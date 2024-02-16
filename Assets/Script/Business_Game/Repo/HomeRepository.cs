@@ -13,6 +13,6 @@ public class HomeRepository {
     }
 
     public void Add(HomeEntity entity) {
-        // all.Add(entity.id, entity);
+        all.Add(entity.id, entity);
     }
 }
