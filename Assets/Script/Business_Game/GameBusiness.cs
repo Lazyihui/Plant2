@@ -10,6 +10,9 @@ public static class GameBusiness {
 
         // 生成僵尸
         BaseDomain.Spawn(ctx, 0, new Vector2(8, 0));
+        
+        //打开UI
+        UIApp.Panel_Top_Open(ctx.uiContext);
 
     }
     // 每帧一次

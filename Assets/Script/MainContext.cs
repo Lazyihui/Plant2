@@ -18,7 +18,7 @@ public class MainContext {
 
     public void Inject(Canvas canvas,AssetsContext assetsContext) {
         this.assetsContext = assetsContext;
-        gamaContext.Inject(assetsContext);
+        gamaContext.Inject(assetsContext,uiContext);
         uiContext.Inject(assetsContext,canvas);
     }
 }
