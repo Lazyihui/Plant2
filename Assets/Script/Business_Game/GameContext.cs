@@ -1,4 +1,4 @@
-public class GamaContext {
+public class GameContext {
 
 
     public AssetsContext assetsContext;
@@ -12,7 +12,7 @@ public class GamaContext {
 
     public int homeID;
     public int baseID;
-    public GamaContext() {
+    public GameContext() {
 
         homeRepository = new HomeRepository();
         baseRepository = new BaseRepository();

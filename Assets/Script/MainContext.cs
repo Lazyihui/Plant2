@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MainContext {
-    public GamaContext gamaContext;
+    public GameContext gamaContext;
     public AssetsContext assetsContext;
 
     public UIcontext uiContext;
@@ -12,7 +12,7 @@ public class MainContext {
 
 
     public MainContext() {
-        gamaContext = new GamaContext();
+        gamaContext = new GameContext();
         uiContext = new UIcontext();
     }
 
