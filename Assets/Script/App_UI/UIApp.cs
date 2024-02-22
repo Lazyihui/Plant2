@@ -30,7 +30,7 @@ public static class UIApp {
 
     //打开top
     public static void Panel_Top_Open(UIcontext ctx) {
-        Panel_top panel_Top = ctx.panel_Top;
+        Panel_PlantManifest panel_Top = ctx.panel_Top;
         if (panel_Top == null) {
             panel_Top = GameObject.Instantiate(ctx.assetsContext.panel_Top, ctx.canvas.transform);
             panel_Top.Ctor();
@@ -42,7 +42,7 @@ public static class UIApp {
 
     // 关闭top
     public static void Panel_Top_Close(UIcontext context) {
-        Panel_top panel_Top = context.panel_Top;
+        Panel_PlantManifest panel_Top = context.panel_Top;
         if (panel_Top != null) {
             panel_Top.Close();
         }

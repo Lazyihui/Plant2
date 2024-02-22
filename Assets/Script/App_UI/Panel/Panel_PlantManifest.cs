@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Panel_top : MonoBehaviour {
+public class Panel_PlantManifest : MonoBehaviour {
 
     [SerializeField] Image elePrefab;
 
