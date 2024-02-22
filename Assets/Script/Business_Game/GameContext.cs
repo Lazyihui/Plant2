@@ -1,6 +1,6 @@
 public class GameContext {
 
-
+    public PlayerEntity playerEntity;
     public AssetsContext assetsContext;
 
     public HomeRepository homeRepository;
@@ -13,7 +13,7 @@ public class GameContext {
     public int homeID;
     public int baseID;
     public GameContext() {
-
+        playerEntity = new PlayerEntity();
         homeRepository = new HomeRepository();
         baseRepository = new BaseRepository();
         mstRepository = new MstRepository();

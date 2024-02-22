@@ -15,6 +15,11 @@ public static class MstDomain {
         return mstEntity;
     }
 
+    public static void UnSpawn(GameContext ctx, MstEntity mst) {
+        ctx.mstRepository.Remove(mst);
+        mst.tearDown();
+    }
+
 
     public static void MoveByPath(GameContext ctx, MstEntity mst, float fixdt) {
         if (mst.path == null) {
@@ -36,6 +41,22 @@ public static class MstDomain {
         } else {
             dir.Normalize();
             mst.Move(dir, fixdt);
+        }
+    }
+
+    public static void OverLapHome(GameContext ctx, MstEntity mst) {
+        HomeEntity target = ctx.homeRepository.Find((home) => {
+
+            float dirSqr = Vector2.SqrMagnitude(home.transform.position - mst.transform.position);
+            if (dirSqr < 0.1f) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+        if (target != null) {
+            UnSpawn(ctx, mst);
+            Debug.Log("游戏结束");
         }
     }
 }

@@ -12,6 +12,10 @@ public class Main : MonoBehaviour {
 
 
     void Start() {
+
+        Application.targetFrameRate = 120;
+
+        
         mainContext = new MainContext();
         AssetsContext assetsContext = GameObject.Find("AssetsContext").GetComponent<AssetsContext>();
         Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();

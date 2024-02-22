@@ -20,6 +20,10 @@ public class MstRepository {
     public void Add(MstEntity entity) {
         all.Add(entity.id, entity);
     }
+
+    public void Remove(MstEntity mst) {
+        all.Remove(mst.id);
+    }
     //这个没有兼顾超过all数量的情况
     public int TakeAll(out MstEntity[] array) {
 

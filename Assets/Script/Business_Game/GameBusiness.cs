@@ -1,7 +1,9 @@
 using UnityEngine;
 public static class GameBusiness {
     public static void Enter(GameContext ctx) {
-        Debug.Log("Game Started");
+
+        //plar
+        ctx.playerEntity.sun = 0;
         // 生成home界面
         //0先随便写一个ID
         HomeDomain.Spawn(ctx, 0, new Vector2(-8, 0));
@@ -29,6 +31,7 @@ public static class GameBusiness {
         for (int i = 0; i < mstLen; i++) {
             MstEntity mst = msts[i];
             MstDomain.MoveByPath(ctx, mst, fixdt);
+            MstDomain.OverLapHome(ctx, mst);
         }
     }
     //每针一次
