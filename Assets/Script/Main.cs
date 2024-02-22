@@ -29,17 +29,38 @@ public class Main : MonoBehaviour {
         });
 
 
-      
+
 
 
 
 
     }
 
-    void Update() {
-        float dt = Time.deltaTime;
+    float restDT;
 
-        
+    const float FIXED_INTERVAL = 0.01f;
+
+    void Update() {
+
+        float dt = Time.deltaTime;
+        GameBusiness.PreTick(mainContext.gamaContext, dt);
+
+
+        restDT += dt;
+        if (restDT <= FIXED_INTERVAL) {
+            GameBusiness.FixedTick(mainContext.gamaContext, restDT);
+            restDT = 0;
+
+        } else {
+            while (restDT >= FIXED_INTERVAL) {
+                GameBusiness.FixedTick(mainContext.gamaContext, FIXED_INTERVAL);
+                restDT -= FIXED_INTERVAL;
+            }
+        }
+
+
+        GameBusiness.LateTick(mainContext.gamaContext, dt);
+
 
     }
 }

@@ -21,9 +21,9 @@ public class BaseEntity : MonoBehaviour {
         cd = 5;
         maxCd = 5;
         maintain = 3;
-        maintainTimer = 3;
-        interval = 1;
-        intervalTimer = 1;
+        maintainTimer = 3.0f;
+        interval = 3;
+        intervalTimer = 3;
     }
     public void SetPos(Vector2 pos) {
         transform.position = pos;

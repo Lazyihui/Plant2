@@ -9,7 +9,6 @@ public class Panel_Login : MonoBehaviour {
         // startButton.onClick.AddListener(OnStartButtonClicked);
         //匿名函数
         startButton.onClick.AddListener(() => {
-            Debug.Log("Start Button Clicked");
             //表示函数指针
             OnStartClickHandle.Invoke();
 

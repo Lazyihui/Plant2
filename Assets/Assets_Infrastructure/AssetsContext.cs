@@ -9,4 +9,6 @@ public class AssetsContext : MonoBehaviour {
 
     public BaseEntity baseEntity;
 
+    public MstEntity mstEntity;
+
 }
