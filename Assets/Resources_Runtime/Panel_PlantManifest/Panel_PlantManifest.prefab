@@ -58,6 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c5b9b8da1460e54cac44b7782680c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elePrefab: {fileID: 4350654892477424248, guid: 33077691bb403104399956160ca373b0, type: 3}
+  plantManifestGroup: {fileID: 7001829578687142779}
   cellCount: 0
 --- !u!1 &7618102669380840768
 GameObject:

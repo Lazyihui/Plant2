@@ -1,28 +1,28 @@
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+// using System.Collections.Generic;
+// using UnityEngine;
+// using UnityEngine.UI;
 
-public class Panel_PlantManifestElement : MonoBehaviour {
+// public class Panel_PlantManifestElement : MonoBehaviour {
 
-    [SerializeField] Image elePrefab;
+//     [SerializeField] Image elePrefab;
 
-    [SerializeField] Transform plantManifestGroup;
-    
-    public int cellCount;
+//     [SerializeField] Transform plantManifestGroup;
 
-    public void Ctor() {
-    }
-    public void Init() {
+//     public int cellCount;
 
-        cellCount = 10;
+//     public void Ctor() {
+//     }
+//     public void Init() {
 
-        for (int i = 0; i < cellCount; i++) {
+//         cellCount = 10;
 
-            Image ele = GameObject.Instantiate(elePrefab, plantManifestGroup);
+//         for (int i = 0; i < cellCount; i++) {
 
-            ele.gameObject.SetActive(true);
+//             Image ele = GameObject.Instantiate(elePrefab, plantManifestGroup);
 
-        }
-    }
+//             ele.gameObject.SetActive(true);
 
-}
+//         }
+//     }
+
+// }

@@ -37,13 +37,7 @@ public static class UIApp {
             ctx.panel_PlantManifest = panel_PlantManifest;
         }
 
-        Panel_PlantManifestElement panel_PlantManifestElement = ctx.panel_PlantManifestElement;
-        if (panel_PlantManifestElement == null) {
-            panel_PlantManifestElement.Ctor();
-            panel_PlantManifestElement.Init();
-            ctx.panel_PlantManifestElement = panel_PlantManifestElement;
-        }
-
+        panel_PlantManifest.Init();
         panel_PlantManifest.Show();
     }
 
