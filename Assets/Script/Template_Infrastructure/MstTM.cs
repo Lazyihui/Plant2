@@ -8,6 +8,8 @@ using UnityEngine;
 public class MstTM : ScriptableObject {
     public int TypeID;
     public float moveSpeed;
+    public string typeName;   
+
 
     public Sprite sprite;
 }

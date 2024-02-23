@@ -7,8 +7,11 @@ using System.Collections.Generic;
 public class TemplateContext {
     public Dictionary<int, MstTM> mst;
 
+    public Dictionary<int, BasesTM> bases;
+
 
     public TemplateContext() {
         mst = new Dictionary<int, MstTM>();
+        bases = new Dictionary<int, BasesTM>();
     }
 }

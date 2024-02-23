@@ -3,14 +3,32 @@ using UnityEngine;
 public static class BaseDomain {
 
 
-    public static BaseEntity Spawn(GameContext ctx, int id, Vector2 pos) {
-
+    public static BaseEntity Spawn(GameContext ctx, int typeID) {
         ctx.assetsContext.Entity_TryGetPrefab("Entity_Base", out GameObject prafab);
+
+        bool has = ctx.templateContext.bases.TryGetValue(typeID, out BasesTM tm);
+        if (!has) {
+            Debug.LogError("没找到" + typeID);
+        }
+
 
         BaseEntity entity = GameObject.Instantiate(prafab).GetComponent<BaseEntity>();
         entity.Ctor();
-        entity.id = id++;
-        entity.SetPos(pos);
+        entity.id = ctx.baseID++;
+
+        
+        entity.typeID = tm.TypeID;
+        entity.cd = tm.cd;
+        entity.maxCd = tm.cd;
+        entity.maintain = tm.maintain;
+        entity.maintainTimer = tm.maintain;
+        entity.interval = tm.interval;
+        entity.intervalTimer = tm.interval;
+        entity.mstID = tm.mstTypeID;
+        entity.path = tm.path;
+        entity.SetPos(tm.pos);
+
+
         entity.Init();
         ctx.baseRepository.Add(entity);
         return entity;

@@ -45,7 +45,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce5eba905fef5b488717409595d9bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 3
+  typeID: 0
+  cd: 1
+  maxCd: 1
+  maintain: 3
+  maintainTimer: 3
+  interval: 1
+  intervalTimer: 1
+  mstID: 100
+  path:
+  - {x: -8, y: 0}
 --- !u!1 &2731654683566216173
 GameObject:
   m_ObjectHideFlags: 0

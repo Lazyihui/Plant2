@@ -17,7 +17,6 @@ public class AssetsContext {
         return panels.TryGetValue(name, out prefab);
     }
     public bool Entity_TryGetPrefab(string name, out GameObject prefab) {
-        Debug.Log("Get" + name);
         return entities.TryGetValue(name, out prefab);
     }
 

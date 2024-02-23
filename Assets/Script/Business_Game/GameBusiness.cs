@@ -9,7 +9,10 @@ public static class GameBusiness {
         HomeDomain.Spawn(ctx, 0, new Vector2(-8, 0));
 
         // 生成僵尸
-        BaseDomain.Spawn(ctx, 0, new Vector2(8, 0));
+        for (int i = 1; i <= 5; i++) {
+            BaseDomain.Spawn(ctx, i);
+
+        }
 
         //打开UI
         UIApp.Panel_PlantManifest_Open(ctx.uiContext);
@@ -22,6 +25,7 @@ public static class GameBusiness {
     }
     // 可能一帧多次
     public static void FixedTick(GameContext ctx, float fixdt) {
+
         int basesLen = ctx.baseRepository.TakeAll(out BaseEntity[] bases);
         for (int i = 0; i < basesLen; i++) {
             BaseEntity baseEntity = bases[i];
