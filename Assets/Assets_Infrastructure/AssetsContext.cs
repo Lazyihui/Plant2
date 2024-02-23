@@ -11,6 +11,7 @@ public class AssetsContext : MonoBehaviour {
 
     public MstEntity mstEntity;
 
-    public Panel_PlantManifest panel_Top;
+    public Panel_PlantManifest panel_PlantMainfest;
+
 
 }
