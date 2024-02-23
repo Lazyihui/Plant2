@@ -14,6 +14,8 @@ public class BaseEntity : MonoBehaviour {
 
     public float intervalTimer;
 
+    public int mstID;
+
     public Vector2[] path;
     //构造
     public void Ctor() { }
@@ -31,6 +33,8 @@ public class BaseEntity : MonoBehaviour {
         intervalTimer = 1;
 
         path = new Vector2[]{new Vector2(-8, 0)};
+
+        mstID = 100;
     }
     public void SetPos(Vector2 pos) {
         transform.position = pos;

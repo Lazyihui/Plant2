@@ -5,8 +5,9 @@ public static class BaseDomain {
 
     public static BaseEntity Spawn(GameContext ctx, int id, Vector2 pos) {
 
-        BaseEntity prafab = ctx.assetsContext.baseEntity;
-        BaseEntity entity = GameObject.Instantiate(prafab);
+        ctx.assetsContext.Entity_TryGetPrefab("Entity_Base", out GameObject prafab);
+
+        BaseEntity entity = GameObject.Instantiate(prafab).GetComponent<BaseEntity>();
         entity.Ctor();
         entity.id = id++;
         entity.SetPos(pos);
@@ -26,7 +27,7 @@ public static class BaseDomain {
             bases.intervalTimer = bases.interval;
             Debug.Log("生成怪物");
             //这个ID可以在base里存一个
-            MstEntity mst = MstDomain.Spawn(ctx, 0, bases.transform.position);
+            MstEntity mst = MstDomain.Spawn(ctx, bases.mstID, bases.transform.position);
             mst.path = bases.path;
 
 

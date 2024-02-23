@@ -4,13 +4,22 @@ public static class MstDomain {
 
 
     public static MstEntity Spawn(GameContext ctx, int TypeID, Vector2 pos) {
-        MstEntity prefab = ctx.assetsContext.mstEntity;
-        MstEntity mstEntity = GameObject.Instantiate(prefab);
+
+
+        bool has = ctx.templateContext.mst.TryGetValue(TypeID, out MstTM tm);
+        if (!has) {
+            Debug.LogError("没有这个怪物配置" + TypeID);
+        }
+        ctx.assetsContext.Entity_TryGetPrefab("Entity_Mst", out GameObject prefab);
+
+        MstEntity mstEntity = GameObject.Instantiate(prefab).GetComponent<MstEntity>();
         mstEntity.Ctor();
         mstEntity.SetPos(pos);
         mstEntity.id = ctx.MstID++;
-        mstEntity.moveSpeed = 5.0f;
 
+        mstEntity.moveSpeed = tm.moveSpeed;
+        mstEntity.Init(tm.sprite);
+        Debug.Log("生成怪物" + TypeID);
         ctx.mstRepository.Add(mstEntity);
         return mstEntity;
     }

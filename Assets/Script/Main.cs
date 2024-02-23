@@ -15,11 +15,11 @@ public class Main : MonoBehaviour {
 
         Application.targetFrameRate = 120;
 
-        
+
         mainContext = new MainContext();
-        AssetsContext assetsContext = GameObject.Find("AssetsContext").GetComponent<AssetsContext>();
+
         Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
-        mainContext.Inject(canvas, assetsContext);
+        mainContext.Inject(canvas);
 
 
         // canvans = GameObject.GetComponenetChirld<Canvas>();
@@ -33,6 +33,9 @@ public class Main : MonoBehaviour {
         });
 
 
+
+        TemplateInfra.Load(mainContext.templateContext);
+        AsstesInfra.Load(mainContext.assetsContext);
 
 
 

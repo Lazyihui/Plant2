@@ -9,9 +9,14 @@ public class MstEntity : MonoBehaviour {
 
     public int pathIndex;
 
+    public SpriteRenderer spriteRenderer;
+
 
     public void Ctor() { }
 
+    public void Init(Sprite sprite) {
+        spriteRenderer.sprite = sprite;
+    }
     public void tearDown() {
         GameObject.Destroy(gameObject);
     }
