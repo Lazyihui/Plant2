@@ -10,13 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: panels
+  m_Name: Panels
   m_EditorClassIdentifier: 
-  m_GroupName: Packed Assets
+  m_GroupName: Panels
   m_Data:
     m_SerializedData: []
   m_GUID: 52ca67f7648ba5c4880ae3005865ee75
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: d40694fb07510be4a92ad461de1af635
+    m_Address: Panel_Login
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Panels
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1cd626f69e8c93043bb3a90b48405ec0
+    m_Address: Panel_PlantManifest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Panels
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 403753c24b148b546b668cc24fa1e4b4, type: 2}
   m_SchemaSet:

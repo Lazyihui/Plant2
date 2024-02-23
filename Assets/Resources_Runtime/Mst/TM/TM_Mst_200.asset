@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeID: 200
   moveSpeed: 0
+  sprite: {fileID: 21300000, guid: aef6d38fa8e095445897c9624590966b, type: 3}

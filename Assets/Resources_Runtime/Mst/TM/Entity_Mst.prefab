@@ -46,6 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  moveSpeed: 0
+  path: []
+  pathIndex: 0
+  spriteRenderer: {fileID: 7065482870137139672}
 --- !u!1 &8784249172068368644
 GameObject:
   m_ObjectHideFlags: 0

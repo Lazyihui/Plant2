@@ -16,17 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: e90ae273391cbe744a16841301ea9945
-  m_SerializeEntries:
-  - m_GUID: d40694fb07510be4a92ad461de1af635
-    m_Address: Assets/Resources_Runtime/Panel_Login/Panel_Login.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1cd626f69e8c93043bb3a90b48405ec0
-    m_Address: Assets/Resources_Runtime/Panel_PlantManifest/Panel_PlantManifest.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 403753c24b148b546b668cc24fa1e4b4, type: 2}
   m_SchemaSet:

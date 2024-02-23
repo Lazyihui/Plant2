@@ -22,6 +22,8 @@ public class Main : MonoBehaviour {
         mainContext.Inject(canvas);
 
 
+        TemplateInfra.Load(mainContext.templateContext);
+        AsstesInfra.Load(mainContext.assetsContext);
         // canvans = GameObject.GetComponenetChirld<Canvas>();
         //实例化 GameObject.Instantiate
         UIApp.Panel_Login_Open(mainContext.uiContext, () => {
@@ -34,8 +36,6 @@ public class Main : MonoBehaviour {
 
 
 
-        TemplateInfra.Load(mainContext.templateContext);
-        AsstesInfra.Load(mainContext.assetsContext);
 
 
 

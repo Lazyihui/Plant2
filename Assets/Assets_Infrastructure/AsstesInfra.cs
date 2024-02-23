@@ -26,6 +26,7 @@ public static class AsstesInfra {
             IList<GameObject> all = Addressables.LoadAssetsAsync<GameObject>(labelReference, null).WaitForCompletion();
             for (int i = 0; i < all.Count; i++) {
                 GameObject entity = all[i];
+                Debug.Log(all[i].name);
                 ctx.panels.Add(entity.name, entity);
             }
         }

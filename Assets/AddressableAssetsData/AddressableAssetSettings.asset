@@ -92,7 +92,7 @@ MonoBehaviour:
     - default
     - TM_Mst
     - Entities
-    - panels
+    - Panels
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 0ed633f5cf3660e48b5577fb2c4c6bb7, type: 2}
