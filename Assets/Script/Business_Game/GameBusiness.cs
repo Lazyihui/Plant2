@@ -6,7 +6,11 @@ public static class GameBusiness {
         ctx.playerEntity.sun = 0;
         // 生成home界面
         //0先随便写一个ID
-        HomeDomain.Spawn(ctx, 0, new Vector2(-8, 0));
+        HomeDomain.Spawn(ctx, 0, new Vector2(-8, 2.5f));
+        HomeDomain.Spawn(ctx, 0, new Vector2(-8, 1));
+        HomeDomain.Spawn(ctx, 0, new Vector2(-8, -0.5f));
+        HomeDomain.Spawn(ctx, 0, new Vector2(-8, -2));
+        HomeDomain.Spawn(ctx, 0, new Vector2(-8, -3.5f));
 
         // 生成僵尸
         for (int i = 1; i <= 5; i++) {
