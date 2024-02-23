@@ -30,6 +30,18 @@ public class TemplateInfra {
                 ctx.bases.Add(bases.TypeID, bases);
             }
         }
+        {
+            AssetLabelReference labelReference = new AssetLabelReference();
+            labelReference.labelString = "TM_Home";
+            IList<HomeTM> all = Addressables.LoadAssetsAsync<HomeTM>(labelReference,null).WaitForCompletion();
+
+            for( int i= 0; i<all.Count;i++){
+                HomeTM home = all[i];
+                ctx.homes.Add(home.TypeID,home);
+            }
+
+
+        }
 
 
     }
