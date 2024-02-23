@@ -9,16 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6f4ab955a492bc418df35210a69ab94, type: 3}
-  m_Name: TM_Bases_1
+  m_Script: {fileID: 11500000, guid: ca40e63a7507c7743902198e0b5abec2, type: 3}
+  m_Name: TM_Home_2
   m_EditorClassIdentifier: 
-  TypeID: 1
-  typeName: "\u4E00\u8DEF"
-  isSpawner: 1
-  cd: 1
-  maintain: 3
-  interval: 3
-  mstTypeID: 100
-  path:
-  - {x: -8, y: 2.5}
-  pos: {x: 8, y: 2.5}
+  TypeID: 0
+  typeName: 

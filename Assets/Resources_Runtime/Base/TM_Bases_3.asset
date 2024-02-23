@@ -20,5 +20,5 @@ MonoBehaviour:
   interval: 3
   mstTypeID: 100
   path:
-  - {x: -8, y: -1}
-  pos: {x: 8, y: -1}
+  - {x: -8, y: -0.5}
+  pos: {x: 8, y: -0.5}
