@@ -10,21 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Default Local Group
+  m_Name: TM_Plant
   m_EditorClassIdentifier: 
-  m_GroupName: Default Local Group
+  m_GroupName: Packed Assets
   m_Data:
     m_SerializedData: []
-  m_GUID: e90ae273391cbe744a16841301ea9945
-  m_SerializeEntries:
-  - m_GUID: 4df3939e6074ada4b87c48bb41ba6650
-    m_Address: Assets/Resources_Runtime/Plant/TM/TM_Plant.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_GUID: 94a8275fc5be78b4a925a218d862ce2b
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 403753c24b148b546b668cc24fa1e4b4, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 875cb9158484eb045810b7601d73f7fa, type: 2}
-    - {fileID: 11400000, guid: 6663669c5bc8ff74597527663523504a, type: 2}
+    - {fileID: 11400000, guid: 551c9b78793d07342903458f242713b3, type: 2}
+    - {fileID: 11400000, guid: b78ecbc10972c5f4aba75f19732f21f6, type: 2}

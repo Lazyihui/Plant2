@@ -11,10 +11,12 @@ public class TemplateContext {
 
     public Dictionary<int, HomeTM> homes;
 
+    public Dictionary<int, PlantTM> plants;
 
     public TemplateContext() {
         mst = new Dictionary<int, MstTM>();
         bases = new Dictionary<int, BasesTM>();
         homes = new Dictionary<int, HomeTM>();
+        plants = new Dictionary<int, PlantTM>();
     }
 }

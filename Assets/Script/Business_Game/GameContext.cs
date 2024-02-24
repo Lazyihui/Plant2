@@ -8,13 +8,19 @@ public class GameContext {
     public BaseRepository baseRepository;
 
     public MstRepository mstRepository;
+
+    public plantRepository plantRepository;
     public UIcontext uiContext;
 
     public TemplateContext templateContext;
+
+
     public int MstID;
 
     public int homeID;
     public int baseID;
+
+    public int plantID;
     public GameContext() {
         playerEntity = new PlayerEntity();
         homeRepository = new HomeRepository();
@@ -22,10 +28,12 @@ public class GameContext {
         mstRepository = new MstRepository();
         uiContext = new UIcontext();
         templateContext = new TemplateContext();
+        plantRepository = new plantRepository();
 
         baseID = 0;
         homeID = 0;
         MstID = 0;
+        plantID = 0;
     }
 
     public void Inject(AssetsContext assetsContext, UIcontext uiContext, TemplateContext templateContext) {

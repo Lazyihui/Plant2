@@ -4,12 +4,18 @@ using UnityEngine.UI;
 
 public class Panel_PlantManifest : MonoBehaviour {
 
-    [SerializeField] Image elePrefab;
+    [SerializeField] Panel_PlantManifestElement elePrefab;
 
     [SerializeField] Transform plantManifestGroup;
+
+    [SerializeField ] Button button;
+
+    [SerializeField] Text plantName;
+
+    [SerializeField] Text plantPrice;
     public int cellCount;
 
-    List<Image> elements;
+    List<Panel_PlantManifestElement> elements;
 
     public void Ctor() {
     }
@@ -20,7 +26,7 @@ public class Panel_PlantManifest : MonoBehaviour {
         
         for (int i = 0; i < cellCount; i++) {
 
-            Image ele = GameObject.Instantiate(elePrefab, plantManifestGroup);
+            Panel_PlantManifestElement ele = GameObject.Instantiate(elePrefab, plantManifestGroup);
 
             ele.gameObject.SetActive(true);
 

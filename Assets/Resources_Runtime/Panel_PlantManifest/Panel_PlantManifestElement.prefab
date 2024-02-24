@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6793856942149023790}
   - component: {fileID: 5798345387302746640}
   - component: {fileID: 4350654892477424248}
+  - component: {fileID: 1453477772463110370}
   m_Layer: 5
   m_Name: Panel_PlantManifestElement
   m_TagString: Untagged
@@ -75,3 +76,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1453477772463110370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201981019150317822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954f1aa847efad643ab4eeeac3f339df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elePrefab: {fileID: 4350654892477424248}
