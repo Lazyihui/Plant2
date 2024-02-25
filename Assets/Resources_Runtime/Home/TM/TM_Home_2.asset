@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca40e63a7507c7743902198e0b5abec2, type: 3}
   m_Name: TM_Home_2
   m_EditorClassIdentifier: 
-  TypeID: 0
+  TypeID: 2
   typeName: 
+  pos: {x: -8, y: 1}

@@ -6,12 +6,8 @@ public class PlantTM : ScriptableObject {
 
     public int typeID;
     public string plantName;
-
     public string plantPrice;
     public Sprite sprite;
-    public int price;
-
-
 
 
 }

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70e974ef4e77d464289df59997538324, type: 3}
-  m_Name: TM_Plant
+  m_Name: "TM_Plant_\u592A\u96331"
   m_EditorClassIdentifier: 
-  typeID: 0
-  plantName: 
+  typeID: 1
+  plantName: "\u592A\u9633"
   plantPrice: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: aa9bd265e51ab2d4fba40b4f8f8e198d, type: 3}
   price: 0

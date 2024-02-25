@@ -16,8 +16,8 @@ MonoBehaviour:
   typeName: "\u4E09\u8DEF"
   isSpawner: 1
   cd: 1
-  maintain: 1
-  interval: 3
+  maintain: 3
+  interval: 1
   mstTypeID: 100
   path:
   - {x: -8, y: -0.5}

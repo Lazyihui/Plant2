@@ -42,6 +42,16 @@ public class TemplateInfra {
 
 
         }
+        {
+            AssetLabelReference labelReference = new AssetLabelReference();
+            labelReference.labelString = "TM_Plant";
+            IList<PlantTM> all = Addressables.LoadAssetsAsync<PlantTM>(labelReference,null).WaitForCompletion();
+
+            for( int i= 0; i<all.Count;i++){
+                PlantTM plant = all[i];
+                ctx.plants.Add(plant.typeID,plant);
+            }
+        }
 
 
     }

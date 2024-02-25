@@ -3,6 +3,8 @@ public class GameContext {
     public PlayerEntity playerEntity;
     public AssetsContext assetsContext;
 
+    public InputEntity inputEntity;
+
     public HomeRepository homeRepository;
 
     public BaseRepository baseRepository;
@@ -29,7 +31,8 @@ public class GameContext {
         uiContext = new UIcontext();
         templateContext = new TemplateContext();
         plantRepository = new plantRepository();
-
+        inputEntity = new InputEntity();
+        
         baseID = 0;
         homeID = 0;
         MstID = 0;

@@ -17,7 +17,7 @@ MonoBehaviour:
   isSpawner: 1
   cd: 1
   maintain: 3
-  interval: 3
+  interval: 1
   mstTypeID: 100
   path:
   - {x: -8, y: 2.5}

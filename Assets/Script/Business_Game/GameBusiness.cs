@@ -19,10 +19,20 @@ public static class GameBusiness {
         //打开UI
         UIApp.Panel_PlantManifest_Open(ctx.uiContext);
 
+
+
     }
     // 每帧一次
     public static void PreTick(GameContext ctx, float dt) {
-        // for各种东西
+
+        InputEntity input = ctx.inputEntity;
+
+        input.mouseScreenPos = Input.mousePosition;
+
+        if (Input.GetKey(KeyCode.A)) {
+            Debug.Log("iskey A");
+            plantDomain.Spawn(ctx, 1, Vector2.zero);
+        }
 
     }
     // 可能一帧多次

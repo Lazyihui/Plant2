@@ -16,12 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: e90ae273391cbe744a16841301ea9945
-  m_SerializeEntries:
-  - m_GUID: 4df3939e6074ada4b87c48bb41ba6650
-    m_Address: Assets/Resources_Runtime/Plant/TM/TM_Plant.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 403753c24b148b546b668cc24fa1e4b4, type: 2}
   m_SchemaSet:

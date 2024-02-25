@@ -21,35 +21,30 @@ MonoBehaviour:
     m_Address: TM_Bases_2
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Entities
     - TM_Bases
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 089654a71a7dea344806aa45a112c08e
     m_Address: TM_Bases_1
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Entities
     - TM_Bases
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: baeffec54653a4444aa2e07804ef71fa
     m_Address: TM_Bases_5
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Entities
     - TM_Bases
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c9a6b6a8115adf24ab9138e9e7f3441d
     m_Address: TM_Bases_4
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Entities
     - TM_Bases
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 19fddf09c1146444286b12efaa4ca779
     m_Address: TM_Bases_3
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Entities
     - TM_Bases
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0

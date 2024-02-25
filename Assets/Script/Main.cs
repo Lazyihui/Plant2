@@ -24,8 +24,9 @@ public class Main : MonoBehaviour {
 
         TemplateInfra.Load(mainContext.templateContext);
         AsstesInfra.Load(mainContext.assetsContext);
-        // canvans = GameObject.GetComponenetChirld<Canvas>();
-        //实例化 GameObject.Instantiate
+
+
+
         UIApp.Panel_Login_Open(mainContext.uiContext, () => {
             UIApp.Panel_Login_Close(mainContext.uiContext);
             GameBusiness.Enter(mainContext.gamaContext);
