@@ -13,7 +13,7 @@ public static class UIApp {
         if (panel_Login == null) {
 
             bool has = ctx.assetsContext.Panel_TryGetPrefab("Panel_Login", out GameObject prefab);
-            
+
             if (has == false) {
                 Debug.LogError("prefab==null err");
                 return;
@@ -24,6 +24,8 @@ public static class UIApp {
             panel_Login.Ctor();
             panel_Login.OnStartClickHandle = onClickStartHandle;
             ctx.panel_Login = panel_Login;
+
+
         }
         panel_Login.Show();
     }
@@ -56,6 +58,16 @@ public static class UIApp {
         if (panel_Top != null) {
             panel_Top.Close();
         }
+    }
+
+
+    public static void Panel_PlantManifest_Tick(UIcontext ctx, Action onsStartClickHandle) {
+        //写一个ele的行为 在外面for
+
+        Panel_PlantManifestElement ele = ctx.panel_PlantManifestElement;
+        ele.OnStartClickHandle = onsStartClickHandle;
+
+
     }
 
 }

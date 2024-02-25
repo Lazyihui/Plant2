@@ -9,5 +9,7 @@ public class PlantTM : ScriptableObject {
     public string plantPrice;
     public Sprite sprite;
 
+    public Vector2 pos;
+
 
 }

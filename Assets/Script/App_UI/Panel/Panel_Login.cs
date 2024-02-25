@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System;
 public class Panel_Login : MonoBehaviour {
     [SerializeField] Button startButton;
+
     public Action OnStartClickHandle;
     public void Ctor() {
 
@@ -14,6 +15,7 @@ public class Panel_Login : MonoBehaviour {
 
         });
     }
+    
     public void Show() {
         gameObject.SetActive(true);
     }

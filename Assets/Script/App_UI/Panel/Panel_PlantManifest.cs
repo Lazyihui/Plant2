@@ -8,11 +8,7 @@ public class Panel_PlantManifest : MonoBehaviour {
 
     [SerializeField] Transform plantManifestGroup;
 
-    [SerializeField ] Button button;
-
-    [SerializeField] Text plantName;
-
-    [SerializeField] Text plantPrice;
+  
     public int cellCount;
 
     List<Panel_PlantManifestElement> elements;

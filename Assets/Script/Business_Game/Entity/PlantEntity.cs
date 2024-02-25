@@ -13,6 +13,7 @@ public class plantEntity : MonoBehaviour {
     public void Ctor() { }
 
     public void Init(int typeID, Sprite sprite, string plantName, string plantPrice) {
+        
         this.typeID = typeID;
         this.sprite = sprite;
         this.plantName = plantName;

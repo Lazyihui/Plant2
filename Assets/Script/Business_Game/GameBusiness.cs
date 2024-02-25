@@ -20,10 +20,17 @@ public static class GameBusiness {
         UIApp.Panel_PlantManifest_Open(ctx.uiContext);
 
 
-
     }
     // 每帧一次
     public static void PreTick(GameContext ctx, float dt) {
+
+
+
+        // UIApp.Panel_PlantManifest_Tick(ctx.uiContext, () => {
+        //     Debug.Log("Panel_PlantManifest_Tick");
+        // });
+
+
 
         InputEntity input = ctx.inputEntity;
 

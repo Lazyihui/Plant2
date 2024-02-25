@@ -13,7 +13,7 @@ public static class plantDomain {
         plantEntity plantEntity = GameObject.Instantiate(prefab).GetComponent<plantEntity>();
 
         plantEntity.Ctor();
-        plantEntity.SetPos(pos);
+        plantEntity.SetPos(tm.pos);
         plantEntity.id = ctx.plantID++;
 
 

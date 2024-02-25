@@ -9,6 +9,8 @@ public class UIcontext {
 
     public Panel_PlantManifest panel_PlantManifest;
 
+    public Panel_PlantManifestElement panel_PlantManifestElement;
+
 
 
     public UIcontext() {
