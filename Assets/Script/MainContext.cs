@@ -20,8 +20,8 @@ public class MainContext {
         assetsContext = new AssetsContext();
     }
 
-    public void Inject(Canvas canvas, Camera mainCamera) {
-        gamaContext.Inject(assetsContext, uiContext, templateContext, mainCamera);
+    public void Inject(Canvas canvas,Camera mainCamera) {
+        gamaContext.Inject(assetsContext, uiContext, templateContext,mainCamera);
         uiContext.Inject(assetsContext, canvas);
     }
 }

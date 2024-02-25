@@ -15,10 +15,20 @@ public static class UserIntetfaceDomain {
             plantEntity plant = plants[i];
 
             bool isInside = PFPhysics.IsPointInsideRectangle(input.mouseWorldPos, plant.transform.position, plant.shapeSize);
-            if (isInside && Input.GetMouseButtonDown(0)) {
 
-                Debug.Log("aaaa");
+
+
+
+            if (isInside && Input.GetMouseButton(0)) {
+
+                plant.transform.position = input.mouseWorldPos;
+                
+
             }
+
+
+
+
 
         }
 

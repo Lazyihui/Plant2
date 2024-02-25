@@ -8,7 +8,7 @@ public class Panel_PlantManifest : MonoBehaviour {
 
     [SerializeField] Transform plantManifestGroup;
 
-  
+
     public int cellCount;
 
     List<Panel_PlantManifestElement> elements;
@@ -18,15 +18,15 @@ public class Panel_PlantManifest : MonoBehaviour {
 
     public void Init() {
 
-        cellCount = 10;
-        
-        for (int i = 0; i < cellCount; i++) {
+        // cellCount = 10;
 
-            Panel_PlantManifestElement ele = GameObject.Instantiate(elePrefab, plantManifestGroup);
+        // for (int i = 0; i < cellCount; i++) {
 
-            ele.gameObject.SetActive(true);
+        //     Panel_PlantManifestElement ele = GameObject.Instantiate(elePrefab, plantManifestGroup);
 
-        }
+        //     ele.gameObject.SetActive(true);
+
+        // }
     }
 
     public void Show() {
@@ -35,6 +35,16 @@ public class Panel_PlantManifest : MonoBehaviour {
 
     public void Close() {
         gameObject.SetActive(false);
+    }
+
+    public void AddElement(int typeID, Sprite sprite, string plantName, string plantPrice) {
+
+        Debug.Log("AddElement");
+
+        Panel_PlantManifestElement ele = GameObject.Instantiate(elePrefab, plantManifestGroup);
+
+        ele.Init(typeID, sprite, plantName, plantPrice);
+
     }
 
 }

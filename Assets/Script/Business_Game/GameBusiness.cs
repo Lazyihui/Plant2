@@ -1,6 +1,6 @@
 using UnityEngine;
 public static class GameBusiness {
-    public static void Enter(GameContext ctx) {
+    public static void Enter(GameContext ctx, TemplateContext tplctx) {
 
         //plar
         ctx.playerEntity.sun = 0;
@@ -16,8 +16,24 @@ public static class GameBusiness {
 
         }
 
+        PlayerDomain.Add(ctx);
         //打开UI
         UIApp.Panel_PlantManifest_Open(ctx.uiContext);
+
+        // 生成植物
+
+        int[] manifest = ctx.playerEntity.plantManifestTypeIDs;
+
+        for (int i = 0; i < manifest.Length; i++) {
+            int plantTypeID = manifest[i];
+            bool has = tplctx.plants.TryGetValue(plantTypeID, out PlantTM plantTM);
+            if (!has) {
+                Debug.LogError("ERror" + plantTypeID);
+                continue;
+            }
+            UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, plantTypeID, plantTM.sprite, plantTM.plantName, plantTM.plantPrice);
+        }
+
 
         plantDomain.Spawn(ctx, 1, Vector2.zero);
 

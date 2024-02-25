@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: TM_CameConfig
+  m_EditorClassIdentifier: 
+  m_GroupName: TM_CameConfig
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 5fe2a7f237ab86449bdefd93d937bb36
+  m_SerializeEntries:
+  - m_GUID: eb80db8a598b8b541a291d84cb77871a
+    m_Address: TM_GameConfigTM
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_CameConfig
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 403753c24b148b546b668cc24fa1e4b4, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 6e9d7f8eff0d99642af6b60408320aba, type: 2}
+    - {fileID: 11400000, guid: b08c3260f62e4e1479232b9d66452001, type: 2}

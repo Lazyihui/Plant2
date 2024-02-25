@@ -33,11 +33,11 @@ public class TemplateInfra {
         {
             AssetLabelReference labelReference = new AssetLabelReference();
             labelReference.labelString = "TM_Home";
-            IList<HomeTM> all = Addressables.LoadAssetsAsync<HomeTM>(labelReference,null).WaitForCompletion();
+            IList<HomeTM> all = Addressables.LoadAssetsAsync<HomeTM>(labelReference, null).WaitForCompletion();
 
-            for( int i= 0; i<all.Count;i++){
+            for (int i = 0; i < all.Count; i++) {
                 HomeTM home = all[i];
-                ctx.homes.Add(home.TypeID,home);
+                ctx.homes.Add(home.TypeID, home);
             }
 
 
@@ -45,12 +45,19 @@ public class TemplateInfra {
         {
             AssetLabelReference labelReference = new AssetLabelReference();
             labelReference.labelString = "TM_Plant";
-            IList<PlantTM> all = Addressables.LoadAssetsAsync<PlantTM>(labelReference,null).WaitForCompletion();
+            IList<PlantTM> all = Addressables.LoadAssetsAsync<PlantTM>(labelReference, null).WaitForCompletion();
 
-            for( int i= 0; i<all.Count;i++){
+            for (int i = 0; i < all.Count; i++) {
                 PlantTM plant = all[i];
-                ctx.plants.Add(plant.typeID,plant);
+                ctx.plants.Add(plant.typeID, plant);
             }
+        }
+        {
+            AssetLabelReference labelReference = new AssetLabelReference();
+            labelReference.labelString = "TM_GameConfig";
+            GameConfigTM tm = Addressables.LoadAssetAsync<GameConfigTM>(labelReference).WaitForCompletion();
+            ctx.gameConfig = tm;
+            
         }
 
 

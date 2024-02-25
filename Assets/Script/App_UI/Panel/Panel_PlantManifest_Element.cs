@@ -8,7 +8,7 @@ public class Panel_PlantManifestElement : MonoBehaviour {
 
     [SerializeField] Image elePrefab;
 
-    [SerializeField] Button button;
+    [SerializeField] Button plantButton;
 
     [SerializeField] Text plantName;
 
@@ -16,11 +16,25 @@ public class Panel_PlantManifestElement : MonoBehaviour {
 
     public Action OnStartClickHandle;
 
+    public int typeID;
+
+
 
 
     public void Ctor() {
+
+        // startButton.onClick.AddListener(OnStartButtonClicked);
+        //匿名函数
+        plantButton.onClick.AddListener(() => {
+            //表示函数指针
+            OnStartClickHandle.Invoke();
+
+        });
     }
-    public void Init() {
+    public void Init(int typeID, Sprite sprite, string plantName, string plantPrice) {
+        elePrefab.sprite = sprite;
+        this.plantName.text = plantName;
+        this.plantPrice.text = plantPrice;
 
     }
 

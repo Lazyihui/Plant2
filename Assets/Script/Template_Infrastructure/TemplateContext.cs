@@ -13,6 +13,8 @@ public class TemplateContext {
 
     public Dictionary<int, PlantTM> plants;
 
+    public GameConfigTM gameConfig;
+
     public TemplateContext() {
         mst = new Dictionary<int, MstTM>();
         bases = new Dictionary<int, BasesTM>();

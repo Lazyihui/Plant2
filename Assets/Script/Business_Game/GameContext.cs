@@ -32,7 +32,6 @@ public class GameContext {
         baseRepository = new BaseRepository();
         mstRepository = new MstRepository();
         uiContext = new UIcontext();
-        templateContext = new TemplateContext();
         plantRepository = new plantRepository();
         inputEntity = new InputEntity();
         

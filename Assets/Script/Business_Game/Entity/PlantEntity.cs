@@ -7,17 +7,18 @@ public class plantEntity : MonoBehaviour {
     public int typeID;
     public string plantName;
     public string plantPrice;
-    public Sprite sprite;
+
+    public SpriteRenderer sp;
 
     public Vector2 shapeSize;
 
 
     public void Ctor() { }
 
-    public void Init(int typeID, Sprite sprite, string plantName, string plantPrice,Vector2 shapeSize) {
+    public void Init(int typeID, Sprite sprite, string plantName, string plantPrice, Vector2 shapeSize) {
 
         this.typeID = typeID;
-        this.sprite = sprite;
+        this.sp.sprite = sprite;
         this.plantName = plantName;
         this.plantPrice = plantPrice;
         this.shapeSize = shapeSize;

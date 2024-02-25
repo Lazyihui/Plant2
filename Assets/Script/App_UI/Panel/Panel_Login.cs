@@ -5,6 +5,7 @@ public class Panel_Login : MonoBehaviour {
     [SerializeField] Button startButton;
 
     public Action OnStartClickHandle;
+    
     public void Ctor() {
 
         // startButton.onClick.AddListener(OnStartButtonClicked);

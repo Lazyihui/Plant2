@@ -37,6 +37,16 @@ public static class UIApp {
     }
 
     //打开top
+
+    public static void Panel_PlantManifest_AddElement(UIcontext ctx, int typeID, Sprite sprite, string plantName, string plantPrice) {
+
+        Panel_PlantManifest panel_PlantManifest = ctx.panel_PlantManifest;
+
+        panel_PlantManifest.AddElement(typeID, sprite, plantName, plantPrice);
+
+
+    }
+
     public static void Panel_PlantManifest_Open(UIcontext ctx) {
         Panel_PlantManifest panel_PlantManifest = ctx.panel_PlantManifest;
         if (panel_PlantManifest == null) {
@@ -52,6 +62,8 @@ public static class UIApp {
         panel_PlantManifest.Show();
     }
 
+
+
     // 关闭top
     public static void Panel_Top_Close(UIcontext context) {
         Panel_PlantManifest panel_Top = context.panel_PlantManifest;
@@ -61,13 +73,6 @@ public static class UIApp {
     }
 
 
-    public static void Panel_PlantManifest_Tick(UIcontext ctx, Action onsStartClickHandle) {
-        //写一个ele的行为 在外面for
 
-        Panel_PlantManifestElement ele = ctx.panel_PlantManifestElement;
-        ele.OnStartClickHandle = onsStartClickHandle;
-
-
-    }
 
 }

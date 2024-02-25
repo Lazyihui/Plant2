@@ -5,7 +5,7 @@ using UnityEngine;
 public class Main : MonoBehaviour {
     //拖拽绑定
 
-    MainContext mainContext;
+    MainContext ctx;
 
     AssetsContext assetsContext;
 
@@ -15,25 +15,26 @@ public class Main : MonoBehaviour {
         Application.targetFrameRate = 120;
 
 
-        mainContext = new MainContext();
+        ctx = new MainContext();
 
         Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
         Camera mainCamera = gameObject.GetComponentInChildren<Camera>();
 
-        mainContext.Inject(canvas,mainCamera);
+        ctx.Inject(canvas, mainCamera);
 
 
-        TemplateInfra.Load(mainContext.templateContext);
-        AsstesInfra.Load(mainContext.assetsContext);
+        TemplateInfra.Load(ctx.templateContext);
+        AsstesInfra.Load(ctx.assetsContext);
 
 
 
-        UIApp.Panel_Login_Open(mainContext.uiContext, () => {
-            UIApp.Panel_Login_Close(mainContext.uiContext);
-            GameBusiness.Enter(mainContext.gamaContext);
+        UIApp.Panel_Login_Open(ctx.uiContext, () => {
+            UIApp.Panel_Login_Close(ctx.uiContext);
+            GameBusiness.Enter(ctx.gamaContext, ctx.templateContext);
 
 
         });
+
 
 
 
@@ -49,23 +50,23 @@ public class Main : MonoBehaviour {
     void Update() {
 
         float dt = Time.deltaTime;
-        GameBusiness.PreTick(mainContext.gamaContext, dt);
+        GameBusiness.PreTick(ctx.gamaContext, dt);
 
 
         restDT += dt;
         if (restDT <= FIXED_INTERVAL) {
-            GameBusiness.FixedTick(mainContext.gamaContext, restDT);
+            GameBusiness.FixedTick(ctx.gamaContext, restDT);
             restDT = 0;
 
         } else {
             while (restDT >= FIXED_INTERVAL) {
-                GameBusiness.FixedTick(mainContext.gamaContext, FIXED_INTERVAL);
+                GameBusiness.FixedTick(ctx.gamaContext, FIXED_INTERVAL);
                 restDT -= FIXED_INTERVAL;
             }
         }
 
 
-        GameBusiness.LateTick(mainContext.gamaContext, dt);
+        GameBusiness.LateTick(ctx.gamaContext, dt);
 
 
 
