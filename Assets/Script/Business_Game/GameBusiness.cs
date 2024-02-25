@@ -19,27 +19,26 @@ public static class GameBusiness {
         //打开UI
         UIApp.Panel_PlantManifest_Open(ctx.uiContext);
 
+        plantDomain.Spawn(ctx, 1, Vector2.zero);
+
+
 
     }
     // 每帧一次
     public static void PreTick(GameContext ctx, float dt) {
 
 
-
-        // UIApp.Panel_PlantManifest_Tick(ctx.uiContext, () => {
-        //     Debug.Log("Panel_PlantManifest_Tick");
-        // });
-
-
-
         InputEntity input = ctx.inputEntity;
 
         input.mouseScreenPos = Input.mousePosition;
 
+        Camera camera = ctx.camera;
+        input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
+
         if (Input.GetKey(KeyCode.A)) {
-            Debug.Log("iskey A");
-            plantDomain.Spawn(ctx, 1, Vector2.zero);
+            // plantDomain.Spawn(ctx, 1, Vector2.zero);
         }
+        UserIntetfaceDomain.PreTick(ctx, dt);
 
     }
     // 可能一帧多次

@@ -6,7 +6,7 @@ using System;
 
 public class Panel_PlantManifestElement : MonoBehaviour {
 
-  [SerializeField] Image elePrefab;
+    [SerializeField] Image elePrefab;
 
     [SerializeField] Button button;
 

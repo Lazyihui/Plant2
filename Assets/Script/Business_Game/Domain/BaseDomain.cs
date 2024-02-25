@@ -43,10 +43,9 @@ public static class BaseDomain {
         bases.intervalTimer -= fixdt;
         if (bases.intervalTimer <= 0) {
             bases.intervalTimer = bases.interval;
-            Debug.Log("生成怪物");
             //这个ID可以在base里存一个
-            MstEntity mst = MstDomain.Spawn(ctx, bases.mstID, bases.transform.position);
-            mst.path = bases.path;
+            // MstEntity mst = MstDomain.Spawn(ctx, bases.mstID, bases.transform.position);
+            // mst.path = bases.path;
 
 
         }

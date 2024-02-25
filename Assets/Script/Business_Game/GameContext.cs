@@ -1,3 +1,4 @@
+using UnityEngine;
 public class GameContext {
 
     public PlayerEntity playerEntity;
@@ -15,6 +16,8 @@ public class GameContext {
     public UIcontext uiContext;
 
     public TemplateContext templateContext;
+
+    public Camera camera;
 
 
     public int MstID;
@@ -39,10 +42,12 @@ public class GameContext {
         plantID = 0;
     }
 
-    public void Inject(AssetsContext assetsContext, UIcontext uiContext, TemplateContext templateContext) {
+    public void Inject(AssetsContext assetsContext, UIcontext uiContext, TemplateContext templateContext,Camera camera) {
         this.assetsContext = assetsContext;
         this.uiContext = uiContext;
         this.templateContext = templateContext;
+        this.camera = camera;
+        
     }
 
 }

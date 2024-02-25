@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Main : MonoBehaviour {
     //拖拽绑定
-    // [SerializeField] Canvas canvas;
 
     MainContext mainContext;
 
@@ -19,7 +18,9 @@ public class Main : MonoBehaviour {
         mainContext = new MainContext();
 
         Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
-        mainContext.Inject(canvas);
+        Camera mainCamera = gameObject.GetComponentInChildren<Camera>();
+
+        mainContext.Inject(canvas,mainCamera);
 
 
         TemplateInfra.Load(mainContext.templateContext);
@@ -32,10 +33,7 @@ public class Main : MonoBehaviour {
             GameBusiness.Enter(mainContext.gamaContext);
 
 
-            Debug.Log("Panel_Login_Open");
         });
-
-
 
 
 
@@ -68,6 +66,8 @@ public class Main : MonoBehaviour {
 
 
         GameBusiness.LateTick(mainContext.gamaContext, dt);
+
+
 
 
     }

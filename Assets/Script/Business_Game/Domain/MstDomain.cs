@@ -19,7 +19,6 @@ public static class MstDomain {
 
         mstEntity.moveSpeed = tm.moveSpeed;
         mstEntity.Init(tm.sprite);
-        Debug.Log("生成怪物" + TypeID);
         ctx.mstRepository.Add(mstEntity);
         return mstEntity;
     }

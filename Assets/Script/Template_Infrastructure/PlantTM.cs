@@ -11,5 +11,7 @@ public class PlantTM : ScriptableObject {
 
     public Vector2 pos;
 
+    public Vector2 shapeSize;
+
 
 }

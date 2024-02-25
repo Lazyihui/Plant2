@@ -19,7 +19,7 @@ public static class plantDomain {
 
         plantEntity.typeID = tm.typeID;
 
-        plantEntity.Init(tm.typeID, tm.sprite, tm.plantName, tm.plantPrice);
+        plantEntity.Init(tm.typeID, tm.sprite, tm.plantName, tm.plantPrice, tm.shapeSize);
 
         ctx.plantRepository.Add(plantEntity);
         return plantEntity;
