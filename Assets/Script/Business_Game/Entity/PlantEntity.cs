@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class plantEntity : MonoBehaviour {
+public class PlantEntity : MonoBehaviour {
 
     public int id;
     public int typeID;

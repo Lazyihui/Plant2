@@ -294,6 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elePrefab: {fileID: 4350654892477424248}
-  button: {fileID: -3872121595298748255}
+  plantButton: {fileID: -3872121595298748255}
   plantName: {fileID: 5280545076116761327}
   plantPrice: {fileID: 2309243017263423754}
+  typeID: 0

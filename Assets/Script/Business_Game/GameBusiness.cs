@@ -2,6 +2,8 @@ using UnityEngine;
 public static class GameBusiness {
     public static void Enter(GameContext ctx, TemplateContext tplctx) {
 
+        InputEntity input = ctx.inputEntity;
+
         //plar
         ctx.playerEntity.sun = 0;
         // 生成home界面
@@ -20,8 +22,8 @@ public static class GameBusiness {
         //打开UI
         UIApp.Panel_PlantManifest_Open(ctx.uiContext);
 
-        // 生成植物
 
+        // 生成植物
         int[] manifest = ctx.playerEntity.plantManifestTypeIDs;
 
         for (int i = 0; i < manifest.Length; i++) {
@@ -31,11 +33,28 @@ public static class GameBusiness {
                 Debug.LogError("ERror" + plantTypeID);
                 continue;
             }
-            UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, plantTypeID, plantTM.sprite, plantTM.plantName, plantTM.plantPrice);
+            UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, plantTypeID, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, () => {
+
+                Debug.Log("click" + plantTypeID);
+
+                // PlantEntity plant = ctx.plantRepository.Find((plant) => {
+                //     return plant.typeID == plantTypeID;
+                // });
+
+                Vector2 pos = input.mouseWorldPos;
+
+                PlantDomain.Spawn(ctx, plantTypeID, pos);
+
+                // plant.transform.position = input.mouseWorldPos;
+
+
+
+
+            });
         }
 
 
-        plantDomain.Spawn(ctx, 1, Vector2.zero);
+        // PlantDomain.Spawn(ctx, 1, Vector2.zero);
 
 
 
@@ -51,10 +70,9 @@ public static class GameBusiness {
         Camera camera = ctx.camera;
         input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
 
-        if (Input.GetKey(KeyCode.A)) {
-            // plantDomain.Spawn(ctx, 1, Vector2.zero);
-        }
-        UserIntetfaceDomain.PreTick(ctx, dt);
+
+        //点击plant（交叉检测）
+        // UserIntetfaceDomain.PreTick(ctx, dt);
 
     }
     // 可能一帧多次

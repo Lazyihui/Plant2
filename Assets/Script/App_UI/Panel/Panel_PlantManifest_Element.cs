@@ -14,7 +14,7 @@ public class Panel_PlantManifestElement : MonoBehaviour {
 
     [SerializeField] Text plantPrice;
 
-    public Action OnStartClickHandle;
+    public Action OnPlantClickHandle;
 
     public int typeID;
 
@@ -23,13 +23,11 @@ public class Panel_PlantManifestElement : MonoBehaviour {
 
     public void Ctor() {
 
-        // startButton.onClick.AddListener(OnStartButtonClicked);
-        //匿名函数
         plantButton.onClick.AddListener(() => {
-            //表示函数指针
-            OnStartClickHandle.Invoke();
-
+            OnPlantClickHandle.Invoke();
         });
+
+        
     }
     public void Init(int typeID, Sprite sprite, string plantName, string plantPrice) {
         elePrefab.sprite = sprite;

@@ -36,17 +36,20 @@ public static class UIApp {
         }
     }
 
-    //打开top
-
-    public static void Panel_PlantManifest_AddElement(UIcontext ctx, int typeID, Sprite sprite, string plantName, string plantPrice) {
+    //增加element
+    public static void Panel_PlantManifest_AddElement(UIcontext ctx, int typeID, Sprite sprite, string plantName, string plantPrice,Action onPlantClickHandle) {
 
         Panel_PlantManifest panel_PlantManifest = ctx.panel_PlantManifest;
 
-        panel_PlantManifest.AddElement(typeID, sprite, plantName, plantPrice);
+        panel_PlantManifest.AddElement(typeID, sprite, plantName, plantPrice,onPlantClickHandle);
+
+        
+
 
 
     }
 
+    //打开PlantManifest
     public static void Panel_PlantManifest_Open(UIcontext ctx) {
         Panel_PlantManifest panel_PlantManifest = ctx.panel_PlantManifest;
         if (panel_PlantManifest == null) {

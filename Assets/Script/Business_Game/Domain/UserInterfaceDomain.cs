@@ -9,10 +9,10 @@ public static class UserIntetfaceDomain {
         InputEntity input = ctx.inputEntity;
 
 
-        int panelLen = ctx.plantRepository.TakeAll(out plantEntity[] plants);
+        int panelLen = ctx.plantRepository.TakeAll(out PlantEntity[] plants);
 
         for (int i = 0; i < panelLen; i++) {
-            plantEntity plant = plants[i];
+            PlantEntity plant = plants[i];
 
             bool isInside = PFPhysics.IsPointInsideRectangle(input.mouseWorldPos, plant.transform.position, plant.shapeSize);
 
@@ -22,13 +22,9 @@ public static class UserIntetfaceDomain {
             if (isInside && Input.GetMouseButton(0)) {
 
                 plant.transform.position = input.mouseWorldPos;
-                
+
 
             }
-
-
-
-
 
         }
 

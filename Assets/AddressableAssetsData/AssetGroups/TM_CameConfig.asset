@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Address: TM_GameConfigTM
     m_ReadOnly: 0
     m_SerializedLabels:
-    - TM_CameConfig
+    - TM_GameConfig
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 403753c24b148b546b668cc24fa1e4b4, type: 2}

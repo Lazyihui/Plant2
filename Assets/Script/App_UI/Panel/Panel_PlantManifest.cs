@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Panel_PlantManifest : MonoBehaviour {
 
@@ -18,15 +19,6 @@ public class Panel_PlantManifest : MonoBehaviour {
 
     public void Init() {
 
-        // cellCount = 10;
-
-        // for (int i = 0; i < cellCount; i++) {
-
-        //     Panel_PlantManifestElement ele = GameObject.Instantiate(elePrefab, plantManifestGroup);
-
-        //     ele.gameObject.SetActive(true);
-
-        // }
     }
 
     public void Show() {
@@ -37,12 +29,12 @@ public class Panel_PlantManifest : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
-    public void AddElement(int typeID, Sprite sprite, string plantName, string plantPrice) {
-
-        Debug.Log("AddElement");
+    public void AddElement(int typeID, Sprite sprite, string plantName, string plantPrice,Action onPlantClickHandle) {
 
         Panel_PlantManifestElement ele = GameObject.Instantiate(elePrefab, plantManifestGroup);
 
+        ele.Ctor();
+        ele.OnPlantClickHandle = onPlantClickHandle;
         ele.Init(typeID, sprite, plantName, plantPrice);
 
     }
