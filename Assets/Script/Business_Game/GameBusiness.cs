@@ -35,9 +35,6 @@ public static class GameBusiness {
             }
             UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, plantTypeID, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, () => {
 
-                Debug.Log("click" + plantTypeID);
-
-
                 Vector2 pos = input.mouseWorldPos;
 
                 PlantDomain.Spawn(ctx, plantTypeID, pos);

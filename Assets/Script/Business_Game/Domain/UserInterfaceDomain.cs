@@ -29,7 +29,6 @@ public static class UserIntetfaceDomain {
 
             if (input.isMouseLeftDown && plant.isPlanted == false) {
 
-                Debug.Log("click" + plant.id);
                 plant.transform.position = pos;
                 plant.isPlanted = true;
 

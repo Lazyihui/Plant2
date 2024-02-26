@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70e974ef4e77d464289df59997538324, type: 3}
-  m_Name: TM_Plant 7
+  m_Name: "TM_Plant_\u5730\u96F77"
   m_EditorClassIdentifier: 
   typeID: 7
-  plantName: 
-  plantPrice: 
-  sprite: {fileID: 0}
+  plantName: "\u5730\u96F7"
+  plantPrice: 25
+  sprite: {fileID: 21300000, guid: 5acc51c8e51f5c04080af3d1b9c8153a, type: 3}
   pos: {x: 0, y: 0}
   shapeSize: {x: 0, y: 0}
