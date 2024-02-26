@@ -8,7 +8,7 @@ public class HomeRepository {
 
     Dictionary<int, HomeEntity> all;
 
-    HomeEntity[]    temArray;
+    HomeEntity[] temArray;
 
     public HomeRepository() {
         all = new Dictionary<int, HomeEntity>();
@@ -18,14 +18,16 @@ public class HomeRepository {
     public void Add(HomeEntity entity) {
         all.Add(entity.id, entity);
     }
-
+    //委托 Predicate<HomeEntity> Action<>
     public HomeEntity Find(Predicate<HomeEntity> predicate) {
         foreach (HomeEntity home in all.Values) {
             bool isMatch = predicate(home);
+
             if (isMatch) {
                 return home;
             }
         }
         return null;
     }
+
 }

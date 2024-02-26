@@ -5,18 +5,19 @@ public class Panel_Login : MonoBehaviour {
     [SerializeField] Button startButton;
 
     public Action OnStartClickHandle;
-    
+
     public void Ctor() {
 
         // startButton.onClick.AddListener(OnStartButtonClicked);
         //匿名函数
         startButton.onClick.AddListener(() => {
             //表示函数指针
+            // OnStartClickHandle();
             OnStartClickHandle.Invoke();
 
         });
     }
-    
+
     public void Show() {
         gameObject.SetActive(true);
     }

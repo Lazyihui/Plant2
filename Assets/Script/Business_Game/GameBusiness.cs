@@ -37,18 +37,10 @@ public static class GameBusiness {
 
                 Debug.Log("click" + plantTypeID);
 
-                // PlantEntity plant = ctx.plantRepository.Find((plant) => {
-                //     return plant.typeID == plantTypeID;
-                // });
 
                 Vector2 pos = input.mouseWorldPos;
 
                 PlantDomain.Spawn(ctx, plantTypeID, pos);
-
-                // plant.transform.position = input.mouseWorldPos;
-
-
-
 
             });
         }
@@ -71,8 +63,8 @@ public static class GameBusiness {
         input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
 
 
-        //点击plant（交叉检测）
-        // UserIntetfaceDomain.PreTick(ctx, dt);
+        //植物跟着鼠标走
+        UserIntetfaceDomain.PreTick(ctx, dt);
 
     }
     // 可能一帧多次

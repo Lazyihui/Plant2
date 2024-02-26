@@ -12,19 +12,21 @@ public static class UserIntetfaceDomain {
         int panelLen = ctx.plantRepository.TakeAll(out PlantEntity[] plants);
 
         for (int i = 0; i < panelLen; i++) {
+
+
             PlantEntity plant = plants[i];
+            Debug.Log(plant.id);
+            plant.transform.position = input.mouseWorldPos;
 
-            bool isInside = PFPhysics.IsPointInsideRectangle(input.mouseWorldPos, plant.transform.position, plant.shapeSize);
-
-
-
-
-            if (isInside && Input.GetMouseButton(0)) {
-
-                plant.transform.position = input.mouseWorldPos;
+            // bool isInside = PFPhysics.IsPointInsideRectangle(input.mouseWorldPos, plant.transform.position, plant.shapeSize);
 
 
-            }
+            // if (isInside && Input.GetMouseButton(0)) {
+
+            //     plant.transform.position = input.mouseWorldPos;
+
+
+            // }
 
         }
 
