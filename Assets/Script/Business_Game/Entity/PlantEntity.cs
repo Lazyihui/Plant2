@@ -8,6 +8,8 @@ public class PlantEntity : MonoBehaviour {
     public string plantName;
     public string plantPrice;
 
+    public bool isPlanted;
+
     public SpriteRenderer sp;
 
     public Vector2 shapeSize;

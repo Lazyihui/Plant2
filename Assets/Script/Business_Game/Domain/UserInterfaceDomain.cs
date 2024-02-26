@@ -13,20 +13,28 @@ public static class UserIntetfaceDomain {
 
         for (int i = 0; i < panelLen; i++) {
 
+            if (Input.GetMouseButtonDown(0)) {
+                input.isMouseLeftDown = true;
+            }
 
-            PlantEntity plant = plants[i];
-            Debug.Log(plant.id);
-            plant.transform.position = input.mouseWorldPos;
-
-            // bool isInside = PFPhysics.IsPointInsideRectangle(input.mouseWorldPos, plant.transform.position, plant.shapeSize);
-
-
-            // if (isInside && Input.GetMouseButton(0)) {
-
-            //     plant.transform.position = input.mouseWorldPos;
-
-
+            // if (plants[i].isPlanted == false) {
+            //     plants[i].transform.position = input.mouseWorldPos;
             // }
+            PlantEntity plant = plants[i];
+
+            if (plant.isPlanted == false) {
+                plant.transform.position = input.mouseWorldPos;
+            }
+            Vector2 pos = plant.transform.position;
+
+            if (input.isMouseLeftDown && plant.isPlanted == false) {
+
+                Debug.Log("click" + plant.id);
+                plant.transform.position = pos;
+                plant.isPlanted = true;
+
+            }
+            input.isMouseLeftDown = false;
 
         }
 
