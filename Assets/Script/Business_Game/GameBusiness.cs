@@ -99,11 +99,11 @@ public static class GameBusiness {
         }
 
         // for bullet
-        // int bulletLen = ctx.bulletRepository.TakeAll(out BulletEntity[] bullets);
-        // for (int i = 0; i < bulletLen; i++) {
-        //     BulletEntity bullet = bullets[i];
-        //     BulletDomain.MoveByPath(ctx, bullet, fixdt);
-        // }
+        int bulletLen = ctx.bulletRepository.TakeAll(out BulletEntity[] bullets);
+        for (int i = 0; i < bulletLen; i++) {
+            BulletEntity bullet = bullets[i];
+            BulletDomain.Move(bullet, 1, fixdt);
+        }
 
 
     }

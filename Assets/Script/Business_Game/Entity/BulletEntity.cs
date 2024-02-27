@@ -34,10 +34,10 @@ public class BulletEntity : MonoBehaviour {
         this.sp.sprite = sprite;
     }
 
-    public void Move(float x,float dt) {
+    public void Move(float dirx,float dt) {
 
         Vector3 pos = this.transform.position;
-        pos.x += x * moveSpeed * dt;
+        pos.x += dirx * moveSpeed * dt;
         this.transform.position = pos;
     }
     

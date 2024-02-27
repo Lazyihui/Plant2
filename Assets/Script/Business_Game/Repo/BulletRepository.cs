@@ -12,15 +12,18 @@ public class BulletRepository {
 
     public BulletRepository() {
         all = new Dictionary<int, BulletEntity>();
-        temArray = new BulletEntity[10];
+        temArray = new BulletEntity[1000];
     }
 
     public void Add(BulletEntity entity) {
         all.Add(entity.id, entity);
     }
     public int TakeAll(out BulletEntity[] array) {
-
+        if (all.Count > temArray.Length) {
+            temArray = new BulletEntity[all.Count * 2];
+        }
         all.Values.CopyTo(temArray, 0);
+
         array = temArray;
         return all.Count;
 

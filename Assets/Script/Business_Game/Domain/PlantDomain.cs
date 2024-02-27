@@ -39,7 +39,6 @@ public static class PlantDomain {
             plant.intervalTimer = plant.interval;
             plant.cd = plant.maxCd;
             BulletEntity blt = BulletDomain.Spawn(ctx, 1, plant.transform.position);
-            BulletDomain.Move(blt, blt.transform.position.x, fixdt);
 
         }
 
