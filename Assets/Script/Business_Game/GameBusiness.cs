@@ -61,14 +61,7 @@ public static class GameBusiness {
         input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
 
 
-        int panelLen = ctx.plantRepository.TakeAll(out PlantEntity[] plants);
-        for (int i = 0; i < panelLen; i++) {
-            PlantEntity plant = plants[i];
-            if (plant.isLive == true) {
-                BulletEntity bullet = BulletDomain.Spawn(ctx, 1, plant.transform.position);
-                BulletDomain.Move(bullet, bullet.transform.position.x, dt);
-            }
-        }
+
 
         //植物跟着鼠标走
         UserIntetfaceDomain.PreTick(ctx, dt);
@@ -92,12 +85,25 @@ public static class GameBusiness {
             MstDomain.OverLapHome(ctx, mst);
         }
 
-        // for bullet
-        int bulletLen = ctx.bulletRepository.TakeAll(out BulletEntity[] bullets);
-        for (int i = 0; i < bulletLen; i++) {
-            BulletEntity bullet = bullets[i];
-            BulletDomain.MoveByPath(ctx, bullet, fixdt);
+        // for plant
+        int panelLen = ctx.plantRepository.TakeAll(out PlantEntity[] plants);
+        for (int i = 0; i < panelLen; i++) {
+            PlantEntity plant = plants[i];
+            if (plant.isLive == true) {
+
+                PlantDomain.TrySpawnBlt(ctx, plant, fixdt);
+
+                // BulletEntity bullet = BulletDomain.Spawn(ctx, 1, plant.transform.position);
+
+            }
         }
+
+        // for bullet
+        // int bulletLen = ctx.bulletRepository.TakeAll(out BulletEntity[] bullets);
+        // for (int i = 0; i < bulletLen; i++) {
+        //     BulletEntity bullet = bullets[i];
+        //     BulletDomain.MoveByPath(ctx, bullet, fixdt);
+        // }
 
 
     }

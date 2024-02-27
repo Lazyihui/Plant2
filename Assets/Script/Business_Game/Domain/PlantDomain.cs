@@ -26,4 +26,28 @@ public static class PlantDomain {
         ctx.plantRepository.Add(plantEntity);
         return plantEntity;
     }
+
+    public static void TrySpawnBlt(GameContext ctx, PlantEntity plant, float fixdt) {
+
+        plant.cd -= fixdt;
+        if (plant.cd > 0) {
+            return;
+        }
+
+        plant.intervalTimer -= fixdt;
+        if (plant.intervalTimer <= 0) {
+            plant.intervalTimer = plant.interval;
+            plant.cd = plant.maxCd;
+            BulletEntity blt = BulletDomain.Spawn(ctx, 1, plant.transform.position);
+            BulletDomain.Move(blt, blt.transform.position.x, fixdt);
+
+        }
+
+        plant.maintainTimer -= fixdt;
+        if (plant.maintainTimer <= 0) {
+            plant.maintainTimer = plant.maintain;
+            plant.cd = plant.maxCd;
+        }
+    }
+
 }

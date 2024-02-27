@@ -35,7 +35,7 @@ public class Main : MonoBehaviour {
 
         });
 
-        
+
 
 
 
@@ -54,6 +54,11 @@ public class Main : MonoBehaviour {
         float dt = Time.deltaTime;
         GameBusiness.PreTick(ctx.gamaContext, dt);
 
+        // if (Input.GetMouseButtonDown(0)) {
+
+        //     Debug.Log(ctx.gamaContext.inputEntity.mouseWorldPos);
+
+        // }
 
         restDT += dt;
         if (restDT <= FIXED_INTERVAL) {

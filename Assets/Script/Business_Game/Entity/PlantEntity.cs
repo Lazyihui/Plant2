@@ -29,6 +29,8 @@ public class PlantEntity : MonoBehaviour {
 
     public float intervalTimer;
 
+    public Vector2[] path;
+
 
     public void Ctor() { }
 

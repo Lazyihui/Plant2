@@ -37,13 +37,14 @@ public class BulletEntity : MonoBehaviour {
     public void Move(float x,float dt) {
 
         Vector3 pos = this.transform.position;
-        pos.x -= x * moveSpeed * dt;
+        pos.x += x * moveSpeed * dt;
         this.transform.position = pos;
     }
+    
 
      public void MoveBy(Vector2 dir, float fixdt) {
         Vector2 pos = transform.position;
-        pos += dir * moveSpeed * fixdt;
+        pos -= dir * moveSpeed * fixdt;
         transform.position = pos;
     }
 

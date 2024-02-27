@@ -11,16 +11,16 @@ public static class BulletDomain {
         if (!has) {
             Debug.LogError("没找到" + typeID);
         }
-        Debug.Log("BulletDomain Spawn");
 
         BulletEntity bulletEntity = GameObject.Instantiate(prefab).GetComponent<BulletEntity>();
-        Debug.Log("BulletDomain Spawn 2");
         bulletEntity.Ctor();
         bulletEntity.SetPos(pos);
         bulletEntity.id = ctx.bulletID++;
         bulletEntity.typeID = tm.typeID;
         bulletEntity.damage = tm.damage;
         bulletEntity.moveSpeed = tm.moveSpeed;
+        Vector2 path = new Vector2(pos.x - 8, pos.y);
+        bulletEntity.path = new Vector2[] { pos, path };
         bulletEntity.Init(tm.sprite);
         ctx.bulletRepository.Add(bulletEntity);
         return bulletEntity;

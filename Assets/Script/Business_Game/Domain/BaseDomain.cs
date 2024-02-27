@@ -44,7 +44,7 @@ public static class BaseDomain {
         if (bases.intervalTimer <= 0) {
             bases.intervalTimer = bases.interval;
             // 这个ID可以在base里存一个
-            
+
             MstEntity mst = MstDomain.Spawn(ctx, bases.mstID, bases.transform.position);
             mst.path = bases.path;
 
@@ -58,4 +58,6 @@ public static class BaseDomain {
 
         }
     }
+
+    
 }
