@@ -26,6 +26,7 @@ public static class UserIntetfaceDomain {
 
             if (input.isMouseLeftDown && plant.isPlanted == false) {
 
+                plant.isLive = true;
                 plant.transform.position = pos;
                 plant.isPlanted = true;
 

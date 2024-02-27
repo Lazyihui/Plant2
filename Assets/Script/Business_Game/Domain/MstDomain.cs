@@ -51,6 +51,7 @@ public static class MstDomain {
             mst.Move(dir, fixdt);
         }
     }
+    
 
     public static void OverLapHome(GameContext ctx, MstEntity mst) {
         HomeEntity target = ctx.homeRepository.Find((home) => {

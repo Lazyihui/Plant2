@@ -16,6 +16,7 @@ public static class PlantDomain {
         plantEntity.SetPos(tm.plantPos);
         plantEntity.id = ctx.plantID++;
         plantEntity.isPlanted = false;
+        plantEntity.isLive = false;
 
 
         plantEntity.typeID = tm.typeID;

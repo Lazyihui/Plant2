@@ -18,6 +18,7 @@ public static class GameBusiness {
 
         }
 
+        // 生成植物
         PlayerDomain.Add(ctx);
         //打开UI
         UIApp.Panel_PlantManifest_Open(ctx.uiContext);
@@ -59,8 +60,14 @@ public static class GameBusiness {
         Camera camera = ctx.camera;
         input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
 
-        if(Input.GetKey(KeyCode.A)) {
-        BulletDomain.Spawn(ctx, 1, Vector2.zero);
+
+        int panelLen = ctx.plantRepository.TakeAll(out PlantEntity[] plants);
+        for (int i = 0; i < panelLen; i++) {
+            PlantEntity plant = plants[i];
+            if (plant.isLive == true) {
+                BulletEntity bullet = BulletDomain.Spawn(ctx, 1, plant.transform.position);
+                BulletDomain.Move(bullet, bullet.transform.position.x, dt);
+            }
         }
 
         //植物跟着鼠标走
@@ -84,6 +91,15 @@ public static class GameBusiness {
             MstDomain.MoveByPath(ctx, mst, fixdt);
             MstDomain.OverLapHome(ctx, mst);
         }
+
+        // for bullet
+        int bulletLen = ctx.bulletRepository.TakeAll(out BulletEntity[] bullets);
+        for (int i = 0; i < bulletLen; i++) {
+            BulletEntity bullet = bullets[i];
+            BulletDomain.MoveByPath(ctx, bullet, fixdt);
+        }
+
+
     }
     //每针一次
     public static void LateTick(GameContext ctx, float dt) {

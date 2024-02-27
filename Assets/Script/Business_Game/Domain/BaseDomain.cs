@@ -16,7 +16,7 @@ public static class BaseDomain {
         entity.Ctor();
         entity.id = ctx.baseID++;
 
-        
+
         entity.typeID = tm.TypeID;
         entity.cd = tm.cd;
         entity.maxCd = tm.cd;
@@ -43,9 +43,10 @@ public static class BaseDomain {
         bases.intervalTimer -= fixdt;
         if (bases.intervalTimer <= 0) {
             bases.intervalTimer = bases.interval;
-            //这个ID可以在base里存一个
-            // MstEntity mst = MstDomain.Spawn(ctx, bases.mstID, bases.transform.position);
-            // mst.path = bases.path;
+            // 这个ID可以在base里存一个
+            
+            MstEntity mst = MstDomain.Spawn(ctx, bases.mstID, bases.transform.position);
+            mst.path = bases.path;
 
 
         }

@@ -10,6 +10,8 @@ public class PlantEntity : MonoBehaviour {
 
     public bool isPlanted;
 
+    public bool isLive;
+
     public SpriteRenderer sp;
 
     public Vector2 shapeSize;

@@ -18,6 +18,13 @@ public class BulletRepository {
     public void Add(BulletEntity entity) {
         all.Add(entity.id, entity);
     }
+    public int TakeAll(out BulletEntity[] array) {
+
+        all.Values.CopyTo(temArray, 0);
+        array = temArray;
+        return all.Count;
+
+    }
     //委托 Predicate<BulletEntity> Action<>
     public BulletEntity Find(Predicate<BulletEntity> predicate) {
         foreach (BulletEntity bullet in all.Values) {
