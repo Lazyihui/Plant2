@@ -10,6 +10,7 @@ public static class HomeDomain {
         }
 
         HomeEntity homeEntity = GameObject.Instantiate(prafab).GetComponent<HomeEntity>();
+        
         homeEntity.Ctor();
         homeEntity.SetPos(tm.pos);
         homeEntity.typeID = tm.TypeID;

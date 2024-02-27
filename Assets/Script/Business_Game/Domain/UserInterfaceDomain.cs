@@ -17,9 +17,6 @@ public static class UserIntetfaceDomain {
                 input.isMouseLeftDown = true;
             }
 
-            // if (plants[i].isPlanted == false) {
-            //     plants[i].transform.position = input.mouseWorldPos;
-            // }
             PlantEntity plant = plants[i];
 
             if (plant.isPlanted == false) {

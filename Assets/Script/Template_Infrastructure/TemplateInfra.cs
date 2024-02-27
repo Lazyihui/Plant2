@@ -57,7 +57,17 @@ public class TemplateInfra {
             labelReference.labelString = "TM_GameConfig";
             GameConfigTM tm = Addressables.LoadAssetAsync<GameConfigTM>(labelReference).WaitForCompletion();
             ctx.gameConfig = tm;
-            
+
+        }
+        {
+            AssetLabelReference labelReference = new AssetLabelReference();
+            labelReference.labelString = "TM_Bullet";
+            IList<BulletTM> all = Addressables.LoadAssetsAsync<BulletTM>(labelReference, null).WaitForCompletion();
+
+            for (int i = 0; i < all.Count; i++) {
+                BulletTM bullet = all[i];
+                ctx.bullets.Add(bullet.typeID, bullet);
+            }
         }
 
 

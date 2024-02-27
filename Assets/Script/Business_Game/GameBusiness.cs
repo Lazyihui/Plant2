@@ -59,7 +59,9 @@ public static class GameBusiness {
         Camera camera = ctx.camera;
         input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
 
-        
+        if(Input.GetKey(KeyCode.A)) {
+        BulletDomain.Spawn(ctx, 1, Vector2.zero);
+        }
 
         //植物跟着鼠标走
         UserIntetfaceDomain.PreTick(ctx, dt);
