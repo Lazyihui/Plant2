@@ -23,6 +23,10 @@ public static class GameBusiness {
         //打开UI
         UIApp.Panel_PlantManifest_Open(ctx.uiContext);
 
+        UIApp.Panel_Sun_Open(ctx.uiContext);
+
+        UIApp.Panel_SunElementAdd(ctx.uiContext, ctx.playerEntity.sun);
+
 
         // 生成植物
         int[] manifest = ctx.playerEntity.plantManifestTypeIDs;
@@ -60,8 +64,6 @@ public static class GameBusiness {
 
         Camera camera = ctx.camera;
         input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
-
-
 
 
 

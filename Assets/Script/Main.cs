@@ -52,11 +52,12 @@ public class Main : MonoBehaviour {
         float dt = Time.deltaTime;
         GameBusiness.PreTick(ctx.gamaContext, dt);
 
-        // if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0)) {
+            Debug.Log("click");
+            ctx.gamaContext.playerEntity.sun += 50;
+            Debug.Log(ctx.gamaContext.playerEntity.sun);
 
-        //     Debug.Log(ctx.gamaContext.inputEntity.mouseWorldPos);
-
-        // }
+        }
 
         restDT += dt;
         if (restDT <= FIXED_INTERVAL) {

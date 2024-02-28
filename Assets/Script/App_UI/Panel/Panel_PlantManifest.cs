@@ -9,18 +9,11 @@ public class Panel_PlantManifest : MonoBehaviour {
 
     [SerializeField] Transform plantManifestGroup;
 
-
-    public int cellCount;
-
-    List<Panel_PlantManifestElement> elements;
-
     public void Ctor() {
     }
-
     public void Init() {
 
     }
-
     public void Show() {
         gameObject.SetActive(true);
     }

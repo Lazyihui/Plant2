@@ -16,10 +16,7 @@ public class Panel_PlantManifestElement : MonoBehaviour {
 
     public Action OnPlantClickHandle;
 
-    public int typeID;
-
-
-
+    // public int typeID;
 
     public void Ctor() {
 

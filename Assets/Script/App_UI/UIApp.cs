@@ -37,16 +37,9 @@ public static class UIApp {
     }
 
     //增加element
-    public static void Panel_PlantManifest_AddElement(UIcontext ctx, int typeID, Sprite sprite, string plantName, string plantPrice,Action onPlantClickHandle) {
-
+    public static void Panel_PlantManifest_AddElement(UIcontext ctx, int typeID, Sprite sprite, string plantName, string plantPrice, Action onPlantClickHandle) {
         Panel_PlantManifest panel_PlantManifest = ctx.panel_PlantManifest;
-
-        panel_PlantManifest.AddElement(typeID, sprite, plantName, plantPrice,onPlantClickHandle);
-
-        
-
-
-
+        panel_PlantManifest.AddElement(typeID, sprite, plantName, plantPrice, onPlantClickHandle);
     }
 
     //打开PlantManifest
@@ -75,6 +68,29 @@ public static class UIApp {
         }
     }
 
+    public static void Panel_Sun_Open(UIcontext ctx) {
+        Panel_Sun panel_Sun = ctx.panel_Sun;
+        if (panel_Sun == null) {
+            ctx.assetsContext.Panel_TryGetPrefab("Panel_Sun", out GameObject prefab);
+
+            panel_Sun = GameObject.Instantiate(prefab, ctx.canvas.transform).GetComponent<Panel_Sun>();
+
+            panel_Sun.Ctor();
+            ctx.panel_Sun = panel_Sun;
+        }
+        panel_Sun.Init();
+        panel_Sun.Show();
+    }
+
+    public static void Panel_SunElementAdd(UIcontext ctx, int sunSum) {
+        Panel_Sun panel_Sun = ctx.panel_Sun;
+        panel_Sun.AddSunElement(sunSum);
+
+    }
+
+    public static void Panel_SunElementAddSunSum(UIcontext ctx, int sunSum) {
+        Panel_Sun panel_Sun = ctx.panel_Sun;
+    }
 
 
 
