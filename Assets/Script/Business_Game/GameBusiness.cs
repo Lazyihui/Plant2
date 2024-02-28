@@ -90,7 +90,7 @@ public static class GameBusiness {
         int panelLen = ctx.plantRepository.TakeAll(out PlantEntity[] plants);
         for (int i = 0; i < panelLen; i++) {
             PlantEntity plant = plants[i];
-            if (plant.isLive == true) {
+            if (plant.isPlanted == true) {
 
                 PlantDomain.TrySpawnBlt(ctx, plant, fixdt);
 

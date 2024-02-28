@@ -16,10 +16,10 @@ public static class PlantDomain {
         plantEntity.SetPos(tm.plantPos);
         plantEntity.id = ctx.plantID++;
         plantEntity.isPlanted = false;
-        plantEntity.isLive = false;
 
 
         plantEntity.typeID = tm.typeID;
+        plantEntity.bulletTypeID = tm.bulletTypeID;
 
         plantEntity.Init(tm.typeID, tm.sprite, tm.plantName, tm.plantPrice, tm.shapeSize, tm.cd, tm.cd, tm.maintain, tm.interval);
 
@@ -39,7 +39,7 @@ public static class PlantDomain {
             plant.intervalTimer = plant.interval;
             plant.cd = plant.maxCd;
 
-            BulletEntity blt = BulletDomain.Spawn(ctx, 1, plant.transform.position);
+            BulletEntity blt = BulletDomain.Spawn(ctx, plant.bulletTypeID, plant.transform.position);
 
         }
 

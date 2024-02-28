@@ -10,8 +10,6 @@ public class PlantEntity : MonoBehaviour {
 
     public bool isPlanted;
 
-    public bool isLive;
-
     public SpriteRenderer sp;
 
     public Vector2 shapeSize;
@@ -29,13 +27,14 @@ public class PlantEntity : MonoBehaviour {
 
     public float intervalTimer;
 
-    public Vector2[] path;
+    public int bulletTypeID;
+
 
 
 
     public void Ctor() { }
 
-    public void Init(int typeID, Sprite sprite, string plantName, string plantPrice, Vector2 shapeSize,float cd,float maxCd,float maintain,float interval) {
+    public void Init(int typeID, Sprite sprite, string plantName, string plantPrice, Vector2 shapeSize, float cd, float maxCd, float maintain, float interval) {
 
         this.typeID = typeID;
         this.sp.sprite = sprite;

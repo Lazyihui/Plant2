@@ -19,9 +19,7 @@ MonoBehaviour:
   cd: 1.5
   maintain: 3
   interval: 1
-  BulletTypeID: 0
-  bulletPos: {x: 0, y: 0}
-  path: []
+  bulletTypeID: 1
   sprite: {fileID: 21300000, guid: cdfdc88975eab8c45a24ceb10315baeb, type: 3}
   plantPos: {x: 0, y: 0}
   shapeSize: {x: 0, y: 0}

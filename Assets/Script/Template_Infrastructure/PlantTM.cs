@@ -20,11 +20,7 @@ public class PlantTM : ScriptableObject {
 
     public float interval;
 
-    public int BulletTypeID;
-
-    public Vector2 bulletPos;
-
-    public Vector2[] path;
+    public int bulletTypeID;
 
 
     [Header("Sprite")]
@@ -32,6 +28,8 @@ public class PlantTM : ScriptableObject {
 
     public Vector2 plantPos;
 
+
+    // 好像没用
     public Vector2 shapeSize;
 
 
