@@ -18,6 +18,9 @@ public class BulletRepository {
     public void Add(BulletEntity entity) {
         all.Add(entity.id, entity);
     }
+    public void Remove(BulletEntity entity) {
+        all.Remove(entity.id);
+    }
     public int TakeAll(out BulletEntity[] array) {
         if (all.Count > temArray.Length) {
             temArray = new BulletEntity[all.Count * 2];

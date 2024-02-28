@@ -15,6 +15,7 @@ public static class MstDomain {
         MstEntity mstEntity = GameObject.Instantiate(prefab).GetComponent<MstEntity>();
         mstEntity.Ctor();
         mstEntity.SetPos(pos);
+        mstEntity.isLive = true;
         mstEntity.id = ctx.MstID++;
 
         mstEntity.moveSpeed = tm.moveSpeed;

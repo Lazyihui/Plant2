@@ -13,4 +13,13 @@ public static class PFPhysics {
         float bottom = bPos.y - halfH;
         return aPos.x >= left && aPos.x <= right && aPos.y >= bottom && aPos.y <= top;
     }
+
+    // 圆和圆的交叉检测
+    public static bool IsCircleCrossCircle(Vector2 aPos, float aRadius, Vector2 bPos, float bRadius) {
+
+        float dis = (aPos - bPos).sqrMagnitude;
+        float r = aRadius + bRadius;
+        return dis <= r * r;
+        
+    }
 }

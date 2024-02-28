@@ -32,6 +32,7 @@ public class PlantEntity : MonoBehaviour {
     public Vector2[] path;
 
 
+
     public void Ctor() { }
 
     public void Init(int typeID, Sprite sprite, string plantName, string plantPrice, Vector2 shapeSize,float cd,float maxCd,float maintain,float interval) {

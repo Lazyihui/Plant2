@@ -15,6 +15,13 @@ MonoBehaviour:
   typeID: 5
   plantName: "\u5BD2\u51B0\u5C04\u624B"
   plantPrice: 125
+  isSpawner: 1
+  cd: 1.5
+  maintain: 3
+  interval: 1
+  BulletTypeID: 0
+  bulletPos: {x: 0, y: 0}
+  path: []
   sprite: {fileID: 21300000, guid: cdfdc88975eab8c45a24ceb10315baeb, type: 3}
-  pos: {x: 0, y: 0}
+  plantPos: {x: 0, y: 0}
   shapeSize: {x: 0, y: 0}

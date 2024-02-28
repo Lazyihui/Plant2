@@ -19,6 +19,7 @@ public static class BulletDomain {
         bulletEntity.typeID = tm.typeID;
         bulletEntity.damage = tm.damage;
         bulletEntity.moveSpeed = tm.moveSpeed;
+        bulletEntity.isLive = true;
         Vector2 path = new Vector2(pos.x - 8, pos.y);
         bulletEntity.path = new Vector2[] { pos, path };
         bulletEntity.Init(tm.sprite);
@@ -27,26 +28,34 @@ public static class BulletDomain {
 
     }
 
-    public static void MoveByPath(GameContext ctx, BulletEntity blt, float fixdt) {
-        if (blt.path == null) {
-            return;
+    public static void OverLapMst(GameContext ctx, BulletEntity bullet) {
+        // 子弹和僵尸的交叉检测
+        int mstLen = ctx.mstRepository.TakeAll(out MstEntity[] msts);
+
+        for (int i = 0; i < mstLen; i++) {
+            MstEntity mst = msts[i];
+
+            if (mst.isLive == true && bullet.isLive == true) {
+                float dirSqr = Vector2.SqrMagnitude(mst.transform.position - bullet.transform.position);
+
+                if (dirSqr < 0.1f) {
+                    mst.isLive = false;
+                    bullet.isLive = false;
+                    UnSpawn(ctx, bullet);
+                    MstDomain.UnSpawn(ctx, mst);
+                }
+
+            }
         }
 
-        if (blt.pathIndex >= blt.path.Length) {
-            return;
-        }
 
-        Vector2 target = blt.path[blt.pathIndex];
-
-
-        Vector2 dir = target - (Vector2)blt.transform.position;
-        if (dir.sqrMagnitude < 0.01f) {
-            blt.pathIndex++;
-        } else {
-            dir.Normalize();
-            blt.MoveBy(dir, fixdt);
-        }
     }
+
+    public static void UnSpawn(GameContext ctx, BulletEntity bullet) {
+        ctx.bulletRepository.Remove(bullet);
+        bullet.tearDown();
+    }
+
 
     public static void Move(BulletEntity bullet, float x, float dt) {
         bullet.Move(x, dt);

@@ -20,6 +20,9 @@ public class BulletEntity : MonoBehaviour {
     public SpriteRenderer sp;
 
 
+    public bool isLive;
+
+
 
 
 
@@ -46,6 +49,10 @@ public class BulletEntity : MonoBehaviour {
         Vector2 pos = transform.position;
         pos -= dir * moveSpeed * fixdt;
         transform.position = pos;
+    }
+
+    public void tearDown() {
+        GameObject.Destroy(gameObject);
     }
 
 

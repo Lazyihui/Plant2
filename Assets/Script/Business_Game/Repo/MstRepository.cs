@@ -31,5 +31,16 @@ public class MstRepository {
         array = temArray;
         return all.Count;
 
+
+    }
+
+    public MstEntity Find(Predicate<MstEntity> predicate) {
+        foreach (MstEntity mst in all.Values) {
+            bool isMatch = predicate(mst);
+            if (isMatch) {
+                return mst;
+            }
+        }
+        return null;
     }
 }

@@ -17,4 +17,5 @@ public class BulletTM : ScriptableObject {
     public Vector2 shapeSize;
 
 
+
 }

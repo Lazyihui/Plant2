@@ -38,7 +38,7 @@ public static class PlantDomain {
         if (plant.intervalTimer <= 0) {
             plant.intervalTimer = plant.interval;
             plant.cd = plant.maxCd;
-            
+
             BulletEntity blt = BulletDomain.Spawn(ctx, 1, plant.transform.position);
 
         }

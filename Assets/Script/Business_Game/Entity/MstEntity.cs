@@ -9,6 +9,8 @@ public class MstEntity : MonoBehaviour {
 
     public int pathIndex;
 
+    public bool isLive;
+
     public SpriteRenderer spriteRenderer;
 
 

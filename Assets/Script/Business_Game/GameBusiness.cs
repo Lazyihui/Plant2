@@ -61,6 +61,7 @@ public static class GameBusiness {
         input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
 
 
+        
 
 
         //植物跟着鼠标走
@@ -103,6 +104,7 @@ public static class GameBusiness {
         for (int i = 0; i < bulletLen; i++) {
             BulletEntity bullet = bullets[i];
             BulletDomain.Move(bullet, 1, fixdt);
+            BulletDomain.OverLapMst(ctx,bullet);
         }
 
 

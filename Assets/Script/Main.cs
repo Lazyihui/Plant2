@@ -41,8 +41,6 @@ public class Main : MonoBehaviour {
 
 
 
-
-
     }
 
     float restDT;
