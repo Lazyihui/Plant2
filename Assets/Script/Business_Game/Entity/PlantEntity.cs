@@ -29,6 +29,10 @@ public class PlantEntity : MonoBehaviour {
 
     public int bulletTypeID;
 
+    public bool isShooter;
+
+    public bool isSun;
+
 
 
 

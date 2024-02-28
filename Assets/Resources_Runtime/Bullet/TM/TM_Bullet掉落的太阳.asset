@@ -9,7 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa872786934403a47ae1ea30aaad222e, type: 3}
-  m_Name: TM_GameConfig
+  m_Script: {fileID: 11500000, guid: eda7f7ab35d37ba42bf16cbfb6af2d7d, type: 3}
+  m_Name: "TM_Bullet\u6389\u843D\u7684\u592A\u9633"
   m_EditorClassIdentifier: 
-  plantManifestTypeIDs: 0100000002000000030000000400000005000000060000000700000008000000
+  typeID: 2
+  damage: 0
+  moveSpeed: 0
+  sprite: {fileID: 21300000, guid: 32816f72f13d8044daa1c639b7b04826, type: 3}
+  shapeSize: {x: 0, y: 0}

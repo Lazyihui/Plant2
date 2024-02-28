@@ -5,7 +5,7 @@ public static class GameBusiness {
         InputEntity input = ctx.inputEntity;
 
         //plar
-        ctx.playerEntity.sun = 0;
+        ctx.playerEntity.sun = 50;
         // 生成home界面
         //0先随便写一个ID
         for (int i = 1; i <= 5; i++) {
@@ -34,6 +34,7 @@ public static class GameBusiness {
                 Debug.LogError("ERror" + plantTypeID);
                 continue;
             }
+
             UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, plantTypeID, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, () => {
 
                 Vector2 pos = input.mouseWorldPos;
@@ -61,7 +62,7 @@ public static class GameBusiness {
         input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
 
 
-        
+
 
 
         //植物跟着鼠标走
@@ -103,8 +104,14 @@ public static class GameBusiness {
         int bulletLen = ctx.bulletRepository.TakeAll(out BulletEntity[] bullets);
         for (int i = 0; i < bulletLen; i++) {
             BulletEntity bullet = bullets[i];
-            BulletDomain.Move(bullet, 1, fixdt);
-            BulletDomain.OverLapMst(ctx,bullet);
+            //1是子弹
+            if (bullet.typeID == 1) {
+                BulletDomain.MoveX(bullet, 1, fixdt);
+                BulletDomain.OverLapMst(ctx, bullet);
+
+            }
+            //2是阳光
+
         }
 
 

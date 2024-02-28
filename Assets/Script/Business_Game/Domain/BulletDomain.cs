@@ -57,8 +57,9 @@ public static class BulletDomain {
     }
 
 
-    public static void Move(BulletEntity bullet, float x, float dt) {
-        bullet.Move(x, dt);
+    public static void MoveX(BulletEntity bullet, float x, float dt) {
+        bullet.MoveX(x, dt);
     }
+
 
 }

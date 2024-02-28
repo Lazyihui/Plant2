@@ -11,7 +11,9 @@ public class PlantTM : ScriptableObject {
 
     [Header("Spawner")]
 
-    public bool isSpawner;
+    public bool isShooter;
+
+    public bool isSun;
 
     public float cd;
 

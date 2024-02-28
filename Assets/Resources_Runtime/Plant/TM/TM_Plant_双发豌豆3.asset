@@ -15,7 +15,8 @@ MonoBehaviour:
   typeID: 3
   plantName: "\u53CC\u53D1\u8C4C\u8C46"
   plantPrice: 125
-  isSpawner: 1
+  isShooter: 1
+  isSun: 0
   cd: 0.5
   maintain: 3
   interval: 1

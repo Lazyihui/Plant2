@@ -23,6 +23,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Bullet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 081dbd18c6ef0c34e8d906fa998c514c
+    m_Address: "TM_Bullet\u6389\u843D\u7684\u592A\u9633"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Bullet
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 403753c24b148b546b668cc24fa1e4b4, type: 2}
   m_SchemaSet:

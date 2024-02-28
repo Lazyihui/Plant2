@@ -10,8 +10,6 @@ public class BulletTM : ScriptableObject {
 
     public float moveSpeed;
 
-    public Vector2[] path;
-
     public Sprite sprite;
 
     public Vector2 shapeSize;

@@ -37,19 +37,15 @@ public class BulletEntity : MonoBehaviour {
         this.sp.sprite = sprite;
     }
 
-    public void Move(float dirx,float dt) {
+    public void MoveX(float dirx,float dt) {
 
         Vector3 pos = this.transform.position;
         pos.x += dirx * moveSpeed * dt;
         this.transform.position = pos;
     }
+
     
 
-     public void MoveBy(Vector2 dir, float fixdt) {
-        Vector2 pos = transform.position;
-        pos -= dir * moveSpeed * fixdt;
-        transform.position = pos;
-    }
 
     public void tearDown() {
         GameObject.Destroy(gameObject);

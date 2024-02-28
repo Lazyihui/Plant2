@@ -16,6 +16,8 @@ public static class PlantDomain {
         plantEntity.SetPos(tm.plantPos);
         plantEntity.id = ctx.plantID++;
         plantEntity.isPlanted = false;
+        plantEntity.isShooter = tm.isShooter;
+        plantEntity.isSun = tm.isSun;
 
 
         plantEntity.typeID = tm.typeID;
@@ -38,8 +40,17 @@ public static class PlantDomain {
         if (plant.intervalTimer <= 0) {
             plant.intervalTimer = plant.interval;
             plant.cd = plant.maxCd;
+            if (plant.isShooter) {
+                BulletDomain.Spawn(ctx, plant.bulletTypeID, plant.transform.position);
 
-            BulletEntity blt = BulletDomain.Spawn(ctx, plant.bulletTypeID, plant.transform.position);
+            }
+
+            if (plant.isSun) {
+                // 生成阳光
+                Vector2 pos = new Vector2(plant.transform.position.x + 1, plant.transform.position.y - 1);
+
+                BulletDomain.Spawn(ctx, plant.bulletTypeID, pos);
+            }
 
         }
 
