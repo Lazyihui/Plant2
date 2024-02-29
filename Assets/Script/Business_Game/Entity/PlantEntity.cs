@@ -33,6 +33,8 @@ public class PlantEntity : MonoBehaviour {
 
     public bool isSun;
 
+    public bool isShovel;
+
 
 
 
@@ -51,6 +53,9 @@ public class PlantEntity : MonoBehaviour {
 
     }
 
+    public void tearDown() {
+        Destroy(gameObject);
+    }
     public void SetPos(Vector2 pos) {
         transform.position = pos;
     }

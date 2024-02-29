@@ -70,4 +70,6 @@ public static class MstDomain {
             Debug.Log("游戏结束");
         }
     }
+
+    
 }

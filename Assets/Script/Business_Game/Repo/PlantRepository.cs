@@ -20,6 +20,10 @@ public class plantRepository {
     public void Add(PlantEntity entity) {
         all.Add(entity.id, entity);
     }
+
+    public void Remove(PlantEntity plant) {
+        all.Remove(plant.id);
+    }
     //这个没有兼顾超过all数量的情况
     public int TakeAll(out PlantEntity[] array) {
 

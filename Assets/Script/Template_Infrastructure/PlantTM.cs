@@ -15,6 +15,8 @@ public class PlantTM : ScriptableObject {
 
     public bool isSun;
 
+    public bool isShovel;
+
     public float cd;
 
 

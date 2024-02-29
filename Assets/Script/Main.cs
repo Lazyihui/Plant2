@@ -53,9 +53,7 @@ public class Main : MonoBehaviour {
         GameBusiness.PreTick(ctx.gamaContext, dt);
 
         if (Input.GetMouseButtonDown(0)) {
-            Debug.Log("click");
             ctx.gamaContext.playerEntity.sun += 50;
-            Debug.Log(ctx.gamaContext.playerEntity.sun);
             //sunElement的sunSum增加
         }
 

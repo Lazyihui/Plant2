@@ -18,6 +18,7 @@ public static class PlantDomain {
         plantEntity.isPlanted = false;
         plantEntity.isShooter = tm.isShooter;
         plantEntity.isSun = tm.isSun;
+        plantEntity.isShovel = tm.isShovel;
 
 
         plantEntity.typeID = tm.typeID;
@@ -27,6 +28,54 @@ public static class PlantDomain {
 
         ctx.plantRepository.Add(plantEntity);
         return plantEntity;
+    }
+    public static void OverLapShovel(GameContext ctx, PlantEntity shovel) {
+        // 植物和植物的交叉检测
+        int plantLen = ctx.plantRepository.TakeAll(out PlantEntity[] plants);
+
+        for (int i = 0; i < plantLen; i++) {
+            PlantEntity plant = plants[i];
+
+            if (plant.isPlanted == true && Input.GetMouseButtonDown(0)) {
+                Debug.Log("Unspaw111111111n");
+                float dirSqr = Vector2.SqrMagnitude(plant.transform.position - shovel.transform.position);
+
+                if (dirSqr < 0.1f) {
+                    Debug.Log("Unspawn");
+                    // shovel.isPlanted = false;
+                    plant.isPlanted = false;
+                    UnSpawn(ctx, plant);
+                    UnSpawn(ctx, shovel);
+                }
+
+            }
+            if (Input.GetMouseButtonDown(1)) {
+                // shovel.isPlanted = false;
+                UnSpawn(ctx, shovel);
+            }
+        }
+        // int mstLen = ctx.mstRepository.TakeAll(out MstEntity[] msts);
+
+        // for (int i = 0; i < mstLen; i++) {
+        //     MstEntity mst = msts[i];
+
+        //     if (mst.isLive == true && bullet.isLive == true) {
+        //         float dirSqr = Vector2.SqrMagnitude(mst.transform.position - bullet.transform.position);
+
+        //         if (dirSqr < 0.1f) {
+        //             mst.isLive = false;
+        //             bullet.isLive = false;
+        //             UnSpawn(ctx, bullet);
+        //             MstDomain.UnSpawn(ctx, mst);
+        //         }
+
+        //     }
+        // }
+
+    }
+    public static void UnSpawn(GameContext ctx, PlantEntity plant) {
+        ctx.plantRepository.Remove(plant);
+        plant.tearDown();
     }
 
     public static void TrySpawnBlt(GameContext ctx, PlantEntity plant, float fixdt) {
@@ -50,6 +99,10 @@ public static class PlantDomain {
                 Vector2 pos = new Vector2(plant.transform.position.x + 1, plant.transform.position.y - 1);
 
                 BulletDomain.Spawn(ctx, plant.bulletTypeID, pos);
+            }
+            if (plant.isShovel) {
+                // 生成铲子
+                return;
             }
 
         }

@@ -31,7 +31,9 @@ public static class GameBusiness {
 
         UIApp.Panel_ShovelElementAdd(ctx.uiContext, () => {
 
-            Debug.Log("点击铲子");
+            Vector2 pos = input.mouseWorldPos;
+            //9是铲子
+            PlantDomain.Spawn(ctx, 9, pos);
         });
 
         // 生成植物
@@ -103,8 +105,9 @@ public static class GameBusiness {
 
                 PlantDomain.TrySpawnBlt(ctx, plant, fixdt);
 
-                // BulletEntity bullet = BulletDomain.Spawn(ctx, 1, plant.transform.position);
-
+            }
+            if (plant.isShovel == true) {
+                PlantDomain.OverLapShovel(ctx, plant);
             }
         }
 
@@ -118,9 +121,8 @@ public static class GameBusiness {
                 BulletDomain.OverLapMst(ctx, bullet);
 
             }
-            //2是阳光
-
         }
+
 
 
     }
