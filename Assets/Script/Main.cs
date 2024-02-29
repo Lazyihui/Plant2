@@ -56,7 +56,7 @@ public class Main : MonoBehaviour {
             Debug.Log("click");
             ctx.gamaContext.playerEntity.sun += 50;
             Debug.Log(ctx.gamaContext.playerEntity.sun);
-
+            //sunElement的sunSum增加
         }
 
         restDT += dt;

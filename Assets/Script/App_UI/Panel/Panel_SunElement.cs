@@ -19,12 +19,5 @@ public class Panel_SunElement : MonoBehaviour {
 
     }
 
-    public void Show() {
-        gameObject.SetActive(true);
-    }
-
-    public void Close() {
-        gameObject.SetActive(false);
-    }
 
 }

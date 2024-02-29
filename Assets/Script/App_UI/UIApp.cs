@@ -88,10 +88,24 @@ public static class UIApp {
 
     }
 
-    public static void Panel_SunElementAddSunSum(UIcontext ctx, int sunSum) {
-        Panel_Sun panel_Sun = ctx.panel_Sun;
+    public static void Panel_Shovel_Open(UIcontext ctx) {
+        Panel_Shovel panel_Shovel = ctx.panel_Shovel;
+
+        if (panel_Shovel == null) {
+            ctx.assetsContext.Panel_TryGetPrefab("Panel_Shovel", out GameObject prefab);
+
+            panel_Shovel = GameObject.Instantiate(prefab, ctx.canvas.transform).GetComponent<Panel_Shovel>();
+
+            panel_Shovel.Ctor();
+            ctx.panel_Shovel = panel_Shovel;
+        }
+        panel_Shovel.Init();
+        panel_Shovel.Show();
     }
 
-
+    public static void Panel_ShovelElementAdd(UIcontext ctx, Action onPlantClickHandle) {
+        Panel_Shovel panel_Shovel = ctx.panel_Shovel;
+        panel_Shovel.AddElement(onPlantClickHandle);
+    }
 
 }

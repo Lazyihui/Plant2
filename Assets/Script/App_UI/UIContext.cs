@@ -11,6 +11,8 @@ public class UIcontext {
 
     public Panel_Sun panel_Sun;
 
+    public Panel_Shovel panel_Shovel;
+
 
 
     public UIcontext() {
