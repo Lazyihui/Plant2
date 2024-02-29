@@ -25,7 +25,7 @@ public static class GameBusiness {
 
         UIApp.Panel_Sun_Open(ctx.uiContext);
 
-        UIApp.Panel_SunElementAdd(ctx.uiContext, ctx.playerEntity.sun);
+        UIApp.Panel_SunSet(ctx.uiContext, ctx.playerEntity.sun);
 
         UIApp.Panel_Shovel_Open(ctx.uiContext);
 
@@ -108,6 +108,7 @@ public static class GameBusiness {
             }
             if (plant.isShovel == true) {
                 PlantDomain.OverLapShovel(ctx, plant);
+
             }
         }
 
@@ -129,6 +130,7 @@ public static class GameBusiness {
     //每针一次
     public static void LateTick(GameContext ctx, float dt) {
 
+        UIApp.Panel_SunSet(ctx.uiContext, ctx.playerEntity.sun);
         // 更新UI
     }
 }

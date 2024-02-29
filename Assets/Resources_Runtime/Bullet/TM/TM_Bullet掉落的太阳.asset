@@ -17,3 +17,4 @@ MonoBehaviour:
   moveSpeed: 0
   sprite: {fileID: 21300000, guid: 32816f72f13d8044daa1c639b7b04826, type: 3}
   shapeSize: {x: 0, y: 0}
+  isClick: 1

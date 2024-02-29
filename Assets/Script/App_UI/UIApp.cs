@@ -82,10 +82,11 @@ public static class UIApp {
         panel_Sun.Show();
     }
 
-    public static void Panel_SunElementAdd(UIcontext ctx, int sunSum) {
+    public static void Panel_SunSet(UIcontext ctx, int sunSum) {
         Panel_Sun panel_Sun = ctx.panel_Sun;
-        panel_Sun.AddSunElement(sunSum);
-
+        if (panel_Sun != null) {
+            panel_Sun.SetSunNumber(sunSum);
+        }
     }
 
     public static void Panel_Shovel_Open(UIcontext ctx) {

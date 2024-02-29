@@ -19,6 +19,7 @@ public static class BulletDomain {
         bulletEntity.typeID = tm.typeID;
         bulletEntity.damage = tm.damage;
         bulletEntity.moveSpeed = tm.moveSpeed;
+        bulletEntity.isClick = tm.isClick;
         bulletEntity.isLive = true;
         Vector2 path = new Vector2(pos.x - 8, pos.y);
         bulletEntity.path = new Vector2[] { pos, path };
