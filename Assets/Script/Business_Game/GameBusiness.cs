@@ -56,11 +56,6 @@ public static class GameBusiness {
             });
         }
 
-
-        // PlantDomain.Spawn(ctx, 1, Vector2.zero);
-
-
-
     }
     // 每帧一次
     public static void PreTick(GameContext ctx, float dt) {
@@ -71,6 +66,7 @@ public static class GameBusiness {
         input.mouseScreenPos = Input.mousePosition;
 
         Camera camera = ctx.camera;
+
         input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
 
 
@@ -120,7 +116,10 @@ public static class GameBusiness {
             if (bullet.typeID == 1) {
                 BulletDomain.MoveX(bullet, 1, fixdt);
                 BulletDomain.OverLapMst(ctx, bullet);
-
+            }
+            //2是太阳
+            if (bullet.typeID == 2) {
+                BulletDomain.OverLapMouse(ctx, bullet);
             }
         }
 
@@ -131,6 +130,7 @@ public static class GameBusiness {
     public static void LateTick(GameContext ctx, float dt) {
 
         UIApp.Panel_SunSet(ctx.uiContext, ctx.playerEntity.sun);
-        // 更新UI
+        ctx.inputEntity.Reset();
+
     }
 }

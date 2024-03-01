@@ -19,7 +19,7 @@ public static class BulletDomain {
         bulletEntity.typeID = tm.typeID;
         bulletEntity.damage = tm.damage;
         bulletEntity.moveSpeed = tm.moveSpeed;
-        bulletEntity.isClick = tm.isClick;
+        bulletEntity.isSun = tm.isClick;
         bulletEntity.isLive = true;
         Vector2 path = new Vector2(pos.x - 8, pos.y);
         bulletEntity.path = new Vector2[] { pos, path };
@@ -49,7 +49,29 @@ public static class BulletDomain {
             }
         }
 
+    }
 
+    public static void OverLapMouse(GameContext ctx, BulletEntity bullet) {
+        // 子弹和鼠标的交叉检测
+        InputEntity input = ctx.inputEntity;
+
+        if (bullet.isSun == true) {
+
+            if (Input.GetMouseButtonDown(0)) {
+                Camera camera = ctx.camera;
+
+                input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
+                Vector3 mousePos = input.mouseWorldPos;
+
+                float dirSqr = Vector2.SqrMagnitude(mousePos - bullet.transform.position);
+
+                if (dirSqr < 0.1f) {
+                    bullet.isLive = false;
+                    ctx.playerEntity.sun += 25;
+                    UnSpawn(ctx, bullet);
+                }
+            }
+        }
     }
 
     public static void UnSpawn(GameContext ctx, BulletEntity bullet) {

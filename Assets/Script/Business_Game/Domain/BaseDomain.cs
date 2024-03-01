@@ -4,6 +4,7 @@ public static class BaseDomain {
 
 
     public static BaseEntity Spawn(GameContext ctx, int typeID) {
+        
         ctx.assetsContext.Entity_TryGetPrefab("Entity_Base", out GameObject prafab);
 
         bool has = ctx.templateContext.bases.TryGetValue(typeID, out BasesTM tm);

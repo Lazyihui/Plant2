@@ -22,7 +22,7 @@ public class BulletEntity : MonoBehaviour {
 
     public bool isLive;
 
-    public bool isClick;
+    public bool isSun;
 
 
 

@@ -17,8 +17,9 @@ MonoBehaviour:
   plantPrice: 50
   isShooter: 0
   isSun: 1
-  cd: 1
-  maintain: 2
+  isShovel: 0
+  cd: 3
+  maintain: 5
   interval: 1
   bulletTypeID: 2
   sprite: {fileID: 21300000, guid: aa9bd265e51ab2d4fba40b4f8f8e198d, type: 3}

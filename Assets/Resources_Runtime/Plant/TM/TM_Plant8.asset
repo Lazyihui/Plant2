@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70e974ef4e77d464289df59997538324, type: 3}
-  m_Name: "TM_Plant_\u9633\u51498"
+  m_Name: TM_Plant8
   m_EditorClassIdentifier: 
   typeID: 8
-  plantName: "\u9633\u5149"
+  plantName: 
   plantPrice: 
   isShooter: 0
   isSun: 1
+  isShovel: 0
   cd: 1
-  maintain: 2
+  maintain: 5
   interval: 1
   bulletTypeID: 2
   sprite: {fileID: 21300000, guid: 98629ac9c7684424ca34745c97f811b1, type: 3}

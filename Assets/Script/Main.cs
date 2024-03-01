@@ -52,10 +52,10 @@ public class Main : MonoBehaviour {
         float dt = Time.deltaTime;
         GameBusiness.PreTick(ctx.gamaContext, dt);
 
-        if (Input.GetMouseButtonDown(0)) {
-            ctx.gamaContext.playerEntity.sun += 50;
-            //sunElement的sunSum增加
-        }
+        // if (Input.GetMouseButtonDown(0)) {
+        //     ctx.gamaContext.playerEntity.sun += 50;
+        //     //sunElement的sunSum增加
+        // }
 
         restDT += dt;
         if (restDT <= FIXED_INTERVAL) {
