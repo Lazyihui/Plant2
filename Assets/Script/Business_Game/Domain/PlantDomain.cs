@@ -20,6 +20,7 @@ public static class PlantDomain {
         plantEntity.isSun = tm.isSun;
         plantEntity.isShovel = tm.isShovel;
         plantEntity.sun = tm.sun;
+        plantEntity.isDisposable = tm.isDisposable;
 
 
         plantEntity.typeID = tm.typeID;
@@ -57,6 +58,31 @@ public static class PlantDomain {
         }
 
     }
+
+    public static void OverLapMst(GameContext ctx, PlantEntity plant) {
+        // 植物和僵尸的交叉检测
+        int mstLen = ctx.mstRepository.TakeAll(out MstEntity[] msts);
+
+        for (int i = 0; i < mstLen; i++) {
+            MstEntity mst = msts[i];
+
+            if (plant.isPlanted && mst.isLive) {
+                float dirSqr = Vector2.SqrMagnitude(mst.transform.position - plant.transform.position);
+                if (dirSqr < 0.1f) {
+                    mst.isLive = false;
+                    UnSpawn(ctx, plant);
+                    MstDomain.UnSpawn(ctx, mst);
+                }
+            }
+            // if(mst.isLive == true && plant.isPlanted == true){
+            //     float dirSqr = Vector2.SqrMagnitude(mst.transform.position - plant.transform.position);
+            //     if(dirSqr < 0.1f){
+            //         mst.isLive = false;
+            //         UnSpawn(ctx, mst);
+            //     }
+            // }
+        }
+    }
     public static void UnSpawn(GameContext ctx, PlantEntity plant) {
         ctx.plantRepository.Remove(plant);
         plant.tearDown();
@@ -86,6 +112,10 @@ public static class PlantDomain {
             }
             if (plant.isShovel) {
                 // 生成铲子
+                return;
+            }
+            if (plant.isDisposable) {
+                // 地雷 南瓜一次性植物
                 return;
             }
 

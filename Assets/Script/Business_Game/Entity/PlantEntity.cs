@@ -37,6 +37,8 @@ public class PlantEntity : MonoBehaviour {
 
     public bool isShovel;
 
+    public bool isDisposable;
+
 
 
 

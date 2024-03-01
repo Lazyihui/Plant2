@@ -13,11 +13,7 @@ public class PlantTM : ScriptableObject {
 
     [Header("Spawner")]
 
-    public bool isShooter;
 
-    public bool isSun;
-
-    public bool isShovel;
 
     public float cd;
 
@@ -38,6 +34,15 @@ public class PlantTM : ScriptableObject {
     // 好像没用
     public Vector2 shapeSize;
 
+    [Header("bool")]
+
+    public bool isShooter;
+
+    public bool isSun;
+
+    public bool isShovel;
+
+    public bool isDisposable;
 
 
 }

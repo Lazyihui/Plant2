@@ -109,6 +109,9 @@ public static class GameBusiness {
                 PlantDomain.OverLapShovel(ctx, plant);
 
             }
+            if (plant.isDisposable == true) {
+                PlantDomain.OverLapMst(ctx, plant);
+            }
         }
 
         // for bullet

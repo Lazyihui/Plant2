@@ -11,8 +11,8 @@ public static class UserIntetfaceDomain {
         int plantLen = ctx.plantRepository.TakeAll(out PlantEntity[] plants);
         for (int i = 0; i < plantLen; i++) {
             PlantEntity plant = plants[i];
-
-            if (plant.isShooter == true || plant.isSun == true) {
+            //好像不要这个判断
+            if (plant.isShooter == true || plant.isSun == true || plant.isDisposable == true) {
                 if (Input.GetMouseButtonDown(0)) {
                     input.isMouseLeftDown = true;
                 }
@@ -33,18 +33,18 @@ public static class UserIntetfaceDomain {
                 input.isMouseLeftDown = false;
             }
 
-            // if (plant.isShovel == true) {
-            //     if (Input.GetMouseButtonDown(0)) {
-            //         input.isMouseLeftDown = true;
-            //     }
-            //     plant.transform.position = input.mouseWorldPos;
-            //     Vector2 pos = plant.transform.position;
+            if (plant.isShovel == true) {
+                if (Input.GetMouseButtonDown(0)) {
+                    input.isMouseLeftDown = true;
+                }
+                plant.transform.position = input.mouseWorldPos;
+                Vector2 pos = plant.transform.position;
 
-            //     if (input.isMouseLeftDown) {
+                if (input.isMouseLeftDown) {
 
-            //     }
-            //     input.isMouseLeftDown = false;
-            // }
+                }
+                input.isMouseLeftDown = false;
+            }
         }
 
 
