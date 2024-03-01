@@ -19,6 +19,7 @@ public static class PlantDomain {
         plantEntity.isShooter = tm.isShooter;
         plantEntity.isSun = tm.isSun;
         plantEntity.isShovel = tm.isShovel;
+        plantEntity.sun = tm.sun;
 
 
         plantEntity.typeID = tm.typeID;
@@ -54,23 +55,6 @@ public static class PlantDomain {
                 UnSpawn(ctx, shovel);
             }
         }
-        // int mstLen = ctx.mstRepository.TakeAll(out MstEntity[] msts);
-
-        // for (int i = 0; i < mstLen; i++) {
-        //     MstEntity mst = msts[i];
-
-        //     if (mst.isLive == true && bullet.isLive == true) {
-        //         float dirSqr = Vector2.SqrMagnitude(mst.transform.position - bullet.transform.position);
-
-        //         if (dirSqr < 0.1f) {
-        //             mst.isLive = false;
-        //             bullet.isLive = false;
-        //             UnSpawn(ctx, bullet);
-        //             MstDomain.UnSpawn(ctx, mst);
-        //         }
-
-        //     }
-        // }
 
     }
     public static void UnSpawn(GameContext ctx, PlantEntity plant) {

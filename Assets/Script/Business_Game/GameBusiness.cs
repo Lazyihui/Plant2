@@ -5,7 +5,7 @@ public static class GameBusiness {
         InputEntity input = ctx.inputEntity;
 
         //plar
-        ctx.playerEntity.sun = 50;
+        ctx.playerEntity.sun = 100;
         // 生成home界面
         //0先随便写一个ID
         for (int i = 1; i <= 5; i++) {
@@ -50,11 +50,14 @@ public static class GameBusiness {
             UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, plantTypeID, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, () => {
 
                 Vector2 pos = input.mouseWorldPos;
-
-                PlantDomain.Spawn(ctx, plantTypeID, pos);
+                if (plantTM.sun <= ctx.playerEntity.sun) {
+                    PlantDomain.Spawn(ctx, plantTypeID, pos);
+                }
 
             });
         }
+
+
 
     }
     // 每帧一次

@@ -9,6 +9,8 @@ public class PlantTM : ScriptableObject {
     public string plantName;
     public string plantPrice;
 
+    public int sun;
+
     [Header("Spawner")]
 
     public bool isShooter;

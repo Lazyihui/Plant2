@@ -18,32 +18,33 @@ public static class UserIntetfaceDomain {
                 }
 
 
-                if (plant.isPlanted == false) {
+                if (plant.isPlanted == false && plant.sun <= ctx.playerEntity.sun) {
                     plant.transform.position = input.mouseWorldPos;
                 }
                 Vector2 pos = plant.transform.position;
 
-                if (input.isMouseLeftDown && plant.isPlanted == false) {
+                if (input.isMouseLeftDown && plant.isPlanted == false && plant.sun <= ctx.playerEntity.sun) {
 
                     plant.transform.position = pos;
+                    ctx.playerEntity.sun -= plant.sun;
                     plant.isPlanted = true;
 
                 }
                 input.isMouseLeftDown = false;
             }
 
-            if (plant.isShovel == true) {
-                if (Input.GetMouseButtonDown(0)) {
-                    input.isMouseLeftDown = true;
-                }
-                plant.transform.position = input.mouseWorldPos;
-                Vector2 pos = plant.transform.position;
+            // if (plant.isShovel == true) {
+            //     if (Input.GetMouseButtonDown(0)) {
+            //         input.isMouseLeftDown = true;
+            //     }
+            //     plant.transform.position = input.mouseWorldPos;
+            //     Vector2 pos = plant.transform.position;
 
-                if (input.isMouseLeftDown) {
-                    
-                }
-                input.isMouseLeftDown = false;
-            }
+            //     if (input.isMouseLeftDown) {
+
+            //     }
+            //     input.isMouseLeftDown = false;
+            // }
         }
 
 

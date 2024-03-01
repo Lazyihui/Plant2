@@ -8,6 +8,8 @@ public class PlantEntity : MonoBehaviour {
     public string plantName;
     public string plantPrice;
 
+    public int sun;
+
     public bool isPlanted;
 
     public SpriteRenderer sp;
@@ -46,6 +48,7 @@ public class PlantEntity : MonoBehaviour {
         this.sp.sprite = sprite;
         this.plantName = plantName;
         this.plantPrice = plantPrice;
+        
         this.shapeSize = shapeSize;
         this.cd = cd;
         this.maxCd = maxCd;
