@@ -67,7 +67,7 @@ public static class MstDomain {
         
         if (target != null) {
             UnSpawn(ctx, mst);
-            Debug.Log("游戏结束");
+            // Debug.Log("游戏结束");
         }
     }
 

@@ -18,6 +18,8 @@ public static class GameBusiness {
 
         }
 
+        // 生成地块
+        CellDomain.Spawn(ctx, 1, new Vector2(0, 0));
         // 生成植物
         PlayerDomain.Add(ctx);
         //打开UI
