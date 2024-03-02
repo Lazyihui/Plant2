@@ -5,7 +5,9 @@ public static class GameBusiness {
         InputEntity input = ctx.inputEntity;
 
         //plar
-        ctx.playerEntity.sun = 100;
+        PlayerDomain.init(ctx);
+        PlayerDomain.Add(ctx);
+
         // 生成home界面
         //0先随便写一个ID
         for (int i = 1; i <= 5; i++) {
@@ -19,14 +21,13 @@ public static class GameBusiness {
         }
 
         // 生成地块
-        for(int i = -3; i < 2; i++) {
-            for(int j = -8; j < 9; j++) {
+        for (int i = -3; i < 2; i++) {
+            for (int j = -8; j < 9; j++) {
                 CellDomain.Spawn(ctx, new Vector2(j, i));
             }
         }
         // CellDomain.Spawn(ctx, new Vector2(0, 0));
         // 生成植物
-        PlayerDomain.Add(ctx);
         //打开UI
         UIApp.Panel_PlantManifest_Open(ctx.uiContext);
 
@@ -88,17 +89,27 @@ public static class GameBusiness {
     // 可能一帧多次
     public static void FixedTick(GameContext ctx, float fixdt) {
 
-        int basesLen = ctx.baseRepository.TakeAll(out BaseEntity[] bases);
-        for (int i = 0; i < basesLen; i++) {
-            BaseEntity baseEntity = bases[i];
-            BaseDomain.TrySpawnMst(ctx, bases[i], fixdt);
+        if (!ctx.playerEntity.enterGame == true) {
+            return;
         }
+        int basesLen = ctx.baseRepository.TakeAll(out BaseEntity[] bases);
+
+        int a = Common.Random(0, 5);
+        BaseEntity baseEntity = bases[a];
+        BaseDomain.TrySpawnMst(ctx, baseEntity, fixdt);
+
+        for (int i = 0; i < basesLen; i++) {
+            // BaseEntity baseEntity = bases[i];
+
+        }
+
 
         // for mst
 
         int mstLen = ctx.mstRepository.TakeAll(out MstEntity[] msts);
         for (int i = 0; i < mstLen; i++) {
             MstEntity mst = msts[i];
+            // MstDomain.Spawn(ctx, 1, new Vector2(0, 0));
             MstDomain.MoveByPath(ctx, mst, fixdt);
             MstDomain.OverLapHome(ctx, mst);
         }

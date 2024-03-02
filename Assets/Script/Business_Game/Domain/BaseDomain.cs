@@ -41,6 +41,7 @@ public static class BaseDomain {
         if (bases.cd > 0) {
             return;
         }
+
         bases.intervalTimer -= fixdt;
         if (bases.intervalTimer <= 0) {
             bases.intervalTimer = bases.interval;
@@ -51,6 +52,8 @@ public static class BaseDomain {
 
 
         }
+
+        
 
         bases.maintainTimer -= fixdt;
         if (bases.maintainTimer <= 0) {

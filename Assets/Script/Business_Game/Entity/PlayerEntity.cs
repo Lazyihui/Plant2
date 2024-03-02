@@ -5,10 +5,12 @@ public class PlayerEntity {
 
     public int[] plantManifestTypeIDs;
 
-    public PlayerEntity(){
+    public bool enterGame;
+
+    public PlayerEntity() {
 
     }
 
-    
+
 
 }

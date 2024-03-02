@@ -49,8 +49,21 @@ MonoBehaviour:
   typeID: 0
   plantName: 
   plantPrice: 
+  sun: 0
+  isPlanted: 0
   sp: {fileID: 6346989694744094950}
   shapeSize: {x: 0, y: 0}
+  cd: 0
+  maxCd: 0
+  maintain: 0
+  maintainTimer: 0
+  interval: 0
+  intervalTimer: 0
+  bulletTypeID: 0
+  isShooter: 0
+  isSun: 0
+  isShovel: 0
+  isDisposable: 0
 --- !u!1 &4250655081658323585
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,7 +138,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

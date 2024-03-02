@@ -49,6 +49,7 @@ MonoBehaviour:
   moveSpeed: 0
   path: []
   pathIndex: 0
+  isLive: 0
   spriteRenderer: {fileID: 7065482870137139672}
 --- !u!1 &8784249172068368644
 GameObject:
@@ -124,7 +125,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

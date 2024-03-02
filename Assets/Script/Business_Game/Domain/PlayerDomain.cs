@@ -6,8 +6,13 @@ public static class PlayerDomain {
 
         PlayerEntity player = ctx.playerEntity;
 
+
         player.plantManifestTypeIDs = tm.plantManifestTypeIDs;
 
+    }
 
+    public static void init(GameContext ctx) {
+        ctx.playerEntity.sun = 100;
+        ctx.playerEntity.enterGame = true;
     }
 }

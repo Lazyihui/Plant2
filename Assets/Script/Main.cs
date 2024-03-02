@@ -72,9 +72,5 @@ public class Main : MonoBehaviour {
 
         GameBusiness.LateTick(ctx.gamaContext, dt);
 
-        if (Input.GetMouseButtonDown(0)) {
-            ctx.gamaContext.inputEntity.mouseWorldPos = ctx.gamaContext.camera.ScreenToWorldPoint(Input.mousePosition);
-            Debug.Log(ctx.gamaContext.inputEntity.mouseWorldPos);
-        }
     }
 }
