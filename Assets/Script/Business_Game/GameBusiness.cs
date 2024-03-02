@@ -19,6 +19,11 @@ public static class GameBusiness {
         }
 
         // 生成地块
+        for(int i = -3; i < 2; i++) {
+            for(int j = -8; j < 9; j++) {
+                CellDomain.Spawn(ctx, new Vector2(j, i));
+            }
+        }
         // CellDomain.Spawn(ctx, new Vector2(0, 0));
         // 生成植物
         PlayerDomain.Add(ctx);
