@@ -19,9 +19,12 @@ public static class UserIntetfaceDomain {
 
 
                 if (plant.isPlanted == false && plant.sun <= ctx.playerEntity.sun) {
-                    plant.transform.position = input.mouseWorldPos;
+                    Vector2 posz = new Vector2((int)input.mouseWorldPos.x, (int)input.mouseWorldPos.y);
+                    plant.transform.position = posz;
                 }
-                Vector2 pos = plant.transform.position;
+                Vector2 posInt = new Vector2((int)input.mouseWorldPos.x, (int)input.mouseWorldPos.y);
+
+                Vector2 pos = posInt;
 
                 if (input.isMouseLeftDown && plant.isPlanted == false && plant.sun <= ctx.playerEntity.sun) {
 

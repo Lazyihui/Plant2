@@ -1,10 +1,9 @@
 using UnityEngine;
 
 public static class CellDomain {
-    public static CellEntity Spawn(GameContext ctx, int TypeID, Vector2 pos) {
+    public static CellEntity Spawn(GameContext ctx, Vector2 pos) {
 
         ctx.assetsContext.Entity_TryGetPrefab("Entity_Cell", out GameObject prefab);
-
 
         CellEntity cellEntity = GameObject.Instantiate(prefab).GetComponent<CellEntity>();
         
