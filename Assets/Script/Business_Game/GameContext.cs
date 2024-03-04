@@ -17,6 +17,8 @@ public class GameContext {
     public CellRepository cellRepository;
 
     public plantRepository plantRepository;
+
+    public CartRepository cartRepository;
     public UIcontext uiContext;
 
     public TemplateContext templateContext;
@@ -34,6 +36,8 @@ public class GameContext {
 
     public int cellID;
 
+    public int cartID;
+
     public GameContext() {
         playerEntity = new PlayerEntity();
         homeRepository = new HomeRepository();
@@ -44,6 +48,7 @@ public class GameContext {
         uiContext = new UIcontext();
         plantRepository = new plantRepository();
         inputEntity = new InputEntity();
+        cartRepository = new CartRepository();
 
         baseID = 0;
         homeID = 0;
@@ -51,6 +56,7 @@ public class GameContext {
         bulletID = 0;
         plantID = 0;
         cellID = 0;
+        cartID = 0;
     }
 
     public void Inject(AssetsContext assetsContext, UIcontext uiContext, TemplateContext templateContext, Camera camera) {

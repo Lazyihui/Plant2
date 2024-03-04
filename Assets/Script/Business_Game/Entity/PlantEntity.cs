@@ -39,6 +39,8 @@ public class PlantEntity : MonoBehaviour {
 
     public bool isDisposable;
 
+    public  bool isMine;
+
 
 
 

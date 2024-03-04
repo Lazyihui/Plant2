@@ -30,8 +30,6 @@ public class MstRepository {
         all.Values.CopyTo(temArray, 0);
         array = temArray;
         return all.Count;
-
-
     }
 
     public MstEntity Find(Predicate<MstEntity> predicate) {

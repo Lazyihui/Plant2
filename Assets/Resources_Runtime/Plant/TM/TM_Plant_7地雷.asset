@@ -16,9 +16,9 @@ MonoBehaviour:
   plantName: "\u5730\u96F7"
   plantPrice: 25
   sun: 25
-  cd: 1.5
-  maintain: 3
-  interval: 1
+  cd: 0
+  maintain: 0
+  interval: 3
   bulletTypeID: 1
   sprite: {fileID: 21300000, guid: 5acc51c8e51f5c04080af3d1b9c8153a, type: 3}
   plantPos: {x: 0, y: 0}
@@ -26,4 +26,5 @@ MonoBehaviour:
   isShooter: 0
   isSun: 0
   isShovel: 0
-  isDisposable: 1
+  isDisposable: 0
+  isMine: 1

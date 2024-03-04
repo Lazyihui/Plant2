@@ -21,6 +21,8 @@ public static class PlantDomain {
         plantEntity.isShovel = tm.isShovel;
         plantEntity.sun = tm.sun;
         plantEntity.isDisposable = tm.isDisposable;
+        plantEntity.isMine = tm.isMine;
+        plantEntity.interval = tm.interval;
 
 
         plantEntity.typeID = tm.typeID;
@@ -98,7 +100,9 @@ public static class PlantDomain {
         plant.intervalTimer -= fixdt;
         if (plant.intervalTimer <= 0) {
             plant.intervalTimer = plant.interval;
+
             plant.cd = plant.maxCd;
+
             if (plant.isShooter) {
                 BulletDomain.Spawn(ctx, plant.bulletTypeID, plant.transform.position);
 

@@ -12,7 +12,7 @@ public static class UserIntetfaceDomain {
         for (int i = 0; i < plantLen; i++) {
             PlantEntity plant = plants[i];
             //好像不要这个判断
-            if (plant.isShooter == true || plant.isSun == true || plant.isDisposable == true) {
+            if (!plant.isShovel == true) {
                 if (Input.GetMouseButtonDown(0)) {
                     input.isMouseLeftDown = true;
                 }

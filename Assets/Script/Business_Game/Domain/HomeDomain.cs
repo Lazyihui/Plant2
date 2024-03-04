@@ -10,7 +10,7 @@ public static class HomeDomain {
         }
 
         HomeEntity homeEntity = GameObject.Instantiate(prafab).GetComponent<HomeEntity>();
-        
+
         homeEntity.Ctor();
         homeEntity.SetPos(tm.pos);
         homeEntity.typeID = tm.TypeID;
@@ -18,4 +18,10 @@ public static class HomeDomain {
         ctx.homeRepository.Add(homeEntity);
         return homeEntity;
     }
+
+    // public static void TrySpawnCart(GameContext ctx, HomeEntity homeEntity) {
+
+    //     CartDomain.Spawn(ctx, homeEntity.transform.position);
+
+    // }
 }

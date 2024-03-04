@@ -44,5 +44,7 @@ public class PlantTM : ScriptableObject {
 
     public bool isDisposable;
 
+    public bool isMine;
+
 
 }

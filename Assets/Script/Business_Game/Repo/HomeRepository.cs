@@ -29,5 +29,11 @@ public class HomeRepository {
         }
         return null;
     }
+    public int TakeAll(out HomeEntity[] array) {
+
+        all.Values.CopyTo(temArray, 0);
+        array = temArray;
+        return all.Count;
+    }
 
 }

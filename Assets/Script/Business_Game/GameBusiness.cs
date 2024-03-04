@@ -19,6 +19,15 @@ public static class GameBusiness {
             BaseDomain.Spawn(ctx, i);
 
         }
+        CartDomain.Spawn(ctx, new Vector2(0, 0));
+
+        int homeLen = ctx.homeRepository.TakeAll(out HomeEntity[] homes);
+        //生成推车
+        for (int i = 0; i < homeLen; i++) {
+            HomeEntity home = homes[i];
+            CartDomain.Spawn(ctx, home.transform.position);
+
+        }
 
         // 生成地块
         for (int i = -3; i < 2; i++) {
@@ -129,6 +138,17 @@ public static class GameBusiness {
             }
             if (plant.isDisposable == true) {
                 PlantDomain.OverLapMst(ctx, plant);
+            }
+            if (plant.isMine == true) {
+
+                plant.intervalTimer -= fixdt;
+
+                if (plant.intervalTimer <= 0) {
+                    plant.intervalTimer = plant.interval;
+                    Debug.Log("aa");
+                    PlantDomain.OverLapMst(ctx, plant);
+                }
+
             }
         }
 
