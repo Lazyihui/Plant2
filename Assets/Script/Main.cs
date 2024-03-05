@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 
-public class Main : MonoBehaviour {
+public class Main : MonoBehaviour
+{
     //拖拽绑定
 
     MainContext ctx;
@@ -11,7 +13,8 @@ public class Main : MonoBehaviour {
     AssetsContext assetsContext;
 
 
-    void Start() {
+    void Start()
+    {
 
         Application.targetFrameRate = 120;
 
@@ -29,21 +32,10 @@ public class Main : MonoBehaviour {
 
 
 
-        UIApp.Panel_Login_Open(ctx.uiContext, () => {
+        UIApp.Panel_Login_Open(ctx.uiContext, () =>
+        {
 
-            UIApp.Panel_Login_Close(ctx.uiContext);
-
-            UIApp.Panel_PlantManifest_Open(ctx.uiContext);
-
-            UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, 1, ctx.templateContext.plants[1].sprite, ctx.templateContext.plants[1].plantName, ctx.templateContext.plants[1].plantPrice, () => {
-
-
-            });
-
-            UIApp.Panel_Select_Open(ctx.uiContext);
-            UIApp.Panel_SelectElementAdd(ctx.uiContext, ctx.templateContext.plants[1].sprite, () => {
-                
-            });
+            GameBusiness.Select(ctx.gamaContext, ctx.templateContext);
 
 
             // GameBusiness.Enter(ctx.gamaContext, ctx.templateContext);
@@ -58,30 +50,37 @@ public class Main : MonoBehaviour {
 
     const float FIXED_INTERVAL = 0.01f;
 
-    void Update() {
+    void Update()
+    {
 
-        float dt = Time.deltaTime;
-        GameBusiness.PreTick(ctx.gamaContext, dt);
+        if (ctx.gamaContext.playerEntity.enterGame == true)
+        {
 
-        // if (Input.GetMouseButtonDown(0)) {
-        //     ctx.gamaContext.playerEntity.sun += 50;
-        //     //sunElement的sunSum增加
-        // }
 
-        restDT += dt;
-        if (restDT <= FIXED_INTERVAL) {
-            GameBusiness.FixedTick(ctx.gamaContext, restDT);
-            restDT = 0;
-
-        } else {
-            while (restDT >= FIXED_INTERVAL) {
-                GameBusiness.FixedTick(ctx.gamaContext, FIXED_INTERVAL);
-                restDT -= FIXED_INTERVAL;
+            float dt = Time.deltaTime;
+            GameBusiness.PreTick(ctx.gamaContext, dt);
+            // if (Input.GetMouseButtonDown(0)) {
+            //     ctx.gamaContext.playerEntity.sun += 50;
+            //     //sunElement的sunSum增加
+            // }
+            restDT += dt;
+            if (restDT <= FIXED_INTERVAL)
+            {
+                GameBusiness.FixedTick(ctx.gamaContext, restDT);
+                restDT = 0;
             }
+            else
+            {
+                while (restDT >= FIXED_INTERVAL)
+                {
+                    GameBusiness.FixedTick(ctx.gamaContext, FIXED_INTERVAL);
+                    restDT -= FIXED_INTERVAL;
+                }
+            }
+            GameBusiness.LateTick(ctx.gamaContext, dt);
+
         }
 
-
-        GameBusiness.LateTick(ctx.gamaContext, dt);
 
     }
 

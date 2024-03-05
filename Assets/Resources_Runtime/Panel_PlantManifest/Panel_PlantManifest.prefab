@@ -60,7 +60,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elePrefab: {fileID: 1453477772463110370, guid: 33077691bb403104399956160ca373b0, type: 3}
   plantManifestGroup: {fileID: 7001829578687142779}
-  cellCount: 0
 --- !u!1 &7618102669380840768
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,7 +153,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 3
+  m_ChildAlignment: 6
   m_Spacing: 5
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1

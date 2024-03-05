@@ -1,21 +1,91 @@
 using UnityEngine;
-public static class GameBusiness {
-    public static void Enter(GameContext ctx, TemplateContext tplctx) {
+public static class GameBusiness
+{
+
+    public static void Select(GameContext ctx, TemplateContext tplctx)
+    {
+        UIApp.Panel_Login_Close(ctx.uiContext);
+        PlayerDomain.Add(ctx);
+
+        UIApp.Panel_PlantManifest_Open(ctx.uiContext);
+
+        UIApp.Panel_Select_Open(ctx.uiContext);
+
+
+        int[] manifest = ctx.playerEntity.plantManifestTypeIDs;
+
+        // for (int i = 0; i < manifest.Length; i++)
+        // {
+        //     int plantTypeID = manifest[i];
+        //     bool has = tplctx.plants.TryGetValue(plantTypeID, out PlantTM plantTM);
+        //     if (!has)
+        //     {
+        //         Debug.LogError("ERror" + plantTypeID);
+        //         continue;
+        //     }
+
+        //     UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, plantTypeID, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, () =>
+        //     {
+
+        //         Vector2 pos = input.mouseWorldPos;
+
+        //         if (plantTM.sun <= ctx.playerEntity.sun)
+        //         {
+        //             PlantDomain.Spawn(ctx, plantTypeID, pos);
+        //         }
+
+        //     });
+
+        for (int i = 0; i < manifest.Length; i++)
+        {
+            int plantTypeID = manifest[i];
+            bool has = tplctx.plants.TryGetValue(plantTypeID, out PlantTM plantTM);
+            if (!has)
+            {
+                Debug.LogError("ERror" + plantTypeID);
+                continue;
+            }
+
+            UIApp.Panel_SelectElementAdd(ctx.uiContext, plantTM.sprite, () =>
+            {
+
+                int plantTypeID = plantTM.typeID;
+                UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, 1, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, () =>
+                {
+
+                    Vector2 pos = ctx.inputEntity.mouseWorldPos;
+
+                    if (plantTM.sun <= ctx.playerEntity.sun)
+                    {
+                        PlantDomain.Spawn(ctx, plantTypeID, pos);
+                    }
+
+                });
+
+
+            });
+        }
+    }
+
+
+    public static void Enter(GameContext ctx, TemplateContext tplctx)
+    {
+        //plar
+        PlayerDomain.init(ctx);
+        // PlayerDomain.Add(ctx);
 
         InputEntity input = ctx.inputEntity;
 
-        //plar
-        PlayerDomain.init(ctx);
-        PlayerDomain.Add(ctx);
-
         // 生成home界面
         //0先随便写一个ID
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 1; i <= 5; i++)
+        {
             HomeDomain.Spawn(ctx, i);
         }
 
         // 生成僵尸
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 1; i <= 5; i++)
+        {
             BaseDomain.Spawn(ctx, i);
 
         }
@@ -30,8 +100,10 @@ public static class GameBusiness {
         // }
 
         // 生成地块
-        for (int i = -3; i < 2; i++) {
-            for (int j = -8; j < 9; j++) {
+        for (int i = -3; i < 2; i++)
+        {
+            for (int j = -8; j < 9; j++)
+            {
                 CellDomain.Spawn(ctx, new Vector2(j, i));
             }
         }
@@ -46,29 +118,34 @@ public static class GameBusiness {
 
         UIApp.Panel_Shovel_Open(ctx.uiContext);
 
-        UIApp.Panel_ShovelElementAdd(ctx.uiContext, () => {
+        UIApp.Panel_ShovelElementAdd(ctx.uiContext, () =>
+        {
 
             Vector2 pos = input.mouseWorldPos;
-            //9是铲子
-            PlantDomain.Spawn(ctx, 9, pos);
+            //11是铲子
+            PlantDomain.Spawn(ctx, 11, pos);
         });
 
         // 生成植物
         int[] manifest = ctx.playerEntity.plantManifestTypeIDs;
 
-        for (int i = 0; i < manifest.Length; i++) {
+        for (int i = 0; i < manifest.Length; i++)
+        {
             int plantTypeID = manifest[i];
             bool has = tplctx.plants.TryGetValue(plantTypeID, out PlantTM plantTM);
-            if (!has) {
+            if (!has)
+            {
                 Debug.LogError("ERror" + plantTypeID);
                 continue;
             }
 
-            UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, plantTypeID, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, () => {
+            UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, plantTypeID, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, () =>
+            {
 
                 Vector2 pos = input.mouseWorldPos;
-                
-                if (plantTM.sun <= ctx.playerEntity.sun) {
+
+                if (plantTM.sun <= ctx.playerEntity.sun)
+                {
                     PlantDomain.Spawn(ctx, plantTypeID, pos);
                 }
 
@@ -76,10 +153,10 @@ public static class GameBusiness {
         }
 
 
-
     }
     // 每帧一次
-    public static void PreTick(GameContext ctx, float dt) {
+    public static void PreTick(GameContext ctx, float dt)
+    {
 
 
         InputEntity input = ctx.inputEntity;
@@ -97,9 +174,11 @@ public static class GameBusiness {
 
     }
     // 可能一帧多次
-    public static void FixedTick(GameContext ctx, float fixdt) {
+    public static void FixedTick(GameContext ctx, float fixdt)
+    {
 
-        if (!ctx.playerEntity.enterGame == true) {
+        if (!ctx.playerEntity.enterGame == true)
+        {
             return;
         }
         int basesLen = ctx.baseRepository.TakeAll(out BaseEntity[] bases);
@@ -108,7 +187,8 @@ public static class GameBusiness {
         BaseEntity baseEntity = bases[a];
         BaseDomain.TrySpawnMst(ctx, baseEntity, fixdt);
 
-        for (int i = 0; i < basesLen; i++) {
+        for (int i = 0; i < basesLen; i++)
+        {
             // BaseEntity baseEntity = bases[i];
 
         }
@@ -117,7 +197,8 @@ public static class GameBusiness {
         // for mst
 
         int mstLen = ctx.mstRepository.TakeAll(out MstEntity[] msts);
-        for (int i = 0; i < mstLen; i++) {
+        for (int i = 0; i < mstLen; i++)
+        {
             MstEntity mst = msts[i];
             // MstDomain.Spawn(ctx, 1, new Vector2(0, 0));
             MstDomain.MoveByPath(ctx, mst, fixdt);
@@ -126,25 +207,31 @@ public static class GameBusiness {
 
         // for plant
         int panelLen = ctx.plantRepository.TakeAll(out PlantEntity[] plants);
-        for (int i = 0; i < panelLen; i++) {
+        for (int i = 0; i < panelLen; i++)
+        {
             PlantEntity plant = plants[i];
-            if (plant.isPlanted == true) {
+            if (plant.isPlanted == true)
+            {
 
                 PlantDomain.TrySpawnBlt(ctx, plant, fixdt);
 
             }
-            if (plant.isShovel == true) {
+            if (plant.isShovel == true)
+            {
                 PlantDomain.OverLapShovel(ctx, plant);
 
             }
-            if (plant.isDisposable == true) {
+            if (plant.isDisposable == true)
+            {
                 PlantDomain.OverLapMst(ctx, plant);
             }
-            if (plant.isMine == true) {
+            if (plant.isMine == true)
+            {
 
                 plant.intervalTimer -= fixdt;
 
-                if (plant.intervalTimer <= 0) {
+                if (plant.intervalTimer <= 0)
+                {
                     plant.intervalTimer = plant.interval;
                     Debug.Log("aa");
                     PlantDomain.OverLapMst(ctx, plant);
@@ -155,15 +242,18 @@ public static class GameBusiness {
 
         // for bullet
         int bulletLen = ctx.bulletRepository.TakeAll(out BulletEntity[] bullets);
-        for (int i = 0; i < bulletLen; i++) {
+        for (int i = 0; i < bulletLen; i++)
+        {
             BulletEntity bullet = bullets[i];
             //1是子弹
-            if (bullet.typeID == 1) {
+            if (bullet.typeID == 1)
+            {
                 BulletDomain.MoveX(bullet, 1, fixdt);
                 BulletDomain.OverLapMst(ctx, bullet);
             }
             //2是太阳
-            if (bullet.typeID == 2) {
+            if (bullet.typeID == 2)
+            {
                 BulletDomain.OverLapMouse(ctx, bullet);
             }
         }
@@ -172,7 +262,8 @@ public static class GameBusiness {
 
     }
     //每针一次
-    public static void LateTick(GameContext ctx, float dt) {
+    public static void LateTick(GameContext ctx, float dt)
+    {
 
         UIApp.Panel_SunSet(ctx.uiContext, ctx.playerEntity.sun);
         ctx.inputEntity.Reset();

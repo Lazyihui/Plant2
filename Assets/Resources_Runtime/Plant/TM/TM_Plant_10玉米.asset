@@ -10,18 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70e974ef4e77d464289df59997538324, type: 3}
-  m_Name: TM_Plant8
+  m_Name: "TM_Plant_10\u7389\u7C73"
   m_EditorClassIdentifier: 
-  typeID: 8
-  plantName: 
-  plantPrice: 
-  isShooter: 0
-  isSun: 1
-  isShovel: 0
-  cd: 1
-  maintain: 5
+  typeID: 10
+  plantName: "\u7389\u7C73"
+  plantPrice: 125
+  sun: 125
+  cd: 3
+  maintain: 1
   interval: 1
-  bulletTypeID: 2
-  sprite: {fileID: 21300000, guid: 98629ac9c7684424ca34745c97f811b1, type: 3}
+  bulletTypeID: 1
+  sprite: {fileID: 21300000, guid: 6b6f756591218164a9c6fb73e9025a35, type: 3}
   plantPos: {x: 0, y: 0}
   shapeSize: {x: 0, y: 0}
+  isShooter: 1
+  isSun: 0
+  isShovel: 0
+  isDisposable: 0
+  isMine: 0
