@@ -4,36 +4,48 @@ using System.Collections.Generic;
 
 
 
-public class HomeRepository {
+public class HomeRepository
+{
 
     Dictionary<int, HomeEntity> all;
 
     HomeEntity[] temArray;
 
-    public HomeRepository() {
+    public HomeRepository()
+    {
         all = new Dictionary<int, HomeEntity>();
         temArray = new HomeEntity[10];
     }
 
-    public void Add(HomeEntity entity) {
+    public void Add(HomeEntity entity)
+    {
         all.Add(entity.id, entity);
     }
     //委托 Predicate<HomeEntity> Action<>
-    public HomeEntity Find(Predicate<HomeEntity> predicate) {
-        foreach (HomeEntity home in all.Values) {
+    public HomeEntity Find(Predicate<HomeEntity> predicate)
+    {
+        foreach (HomeEntity home in all.Values)
+        {
             bool isMatch = predicate(home);
 
-            if (isMatch) {
+            if (isMatch)
+            {
                 return home;
             }
         }
         return null;
     }
-    public int TakeAll(out HomeEntity[] array) {
-
+    public int TakeAll(out HomeEntity[] array)
+    {
+        if (all.Count > temArray.Length)
+        {
+            temArray = new HomeEntity[all.Count * 2];
+        }
         all.Values.CopyTo(temArray, 0);
+
         array = temArray;
         return all.Count;
+
     }
 
 }
