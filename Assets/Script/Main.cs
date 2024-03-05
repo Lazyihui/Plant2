@@ -1,6 +1,7 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class Main : MonoBehaviour {
     //拖拽绑定
@@ -29,16 +30,14 @@ public class Main : MonoBehaviour {
 
 
         UIApp.Panel_Login_Open(ctx.uiContext, () => {
+
+
+            
             UIApp.Panel_Login_Close(ctx.uiContext);
             GameBusiness.Enter(ctx.gamaContext, ctx.templateContext);
 
 
         });
-
-
-
-
-
 
 
     }

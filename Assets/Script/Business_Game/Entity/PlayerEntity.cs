@@ -7,6 +7,10 @@ public class PlayerEntity {
 
     public bool enterGame;
 
+    public bool isGameOver;
+
+    public bool isSelectPlant;
+
     public PlayerEntity() {
 
     }
