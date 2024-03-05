@@ -13,6 +13,8 @@ public class UIcontext {
 
     public Panel_Shovel panel_Shovel;
 
+    public Panel_Select panel_Select;
+
 
 
     public UIcontext() {

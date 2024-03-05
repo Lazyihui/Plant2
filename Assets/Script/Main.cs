@@ -1,4 +1,4 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,10 +31,22 @@ public class Main : MonoBehaviour {
 
         UIApp.Panel_Login_Open(ctx.uiContext, () => {
 
-
-            
             UIApp.Panel_Login_Close(ctx.uiContext);
-            GameBusiness.Enter(ctx.gamaContext, ctx.templateContext);
+
+            UIApp.Panel_PlantManifest_Open(ctx.uiContext);
+
+            UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, 1, ctx.templateContext.plants[1].sprite, ctx.templateContext.plants[1].plantName, ctx.templateContext.plants[1].plantPrice, () => {
+
+
+            });
+
+            UIApp.Panel_Select_Open(ctx.uiContext);
+            UIApp.Panel_SelectElementAdd(ctx.uiContext, ctx.templateContext.plants[1].sprite, () => {
+                
+            });
+
+
+            // GameBusiness.Enter(ctx.gamaContext, ctx.templateContext);
 
 
         });
@@ -72,4 +84,5 @@ public class Main : MonoBehaviour {
         GameBusiness.LateTick(ctx.gamaContext, dt);
 
     }
+
 }

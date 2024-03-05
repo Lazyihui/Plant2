@@ -47,6 +47,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Panels
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10b4b16df3452ec4bbe3927ecdc93f79
+    m_Address: Assets/Resources_Runtime/Panel_select/Panel_SelectElement.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Panels
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7c86d046bcff2c4ba7532ef5e79b507
+    m_Address: Assets/Resources_Runtime/Panel_select/Panel_Select.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Panels
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 403753c24b148b546b668cc24fa1e4b4, type: 2}
   m_SchemaSet:

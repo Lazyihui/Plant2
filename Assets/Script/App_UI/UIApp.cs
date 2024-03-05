@@ -109,4 +109,23 @@ public static class UIApp {
         panel_Shovel.AddElement(onPlantClickHandle);
     }
 
+    public static void Panel_Select_Open(UIcontext ctx) {
+        Panel_Select panel_Select = ctx.panel_Select;
+        if (panel_Select == null) {
+            ctx.assetsContext.Panel_TryGetPrefab("Panel_Select", out GameObject prefab);
+
+            panel_Select = GameObject.Instantiate(prefab, ctx.canvas.transform).GetComponent<Panel_Select>();
+
+            panel_Select.Ctor();
+            ctx.panel_Select = panel_Select;
+        }
+        panel_Select.Init();
+        panel_Select.Show();
+    }
+
+    public static void Panel_SelectElementAdd(UIcontext ctx, Sprite sprite, Action onPlantClickHandle) {
+        Panel_Select panel_Select = ctx.panel_Select;
+        panel_Select.AddElement(sprite, onPlantClickHandle);
+    }
+
 }
