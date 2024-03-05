@@ -1,40 +1,41 @@
+using System.Threading;
 using UnityEngine;
 public static class GameBusiness
 {
 
     public static void Select(GameContext ctx, TemplateContext tplctx)
     {
+        InputEntity input = ctx.inputEntity;
         UIApp.Panel_Login_Close(ctx.uiContext);
         PlayerDomain.Add(ctx);
+        PlayerDomain.InitSelect(ctx);
+
+        // 打开UI
+
+
+        UIApp.Panel_Sun_Open(ctx.uiContext);
+
+        UIApp.Panel_SunSet(ctx.uiContext, ctx.playerEntity.sun);
+
+        UIApp.Panel_Shovel_Open(ctx.uiContext);
+
+        UIApp.Panel_ShovelElementAdd(ctx.uiContext, () =>
+        {
+
+            Vector2 pos = input.mouseWorldPos;
+            //11是铲子
+            PlantDomain.Spawn(ctx, 11, pos);
+        });
+
 
         UIApp.Panel_PlantManifest_Open(ctx.uiContext);
+
+
 
         UIApp.Panel_Select_Open(ctx.uiContext);
 
 
         int[] manifest = ctx.playerEntity.plantManifestTypeIDs;
-
-        // for (int i = 0; i < manifest.Length; i++)
-        // {
-        //     int plantTypeID = manifest[i];
-        //     bool has = tplctx.plants.TryGetValue(plantTypeID, out PlantTM plantTM);
-        //     if (!has)
-        //     {
-        //         Debug.LogError("ERror" + plantTypeID);
-        //         continue;
-        //     }
-
-        //     UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, plantTypeID, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, () =>
-        //     {
-
-        //         Vector2 pos = input.mouseWorldPos;
-
-        //         if (plantTM.sun <= ctx.playerEntity.sun)
-        //         {
-        //             PlantDomain.Spawn(ctx, plantTypeID, pos);
-        //         }
-
-        //     });
 
         for (int i = 0; i < manifest.Length; i++)
         {
@@ -48,21 +49,26 @@ public static class GameBusiness
 
             UIApp.Panel_SelectElementAdd(ctx.uiContext, plantTM.sprite, () =>
             {
-
                 int plantTypeID = plantTM.typeID;
-                UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, 1, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, () =>
-                {
 
+                UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, 1, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, ctx.playerEntity.plantCount, () =>
+                {
+                    Debug.Log("22222222222222");
                     Vector2 pos = ctx.inputEntity.mouseWorldPos;
 
                     if (plantTM.sun <= ctx.playerEntity.sun)
                     {
                         PlantDomain.Spawn(ctx, plantTypeID, pos);
                     }
+                    //这里想写一个按钮 
+                    if (Input.GetKeyDown(KeyCode.A))
+                    {
+                        Debug.Log("aa");
+                        UIApp.Panel_Select_Close(ctx.uiContext);
+                        Enter(ctx, tplctx);
+                    }
 
                 });
-
-
             });
         }
     }
@@ -127,30 +133,31 @@ public static class GameBusiness
         });
 
         // 生成植物
-        int[] manifest = ctx.playerEntity.plantManifestTypeIDs;
+        // int[] manifest = ctx.playerEntity.plantManifestTypeIDs;
 
-        for (int i = 0; i < manifest.Length; i++)
-        {
-            int plantTypeID = manifest[i];
-            bool has = tplctx.plants.TryGetValue(plantTypeID, out PlantTM plantTM);
-            if (!has)
-            {
-                Debug.LogError("ERror" + plantTypeID);
-                continue;
-            }
+        // for (int i = 0; i < manifest.Length; i++)
+        // {
+        //     int plantTypeID = manifest[i];
+        //     bool has = tplctx.plants.TryGetValue(plantTypeID, out PlantTM plantTM);
+        //     if (!has)
+        //     {
+        //         Debug.LogError("ERror" + plantTypeID);
+        //         continue;
+        //     }
 
-            UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, plantTypeID, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, () =>
-            {
+        //     UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, plantTypeID, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, ctx.playerEntity.plantCount, () =>
+        //     {
 
-                Vector2 pos = input.mouseWorldPos;
+        //         Vector2 pos = input.mouseWorldPos;
 
-                if (plantTM.sun <= ctx.playerEntity.sun)
-                {
-                    PlantDomain.Spawn(ctx, plantTypeID, pos);
-                }
+        //         if (plantTM.sun <= ctx.playerEntity.sun)
+        //         {
+        //             PlantDomain.Spawn(ctx, plantTypeID, pos);
+        //         }
 
-            });
-        }
+
+        //     });
+        // }
 
 
     }

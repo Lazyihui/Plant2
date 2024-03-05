@@ -11,6 +11,9 @@ public class PlayerEntity {
 
     public bool isSelectPlant;
 
+
+    public int plantCount;
+
     public PlayerEntity() {
 
     }

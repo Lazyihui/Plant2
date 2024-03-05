@@ -9,6 +9,8 @@ public class Panel_PlantManifest : MonoBehaviour {
 
     [SerializeField] Transform plantManifestGroup;
 
+    public int elementCount = 0;
+
     public void Ctor() {
     }
     public void Init() {

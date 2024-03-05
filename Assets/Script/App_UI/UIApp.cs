@@ -37,8 +37,13 @@ public static class UIApp {
     }
 
     //增加element
-    public static void Panel_PlantManifest_AddElement(UIcontext ctx, int typeID, Sprite sprite, string plantName, string plantPrice, Action onPlantClickHandle) {
+    public static void Panel_PlantManifest_AddElement(UIcontext ctx, int typeID, Sprite sprite, string plantName, string plantPrice, int count,Action onPlantClickHandle) {
+        
         Panel_PlantManifest panel_PlantManifest = ctx.panel_PlantManifest;
+        panel_PlantManifest.elementCount+=1;
+        if(panel_PlantManifest.elementCount>count){
+            return;
+        }
         panel_PlantManifest.AddElement(typeID, sprite, plantName, plantPrice, onPlantClickHandle);
     }
 
@@ -121,6 +126,13 @@ public static class UIApp {
         }
         panel_Select.Init();
         panel_Select.Show();
+    }
+
+    public static void Panel_Select_Close(UIcontext context) {
+        Panel_Select panel_Select = context.panel_Select;
+        if (panel_Select != null) {
+            panel_Select.Close();
+        }
     }
 
     public static void Panel_SelectElementAdd(UIcontext ctx, Sprite sprite, Action onPlantClickHandle) {
