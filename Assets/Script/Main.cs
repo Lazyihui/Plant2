@@ -12,7 +12,9 @@ public class Main : MonoBehaviour
 
     AssetsContext assetsContext;
 
+    bool isStart = false;
 
+    //这里只运行一次！！！！！！！！
     void Start()
     {
 
@@ -37,12 +39,16 @@ public class Main : MonoBehaviour
 
             GameBusiness.Select(ctx.gamaContext, ctx.templateContext);
 
-            
 
             // GameBusiness.Enter(ctx.gamaContext, ctx.templateContext);
 
 
         });
+
+        if (isStart == true)
+        {
+            GameBusiness.Enter(ctx.gamaContext, ctx.templateContext);
+        }
 
 
     }
@@ -53,6 +59,13 @@ public class Main : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            UIApp.Panel_Select_Close(ctx.uiContext);
+            isStart = true;
+        }
+
+
 
         if (ctx.gamaContext.playerEntity.enterGame == true)
         {

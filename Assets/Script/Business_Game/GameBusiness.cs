@@ -54,6 +54,7 @@ public static class GameBusiness
                 UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, 1, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, ctx.playerEntity.plantCount, () =>
                 {
                     Debug.Log("22222222222222");
+
                     Vector2 pos = ctx.inputEntity.mouseWorldPos;
 
                     if (plantTM.sun <= ctx.playerEntity.sun)
@@ -61,12 +62,7 @@ public static class GameBusiness
                         PlantDomain.Spawn(ctx, plantTypeID, pos);
                     }
                     //这里想写一个按钮 
-                    if (Input.GetKeyDown(KeyCode.A))
-                    {
-                        Debug.Log("aa");
-                        UIApp.Panel_Select_Close(ctx.uiContext);
-                        Enter(ctx, tplctx);
-                    }
+
 
                 });
             });
@@ -133,38 +129,37 @@ public static class GameBusiness
         });
 
         // 生成植物
-        // int[] manifest = ctx.playerEntity.plantManifestTypeIDs;
+        int[] manifest = ctx.playerEntity.plantManifestTypeIDs;
 
-        // for (int i = 0; i < manifest.Length; i++)
-        // {
-        //     int plantTypeID = manifest[i];
-        //     bool has = tplctx.plants.TryGetValue(plantTypeID, out PlantTM plantTM);
-        //     if (!has)
-        //     {
-        //         Debug.LogError("ERror" + plantTypeID);
-        //         continue;
-        //     }
+        for (int i = 0; i < manifest.Length; i++)
+        {
+            int plantTypeID = manifest[i];
+            bool has = tplctx.plants.TryGetValue(plantTypeID, out PlantTM plantTM);
+            if (!has)
+            {
+                Debug.LogError("ERror" + plantTypeID);
+                continue;
+            }
 
-        //     UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, plantTypeID, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, ctx.playerEntity.plantCount, () =>
-        //     {
+            UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, plantTypeID, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, ctx.playerEntity.plantCount, () =>
+            {
 
-        //         Vector2 pos = input.mouseWorldPos;
+                Vector2 pos = input.mouseWorldPos;
 
-        //         if (plantTM.sun <= ctx.playerEntity.sun)
-        //         {
-        //             PlantDomain.Spawn(ctx, plantTypeID, pos);
-        //         }
+                if (plantTM.sun <= ctx.playerEntity.sun)
+                {
+                    PlantDomain.Spawn(ctx, plantTypeID, pos);
+                }
 
 
-        //     });
-        // }
+            });
+        }
 
 
     }
     // 每帧一次
     public static void PreTick(GameContext ctx, float dt)
     {
-
 
         InputEntity input = ctx.inputEntity;
 
@@ -184,10 +179,6 @@ public static class GameBusiness
     public static void FixedTick(GameContext ctx, float fixdt)
     {
 
-        if (!ctx.playerEntity.enterGame == true)
-        {
-            return;
-        }
         int basesLen = ctx.baseRepository.TakeAll(out BaseEntity[] bases);
 
         int a = Common.Random(0, 5);
@@ -271,7 +262,6 @@ public static class GameBusiness
     //每针一次
     public static void LateTick(GameContext ctx, float dt)
     {
-
         UIApp.Panel_SunSet(ctx.uiContext, ctx.playerEntity.sun);
         ctx.inputEntity.Reset();
 
