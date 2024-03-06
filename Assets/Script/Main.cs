@@ -48,68 +48,57 @@ public class Main : MonoBehaviour
 
 
         var uiEvents = ctx.uiContext.events;
-
+        //开始页面的点击
         uiEvents.Login_StartGameHandle = () =>
         {
             GameBusiness.Select(ctx.gamaContext, ctx.templateContext);
         };
-
-
-
+        // 铲子的点击
         uiEvents.ShovelElement_ShovelHandle = () =>
         {
 
             Vector2 pos = input.mouseWorldPos;
+            //11是铲子
             PlantDomain.Spawn(ctx.gamaContext, 11, pos);
         };
-
-
-
-
-
-
-
+        //选择植物的点击
         uiEvents.SelectElement_SelectHandle = () =>
         {
 
 
 
-            // int[] manifest = ctx.gamaContext.playerEntity.plantManifestTypeIDs;
+            int plantClickSelectTypeID = ctx.gamaContext.playerEntity.plantClickSelectTypeID;
 
-            // for (int i = 0; i < manifest.Length; i++)
+            bool has = ctx.templateContext.plants.TryGetValue(plantClickSelectTypeID, out PlantTM plantTM);
+            if (!has)
+            {
+                Debug.LogError("ERror" + plantClickSelectTypeID);
+            }
+
+            int plantClickTypeID = plantTM.typeID;
+
+            UIApp.Panel_PlantManifest_AddElement_NoClick(ctx.uiContext, 1, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, ctx.gamaContext.playerEntity.plantCount);
             // {
-            //     int plantTypeID = manifest[i];
-            //     bool has = ctx.templateContext.plants.TryGetValue(plantTypeID, out PlantTM plantTM);
-            //     if (!has)
+
+            //     Vector2 pos = ctx.gamaContext.inputEntity.mouseWorldPos;
+
+            //     if (plantTM.sun <= ctx.gamaContext.playerEntity.sun)
             //     {
-            //         Debug.LogError("ERror" + plantTypeID);
-            //         continue;
+            //         PlantDomain.Spawn(ctx.gamaContext, plantClickTypeID, pos);
             //     }
-
-            //     UIApp.Panel_SelectElementAdd(ctx.uiContext, plantTM.sprite, () =>
-            //     {
-            //         int plantTypeID = plantTM.typeID;
-
-            //         UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, 1, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, ctx.gamaContext.playerEntity.plantCount, () =>
-            //         {
-            //             Debug.Log("22222222222222");
-
-            //             Vector2 pos = ctx.gamaContext.inputEntity.mouseWorldPos;
-
-            //             if (plantTM.sun <= ctx.gamaContext.playerEntity.sun)
-            //             {
-            //                 PlantDomain.Spawn(ctx.gamaContext, plantTypeID, pos);
-            //             }
-            //             //这里想写一个按钮 
-
-
-            //         });
-            //     });
-            // }
+            //     //这里想写一个按钮 
+            // });
 
             // UIApp.Panel_Select_Close(ctx.uiContext);
+        };
+
+        //植物的点击
+        uiEvents.PlantManifestElement_PlantHandle = () =>
+        {
 
 
+
+            Debug.Log("PlantManifestElement_PlantHandle");
         };
 
     }

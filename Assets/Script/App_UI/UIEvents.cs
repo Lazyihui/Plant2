@@ -1,31 +1,48 @@
 using System;
 
-public class UIEvents {
+public class UIEvents
+{
 
     public Action Login_StartGameHandle;
-    public void Login_StartGame() {
-        if (Login_StartGameHandle != null) {
+    public void Login_StartGame()
+    {
+        if (Login_StartGameHandle != null)
+        {
             Login_StartGameHandle.Invoke();
         }
     }
 
     public Action SelectElement_SelectHandle;
 
-    public void Shovel_Select() {
-        if (SelectElement_SelectHandle != null) {
+    public void SelectElement_Select()
+    {
+        if (SelectElement_SelectHandle != null)
+        {
             SelectElement_SelectHandle.Invoke();
         }
     }
 
-    public Action ShovelElement_ShovelHandle;  
+    public Action ShovelElement_ShovelHandle;
 
-    public void Panel_ShovelElement_Shovel() {
-        if (ShovelElement_ShovelHandle != null) {
+    public void ShovelElement_Shovel()
+    {
+        if (ShovelElement_ShovelHandle != null)
+        {
             ShovelElement_ShovelHandle.Invoke();
         }
     }
 
+    public Action PlantManifestElement_PlantHandle;
 
-    public UIEvents() {}
+    public void PlantManifestElement_Plant()
+    {
+        if (PlantManifestElement_PlantHandle != null)
+        {
+            PlantManifestElement_PlantHandle.Invoke();
+        }
+    }
+
+
+    public UIEvents() { }
 
 }

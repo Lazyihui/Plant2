@@ -23,12 +23,16 @@ public class Panel_Shovel : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
-    public void AddElement(Action onPlantClickHandle) {
+    public void AddElement(UIcontext ctx) {
 
         Panel_ShovelElement ele = GameObject.Instantiate(element, Group);
         
         ele.Ctor();
-        ele.OnPlantClickHandle = onPlantClickHandle;
+        
+        ele.OnPlantClickHandle = () => {
+            ctx.events.ShovelElement_Shovel();
+        };
+
         ele.Init();
     }
 

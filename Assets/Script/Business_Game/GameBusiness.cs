@@ -39,25 +39,13 @@ public static class GameBusiness
                 continue;
             }
 
-            UIApp.Panel_SelectElementAdd(ctx.uiContext, plantTM.sprite, () =>
-            {
-                int plantTypeID = plantTM.typeID;
+            UIApp.Panel_SelectElementAdd(ctx.uiContext, plantTM.sprite);
 
-                UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, 1, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, ctx.playerEntity.plantCount, () =>
-                {
-                    Debug.Log("22222222222222");
+            ctx.playerEntity.plantClickSelectTypeID = plantTM.typeID;
 
-                    Vector2 pos = ctx.inputEntity.mouseWorldPos;
+            // UIApp.Panel_PlantManifest_AddElement_NoClick(ctx.uiContext, 1, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, ctx.playerEntity.plantCount);
 
-                    if (plantTM.sun <= ctx.playerEntity.sun)
-                    {
-                        PlantDomain.Spawn(ctx, plantTypeID, pos);
-                    }
-                    //这里想写一个按钮 
-
-
-                });
-            });
+            //这里想写一个按钮 
         }
     }
 
@@ -127,18 +115,17 @@ public static class GameBusiness
                 continue;
             }
 
-            UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, plantTypeID, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, ctx.playerEntity.plantCount, () =>
+            UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, plantTypeID, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, ctx.playerEntity.plantCount);
+
+
+            Vector2 pos = input.mouseWorldPos;
+
+            if (plantTM.sun <= ctx.playerEntity.sun)
             {
-
-                Vector2 pos = input.mouseWorldPos;
-
-                if (plantTM.sun <= ctx.playerEntity.sun)
-                {
-                    PlantDomain.Spawn(ctx, plantTypeID, pos);
-                }
+                PlantDomain.Spawn(ctx, plantTypeID, pos);
+            }
 
 
-            });
         }
 
 

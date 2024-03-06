@@ -23,11 +23,13 @@ public class Panel_Select : MonoBehaviour{
         gameObject.SetActive(false);
     }
 
-    public void AddElement(Sprite sprite, Action onSelectClickHandle) {
+    public void AddElement(Sprite sprite, UIcontext ctx) {
         Panel_SelectElement ele = GameObject.Instantiate(elePrefab, selectGroup);
      
         ele.Ctor();
-        ele.OnSelectClickHandle = onSelectClickHandle;
+        ele.OnSelectClickHandle = () => {
+            ctx.events.SelectElement_Select();
+        };
         ele.Init(sprite);
     }
 

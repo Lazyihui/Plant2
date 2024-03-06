@@ -10,7 +10,7 @@ public class PlayerEntity {
     public bool isGameOver;
 
     public bool isSelectPlant;
-
+    public int  plantClickSelectTypeID;
 
     public int plantCount;
 
