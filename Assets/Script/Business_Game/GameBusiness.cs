@@ -15,13 +15,7 @@ public static class GameBusiness
         UIApp.Panel_SunSet(ctx.uiContext, ctx.playerEntity.sun);
 
         UIApp.Panel_Shovel_Open(ctx.uiContext);
-        UIApp.Panel_ShovelElementAdd(ctx.uiContext, () =>
-        {
-
-            Vector2 pos = input.mouseWorldPos;
-            //11是铲子
-            PlantDomain.Spawn(ctx, 11, pos);
-        });
+        UIApp.Panel_ShovelElementAdd(ctx.uiContext);
 
 
         UIApp.Panel_PlantManifest_Open(ctx.uiContext);
@@ -32,6 +26,8 @@ public static class GameBusiness
 
 
         int[] manifest = ctx.playerEntity.plantManifestTypeIDs;
+
+
 
         for (int i = 0; i < manifest.Length; i++)
         {
@@ -116,13 +112,7 @@ public static class GameBusiness
 
         UIApp.Panel_Shovel_Open(ctx.uiContext);
 
-        UIApp.Panel_ShovelElementAdd(ctx.uiContext, () =>
-        {
-
-            Vector2 pos = input.mouseWorldPos;
-            //11是铲子
-            PlantDomain.Spawn(ctx, 11, pos);
-        });
+        UIApp.Panel_ShovelElementAdd(ctx.uiContext);
 
         // 生成植物
         int[] manifest = ctx.playerEntity.plantManifestTypeIDs;

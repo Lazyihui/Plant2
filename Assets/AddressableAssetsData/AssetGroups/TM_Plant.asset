@@ -77,6 +77,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Plant
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5e4f68202b76a048af25fd25a20a097
+    m_Address: "TM_Plant_11\u94F2\u5B50"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Plant
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 403753c24b148b546b668cc24fa1e4b4, type: 2}
   m_SchemaSet:

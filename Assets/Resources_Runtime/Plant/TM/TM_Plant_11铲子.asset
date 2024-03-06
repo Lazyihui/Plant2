@@ -20,7 +20,7 @@ MonoBehaviour:
   maintain: 0
   interval: 0
   bulletTypeID: 0
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 0bd8abba84e3a8c489eadfaa6cfccf3b, type: 3}
   plantPos: {x: 0, y: 0}
   shapeSize: {x: 0, y: 0}
   isShooter: 0
