@@ -30,6 +30,8 @@ public static class UIApp {
 
         panel_Login.Show();
     }
+
+
     public static void Panel_Login_Close(UIcontext context) {
         Panel_Login panel_Login = context.panel_Login;
         if (panel_Login != null) {
@@ -110,9 +112,9 @@ public static class UIApp {
         panel_Shovel.Show();
     }
 
-    public static void Panel_ShovelElementAdd(UIcontext ctx, Action onPlantClickHandle) {
+    public static void Panel_ShovelElementAdd(UIcontext ctx) {
         Panel_Shovel panel_Shovel = ctx.panel_Shovel;
-        panel_Shovel.AddElement(onPlantClickHandle);
+        panel_Shovel.AddElement(ctx.events.ShovelElement_ShovelHandle);
     }
 
     public static void Panel_Select_Open(UIcontext ctx) {

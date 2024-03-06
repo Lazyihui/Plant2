@@ -9,6 +9,8 @@ public class Main : MonoBehaviour
     //拖拽绑定
     MainContext ctx;
 
+
+
     // 这里只运行一次！！！！！！！！
     void Start()
     {
@@ -27,10 +29,13 @@ public class Main : MonoBehaviour
         TemplateInfra.Load(ctx.templateContext);
         AsstesInfra.Load(ctx.assetsContext);
 
+
         // ==== Binding ====
         Binding();
 
         // ==== Init ====
+
+
 
         // ==== Enter ====
         LoginBusiness.Enter(ctx);
@@ -39,11 +44,72 @@ public class Main : MonoBehaviour
 
     void Binding()
     {
+        InputEntity input = ctx.gamaContext.inputEntity;
+
 
         var uiEvents = ctx.uiContext.events;
+
         uiEvents.Login_StartGameHandle = () =>
         {
             GameBusiness.Select(ctx.gamaContext, ctx.templateContext);
+        };
+
+
+
+        uiEvents.ShovelElement_ShovelHandle = () =>
+        {
+
+            Vector2 pos = input.mouseWorldPos;
+            PlantDomain.Spawn(ctx.gamaContext, 11, pos);
+        };
+
+
+
+
+
+
+
+        uiEvents.SelectElement_SelectHandle = () =>
+        {
+
+
+
+            // int[] manifest = ctx.gamaContext.playerEntity.plantManifestTypeIDs;
+
+            // for (int i = 0; i < manifest.Length; i++)
+            // {
+            //     int plantTypeID = manifest[i];
+            //     bool has = ctx.templateContext.plants.TryGetValue(plantTypeID, out PlantTM plantTM);
+            //     if (!has)
+            //     {
+            //         Debug.LogError("ERror" + plantTypeID);
+            //         continue;
+            //     }
+
+            //     UIApp.Panel_SelectElementAdd(ctx.uiContext, plantTM.sprite, () =>
+            //     {
+            //         int plantTypeID = plantTM.typeID;
+
+            //         UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, 1, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, ctx.gamaContext.playerEntity.plantCount, () =>
+            //         {
+            //             Debug.Log("22222222222222");
+
+            //             Vector2 pos = ctx.gamaContext.inputEntity.mouseWorldPos;
+
+            //             if (plantTM.sun <= ctx.gamaContext.playerEntity.sun)
+            //             {
+            //                 PlantDomain.Spawn(ctx.gamaContext, plantTypeID, pos);
+            //             }
+            //             //这里想写一个按钮 
+
+
+            //         });
+            //     });
+            // }
+
+            // UIApp.Panel_Select_Close(ctx.uiContext);
+
+
         };
 
     }
