@@ -12,13 +12,13 @@ public class UIEvents
         }
     }
 
-    public Action SelectElement_SelectHandle;
+    public Action<int> SelectElement_SelectHandle;
 
-    public void SelectElement_Select()
+    public void SelectElement_Select(int typeID)
     {
         if (SelectElement_SelectHandle != null)
         {
-            SelectElement_SelectHandle.Invoke();
+            SelectElement_SelectHandle.Invoke(typeID);
         }
     }
 

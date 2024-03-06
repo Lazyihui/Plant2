@@ -62,12 +62,12 @@ public class Main : MonoBehaviour
             PlantDomain.Spawn(ctx.gamaContext, 11, pos);
         };
         //选择植物的点击
-        uiEvents.SelectElement_SelectHandle = () =>
+        uiEvents.SelectElement_SelectHandle = (typeID) =>
         {
 
 
 
-            int plantClickSelectTypeID = ctx.gamaContext.playerEntity.plantClickSelectTypeID;
+            int plantClickSelectTypeID = typeID;
 
             bool has = ctx.templateContext.plants.TryGetValue(plantClickSelectTypeID, out PlantTM plantTM);
             if (!has)

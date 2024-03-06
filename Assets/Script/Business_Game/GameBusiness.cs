@@ -39,9 +39,8 @@ public static class GameBusiness
                 continue;
             }
 
-            UIApp.Panel_SelectElementAdd(ctx.uiContext, plantTM.sprite);
+            UIApp.Panel_SelectElementAdd(ctx.uiContext, plantTM.sprite,plantTM.typeID);
 
-            ctx.playerEntity.plantClickSelectTypeID = plantTM.typeID;
 
             // UIApp.Panel_PlantManifest_AddElement_NoClick(ctx.uiContext, 1, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, ctx.playerEntity.plantCount);
 

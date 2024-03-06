@@ -9,16 +9,20 @@ public class Panel_SelectElement : MonoBehaviour {
 
     [SerializeField] Button selectButton;
 
-    public Action OnSelectClickHandle;
+    public int typeID;
+
+    public Action<int> OnSelectClickHandle;
 
     public void Ctor() {
         selectButton.onClick.AddListener(() => {
-            OnSelectClickHandle.Invoke();
+            OnSelectClickHandle.Invoke(this.typeID);
         });
     }
 
-    public void Init(Sprite sprite) {
+    public void Init(Sprite sprite, int typeID) {
         elePrefab.sprite = sprite;
+        this.typeID = typeID;
+
     }
 
 

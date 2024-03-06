@@ -174,10 +174,10 @@ public static class UIApp
         }
     }
 
-    public static void Panel_SelectElementAdd(UIcontext ctx, Sprite sprite)
+    public static void Panel_SelectElementAdd(UIcontext ctx, Sprite sprite,int typeID)
     {
         Panel_Select panel_Select = ctx.panel_Select;
-        panel_Select.AddElement(sprite, ctx);
+        panel_Select.AddElement(sprite, ctx,typeID);
     }
 
 }
