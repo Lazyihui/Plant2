@@ -11,14 +11,10 @@ public static class GameBusiness
         PlayerDomain.InitSelect(ctx);
 
         // 打开UI
-
-
         UIApp.Panel_Sun_Open(ctx.uiContext);
-
         UIApp.Panel_SunSet(ctx.uiContext, ctx.playerEntity.sun);
 
         UIApp.Panel_Shovel_Open(ctx.uiContext);
-
         UIApp.Panel_ShovelElementAdd(ctx.uiContext, () =>
         {
 

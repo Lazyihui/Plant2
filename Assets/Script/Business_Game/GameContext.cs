@@ -45,7 +45,6 @@ public class GameContext {
         mstRepository = new MstRepository();
         bulletRepository = new BulletRepository();  
         cellRepository = new CellRepository();
-        uiContext = new UIcontext();
         plantRepository = new plantRepository();
         inputEntity = new InputEntity();
         cartRepository = new CartRepository();

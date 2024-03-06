@@ -1,6 +1,8 @@
 using UnityEngine;
 public class UIcontext {
 
+    public UIEvents events;
+
     public Panel_Login panel_Login;
 
     public AssetsContext assetsContext;
@@ -18,6 +20,7 @@ public class UIcontext {
 
 
     public UIcontext() {
+        events = new UIEvents();
     }
 
     public void Inject(AssetsContext assetsContext, Canvas canvas) {

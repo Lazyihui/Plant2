@@ -7,49 +7,44 @@ using UnityEngine;
 public class Main : MonoBehaviour
 {
     //拖拽绑定
-
     MainContext ctx;
 
-    AssetsContext assetsContext;
-
-    bool isStart = false;
-
-    //这里只运行一次！！！！！！！！
+    // 这里只运行一次！！！！！！！！
     void Start()
     {
 
         Application.targetFrameRate = 120;
 
-
+        // === Instantiation ====
         ctx = new MainContext();
-
         Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
         Camera mainCamera = gameObject.GetComponentInChildren<Camera>();
 
+        // ==== Injection ====
         ctx.Inject(canvas, mainCamera);
 
-
+        // ==== Load ====
         TemplateInfra.Load(ctx.templateContext);
         AsstesInfra.Load(ctx.assetsContext);
 
+        // ==== Binding ====
+        Binding();
 
+        // ==== Init ====
 
-        UIApp.Panel_Login_Open(ctx.uiContext, () =>
+        // ==== Enter ====
+        LoginBusiness.Enter(ctx);
+
+    }
+
+    void Binding()
+    {
+
+        var uiEvents = ctx.uiContext.events;
+        uiEvents.Login_StartGameHandle = () =>
         {
-
             GameBusiness.Select(ctx.gamaContext, ctx.templateContext);
-
-
-            // GameBusiness.Enter(ctx.gamaContext, ctx.templateContext);
-
-
-        });
-
-        if (isStart == true)
-        {
-            GameBusiness.Enter(ctx.gamaContext, ctx.templateContext);
-        }
-
+        };
 
     }
 
@@ -62,10 +57,7 @@ public class Main : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             UIApp.Panel_Select_Close(ctx.uiContext);
-            isStart = true;
         }
-
-
 
         if (ctx.gamaContext.playerEntity.enterGame == true)
         {
