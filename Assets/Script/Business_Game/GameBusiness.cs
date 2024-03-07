@@ -116,15 +116,6 @@ public static class GameBusiness
 
             UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, plantTypeID, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, ctx.playerEntity.plantCount);
 
-
-            Vector2 pos = input.mouseWorldPos;
-
-            if (plantTM.sun <= ctx.playerEntity.sun)
-            {
-                PlantDomain.Spawn(ctx, plantTypeID, pos);
-            }
-
-
         }
 
 

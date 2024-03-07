@@ -32,13 +32,13 @@ public class UIEvents
         }
     }
 
-    public Action PlantManifestElement_PlantHandle;
+    public Action<int> PlantManifestElement_PlantHandle;
 
-    public void PlantManifestElement_Plant()
+    public void PlantManifestElement_Plant(int typeID)
     {
         if (PlantManifestElement_PlantHandle != null)
         {
-            PlantManifestElement_PlantHandle.Invoke();
+            PlantManifestElement_PlantHandle.Invoke(typeID);
         }
     }
 

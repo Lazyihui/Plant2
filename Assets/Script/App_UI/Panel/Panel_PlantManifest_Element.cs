@@ -14,14 +14,14 @@ public class Panel_PlantManifestElement : MonoBehaviour {
 
     [SerializeField] Text plantPrice;
 
-    public Action OnPlantClickHandle;
+    public Action<int> OnPlantClickHandle;
 
-    // public int typeID;
+    public int typeID;
 
     public void Ctor() {
 
         plantButton.onClick.AddListener(() => {
-            OnPlantClickHandle.Invoke();
+            OnPlantClickHandle.Invoke(this.typeID);
         });
 
         
