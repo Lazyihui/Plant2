@@ -25,6 +25,6 @@ MonoBehaviour:
   shapeSize: {x: 0, y: 0}
   isShooter: 0
   isSun: 0
-  isShovel: 0
+  isShovel: 1
   isDisposable: 0
   isMine: 0

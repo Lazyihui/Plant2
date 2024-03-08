@@ -97,9 +97,9 @@ public static class GameBusiness
 
         UIApp.Panel_SunSet(ctx.uiContext, ctx.playerEntity.sun);
 
-        UIApp.Panel_Shovel_Open(ctx.uiContext);
+        // UIApp.Panel_Shovel_Open(ctx.uiContext);
 
-        UIApp.Panel_ShovelElementAdd(ctx.uiContext);
+        // UIApp.Panel_ShovelElementAdd(ctx.uiContext);
 
         // 生成植物
         int[] manifest = ctx.playerEntity.plantManifestTypeIDs;
