@@ -17,6 +17,8 @@ public class UIcontext {
 
     public Panel_Select panel_Select;
 
+    public Panel_Start panel_Start;
+
 
 
     public UIcontext() {

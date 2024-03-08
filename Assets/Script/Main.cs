@@ -59,6 +59,7 @@ public class Main : MonoBehaviour {
         };
         //选择植物的点击
         uiEvents.SelectElement_SelectHandle = (typeID) => {
+
             int plantClickSelectTypeID = typeID;
 
             bool has = ctx.templateContext.plants.TryGetValue(plantClickSelectTypeID, out PlantTM plantTM);
@@ -73,6 +74,7 @@ public class Main : MonoBehaviour {
 
         //植物的点击
         uiEvents.PlantManifestElement_PlantHandle = (typeID) => {
+
             int plantClickTypeID = typeID;
 
             bool has = ctx.templateContext.plants.TryGetValue(plantClickTypeID, out PlantTM plantTM);
@@ -86,7 +88,15 @@ public class Main : MonoBehaviour {
             Debug.Log("PlantManifestElement_PlantHandle");
         };
 
+        uiEvents.Panel_Start_StartHandle = () => {
+            GameBusiness.Enter(ctx.gamaContext, ctx.templateContext);
+            UIApp.Panel_Start_Close(ctx.uiContext);
+        };
+
     }
+
+
+
 
     float restDT;
 
@@ -95,6 +105,7 @@ public class Main : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(KeyCode.A)) {
             UIApp.Panel_Select_Close(ctx.uiContext);
+            UIApp.Panel_Start_Open(ctx.uiContext);
         }
 
         if (ctx.gamaContext.playerEntity.enterGame == true) {

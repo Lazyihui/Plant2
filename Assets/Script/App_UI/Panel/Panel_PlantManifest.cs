@@ -48,7 +48,6 @@ public class Panel_PlantManifest : MonoBehaviour
 
         Panel_PlantManifestElement ele = GameObject.Instantiate(elePrefab, plantManifestGroup);
 
-        ele.Ctor();
         ele.Init(typeID, sprite, plantName, plantPrice);
 
     }
