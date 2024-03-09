@@ -30,7 +30,6 @@ public static class GameBusiness {
                 Debug.LogError("ERror" + plantTypeID);
                 continue;
             }
-            Debug.Log(plantTM.typeID);
             UIApp.Panel_SelectElementAdd(ctx.uiContext, plantTM.sprite, plantTM.typeID);
         }
     }
@@ -89,10 +88,7 @@ public static class GameBusiness {
                 Debug.LogError("ERror" + plantTypeID);
                 continue;
             }
-
             int plantClickID = plantTM.typeID;
-
-
             UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, plantTypeID, plantTM.sprite,
              plantTM.plantName, plantTM.plantPrice, ctx.playerEntity.plantCount, plantTM.typeID);
 

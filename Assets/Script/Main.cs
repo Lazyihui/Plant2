@@ -62,6 +62,7 @@ public class Main : MonoBehaviour {
         uiEvents.SelectElement_SelectHandle = (typeID) => {
 
             int plantClickSelectTypeID = typeID;
+            Debug.Log("SelectElement_SelectHandle" + plantClickSelectTypeID);
 
             bool has = ctx.templateContext.plants.TryGetValue(plantClickSelectTypeID, out PlantTM plantTM);
             if (!has) {
@@ -84,7 +85,6 @@ public class Main : MonoBehaviour {
             if (!has) {
                 Debug.LogError("ERror==" + plantClickTypeID);
             }
-            Debug.Log(plantTM.sun);
 
             Vector2 pos = ctx.gamaContext.inputEntity.mouseWorldPos;
 
