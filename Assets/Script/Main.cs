@@ -69,7 +69,7 @@ public class Main : MonoBehaviour {
                 Debug.LogError("ERror" + plantClickSelectTypeID);
             }
 
-            UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, 1, plantTM.sprite, plantTM.plantName, plantTM.plantPrice,
+            UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, plantTM.typeID, plantTM.sprite, plantTM.plantName, plantTM.plantPrice,
              ctx.gamaContext.playerEntity.plantCount, plantTM.typeID);
 
             // UIApp.Panel_Select_Close(ctx.uiContext);
@@ -91,9 +91,6 @@ public class Main : MonoBehaviour {
             if (plantTM.sun <= ctx.gamaContext.playerEntity.sun) {
                 PlantDomain.Spawn(ctx.gamaContext, plantClickTypeID, pos);
             }
-
-
-            Debug.Log("PlantManifestElement_PlantHandle");
 
         };
 

@@ -13,6 +13,7 @@ public class Panel_PlantManifestElement : MonoBehaviour {
     [SerializeField] Text plantName;
 
     [SerializeField] Text plantPrice;
+    
     public int typeID;
 
     public Action<int> OnPlantClickHandle;
@@ -27,7 +28,7 @@ public class Panel_PlantManifestElement : MonoBehaviour {
         elePrefab.sprite = sprite;
         this.plantName.text = plantName;
         this.plantPrice.text = plantPrice;
-
+        this.typeID = typeID;
     }
 
 }
