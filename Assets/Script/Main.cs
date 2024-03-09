@@ -57,6 +57,7 @@ public class Main : MonoBehaviour {
             //11是铲子
             PlantDomain.Spawn(ctx.gamaContext, 11, pos);
         };
+
         //选择植物的点击
         uiEvents.SelectElement_SelectHandle = (typeID) => {
 
@@ -67,17 +68,23 @@ public class Main : MonoBehaviour {
                 Debug.LogError("ERror" + plantClickSelectTypeID);
             }
 
-            UIApp.Panel_PlantManifest_AddElement_NoClick(ctx.uiContext, 1, plantTM.sprite, plantTM.plantName, plantTM.plantPrice, ctx.gamaContext.playerEntity.plantCount);
+            UIApp.Panel_PlantManifest_AddElement(ctx.uiContext, 1, plantTM.sprite, plantTM.plantName, plantTM.plantPrice,
+             ctx.gamaContext.playerEntity.plantCount, plantTM.typeID);
 
             // UIApp.Panel_Select_Close(ctx.uiContext);
         };
 
         //植物的点击
+
         uiEvents.PlantManifestElement_PlantHandle = (typeID) => {
 
             int plantClickTypeID = typeID;
 
             bool has = ctx.templateContext.plants.TryGetValue(plantClickTypeID, out PlantTM plantTM);
+            if (!has) {
+                Debug.LogError("ERror==" + plantClickTypeID);
+            }
+            Debug.Log(plantTM.sun);
 
             Vector2 pos = ctx.gamaContext.inputEntity.mouseWorldPos;
 
@@ -85,7 +92,9 @@ public class Main : MonoBehaviour {
                 PlantDomain.Spawn(ctx.gamaContext, plantClickTypeID, pos);
             }
 
+
             Debug.Log("PlantManifestElement_PlantHandle");
+
         };
 
         uiEvents.Panel_Start_StartHandle = () => {
@@ -109,7 +118,6 @@ public class Main : MonoBehaviour {
         }
 
         if (ctx.gamaContext.playerEntity.enterGame == true) {
-
 
             float dt = Time.deltaTime;
             GameBusiness.PreTick(ctx.gamaContext, dt);

@@ -61,14 +61,14 @@ public static class UIApp {
     }
 
     //增加element
-    public static void Panel_PlantManifest_AddElement(UIcontext ctx, int typeID, Sprite sprite, string plantName, string plantPrice, int count) {
+    public static void Panel_PlantManifest_AddElement(UIcontext ctx, int typeID, Sprite sprite, string plantName, string plantPrice, int count,int plantClickID) {
 
         Panel_PlantManifest panel_PlantManifest = ctx.panel_PlantManifest;
         panel_PlantManifest.elementCount += 1;
         if (panel_PlantManifest.elementCount > count) {
             return;
         }
-        panel_PlantManifest.AddElement(typeID, sprite, plantName, plantPrice, ctx);
+        panel_PlantManifest.AddElement(typeID, sprite, plantName, plantPrice, ctx,plantClickID);
     }
 
     public static void Panel_PlantManifest_AddElement_NoClick(UIcontext ctx, int typeID, Sprite sprite, string plantName, string plantPrice, int count) {

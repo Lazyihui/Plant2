@@ -1,8 +1,6 @@
 using UnityEngine;
-public static class PlayerDomain
-{
-    public static void Add(GameContext ctx)
-    {
+public static class PlayerDomain {
+    public static void Add(GameContext ctx) {
 
         GameConfigTM tm = ctx.templateContext.gameConfig;
 
@@ -13,15 +11,13 @@ public static class PlayerDomain
 
     }
 
-    public static void InitSelect(GameContext ctx)
-    {
+    public static void InitSelect(GameContext ctx) {
         ctx.playerEntity.sun = 100;
         ctx.playerEntity.plantCount = 7;
     }
 
-    public static void init(GameContext ctx)
-    {
-
+    public static void init(GameContext ctx) {
+        
         ctx.playerEntity.enterGame = true;
     }
 }

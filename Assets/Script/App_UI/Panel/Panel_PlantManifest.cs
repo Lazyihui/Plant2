@@ -29,15 +29,15 @@ public class Panel_PlantManifest : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void AddElement(int typeID, Sprite sprite, string plantName, string plantPrice, UIcontext ctx)
+    public void AddElement(int typeID, Sprite sprite, string plantName, string plantPrice, UIcontext ctx,int plantClickID)
     {
 
         Panel_PlantManifestElement ele = GameObject.Instantiate(elePrefab, plantManifestGroup);
 
         ele.Ctor();
-        ele.OnPlantClickHandle = (typeID) =>
+        ele.OnPlantClickHandle = (plantClickID) =>
         {
-            ctx.events.PlantManifestElement_Plant(typeID);
+            ctx.events.PlantManifestElement_Plant(plantClickID);
         };
         ele.Init(typeID, sprite, plantName, plantPrice);
 

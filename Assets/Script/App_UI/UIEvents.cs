@@ -17,14 +17,6 @@ public class UIEvents {
         }
     }
 
-    public Action ShovelElement_ShovelHandle;
-
-    public void ShovelElement_Shovel() {
-        if (ShovelElement_ShovelHandle != null) {
-            ShovelElement_ShovelHandle.Invoke();
-        }
-    }
-
     public Action<int> PlantManifestElement_PlantHandle;
 
     public void PlantManifestElement_Plant(int typeID) {
@@ -33,6 +25,13 @@ public class UIEvents {
         }
     }
 
+    public Action ShovelElement_ShovelHandle;
+
+    public void ShovelElement_Shovel() {
+        if (ShovelElement_ShovelHandle != null) {
+            ShovelElement_ShovelHandle.Invoke();
+        }
+    }
 
     public Action Panel_Start_StartHandle;
 
