@@ -57,11 +57,11 @@ public static class GameBusiness {
 
         int homeLen = ctx.homeRepository.TakeAll(out HomeEntity[] homes);
         //生成推车
-        // for (int i = 0; i < homeLen; i++) {
-        //     HomeEntity home = homes[i];
-        //     CartDomain.Spawn(ctx, home.transform.position);
+        for (int i = 0; i < homeLen; i++) {
+            HomeEntity home = homes[i];
+            CartDomain.Spawn(ctx, home.transform.position);
 
-        // }
+        }
 
         // 生成地块
         for (int i = -3; i < 2; i++) {

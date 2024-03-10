@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 618138596285693370}
-  - component: {fileID: 8046534074000843641}
+  - component: {fileID: 8443231137137356310}
   m_Layer: 0
   m_Name: Entity_Cart
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 739497083898281204}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8046534074000843641
+--- !u!114 &8443231137137356310
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,12 +42,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 214504038672477873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6b35e3c4fd6249479fcbcb81e214d52, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d4ef643f3246b646b4b4bfffa62ae6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  pos: {x: 0, y: 0}
-  size: {x: 0, y: 0}
+  speed: 0
 --- !u!1 &673152542470771926
 GameObject:
   m_ObjectHideFlags: 0
