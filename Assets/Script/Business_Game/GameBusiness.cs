@@ -55,12 +55,11 @@ public static class GameBusiness {
         }
         // CartDomain.Spawn(ctx, new Vector2(0, 0));
 
-        int homeLen = ctx.homeRepository.TakeAll(out HomeEntity[] homes);
         //生成推车
+        int homeLen = ctx.homeRepository.TakeAll(out HomeEntity[] homes);
         for (int i = 0; i < homeLen; i++) {
             HomeEntity home = homes[i];
-            CartDomain.Spawn(ctx, home.transform.position);
-
+            CartDomain.Spawn(ctx, new Vector2(home.transform.position.x + 1, home.transform.position.y));
         }
 
         // 生成地块
@@ -179,6 +178,20 @@ public static class GameBusiness {
             //2是太阳
             if (bullet.typeID == 2) {
                 BulletDomain.OverLapMouse(ctx, bullet);
+            }
+        }
+
+        // for cart
+        int cartLen = ctx.cartRepository.TakeAll(out CartEntity[] carts);
+        for (int i = 0; i < cartLen; i++) {
+            CartEntity cart = carts[i];
+            CartDomain.OverLapMst(ctx, cart, fixdt);
+            if (cart.isMove == true) {
+                Debug.Log("cart");
+                CartDomain.Move(cart, new Vector2(1, 0), fixdt);
+                if (cart.transform.position.x > 8) {
+                    CartDomain.UnSpawn(ctx, cart);
+                }
             }
         }
 

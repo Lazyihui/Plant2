@@ -21,4 +21,31 @@ public static class CartDomain {
 
         return cartEntity;
     }
+    public static void UnSpawn(GameContext ctx, CartEntity cart) {
+        ctx.cartRepository.Remove(cart);
+        cart.tearDown();
+    }
+
+    public static void Move(CartEntity cart, Vector2 dir, float fixdt) {
+        cart.Move(dir, fixdt);
+    }
+    public static void OverLapMst(GameContext ctx, CartEntity cart, float fixdt) {
+
+        MstEntity target = ctx.mstRepository.Find((mst) => {
+            float dirSqr = Vector2.SqrMagnitude(mst.transform.position - cart.transform.position);
+
+            if (dirSqr < 0.01f) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+        if (target != null) {
+            cart.isMove = true;
+            MstDomain.UnSpawn(ctx, target);
+        }
+
+    }
+
 }

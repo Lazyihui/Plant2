@@ -6,6 +6,8 @@ public class CartEntity : MonoBehaviour {
 
     public float speed;
 
+    public bool isMove;
+
     public void Ctor() {
 
     }
@@ -18,7 +20,8 @@ public class CartEntity : MonoBehaviour {
     }
 
     public void Init() {
-        speed = 2f;
+        speed = 2.0f;
+        isMove = false;
     }
 
 

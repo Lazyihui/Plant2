@@ -41,9 +41,6 @@ public static class MstDomain {
 
         Vector2 target = mst.path[mst.pathIndex];
 
-
-
-
         Vector2 dir = target - (Vector2)mst.transform.position;
         if (dir.sqrMagnitude < 0.01f) {
             mst.pathIndex++;
