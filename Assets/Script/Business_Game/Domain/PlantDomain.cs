@@ -90,7 +90,7 @@ public static class PlantDomain {
         plant.tearDown();
     }
 
-    public static void TrySpawnBlt(GameContext ctx, PlantEntity plant, float fixdt) {
+    public static void TrySpawnNoBlt(GameContext ctx, PlantEntity plant, float fixdt) {
 
         plant.cd -= fixdt;
         if (plant.cd > 0) {
@@ -103,17 +103,13 @@ public static class PlantDomain {
 
             plant.cd = plant.maxCd;
 
-            if (plant.isShooter) {
-                BulletDomain.Spawn(ctx, plant.bulletTypeID, plant.transform.position);
-
-            }
-
             if (plant.isSun) {
                 // 生成阳光
                 Vector2 pos = new Vector2(plant.transform.position.x + 1, plant.transform.position.y - 1);
 
                 BulletDomain.Spawn(ctx, plant.bulletTypeID, pos);
             }
+
             if (plant.isShovel) {
                 // 生成铲子
                 return;
@@ -131,5 +127,45 @@ public static class PlantDomain {
             plant.cd = plant.maxCd;
         }
     }
+
+    public static void TrySpawnBlt(GameContext ctx, PlantEntity plant, float fixdt) {
+
+        int cellLen = ctx.cellRepository.TakeAll(out CellEntity[] cells);
+
+        for (int i = 0; i < cellLen; i++) {
+            CellEntity cell = cells[i];
+            if (!cell.isHaveMst == true) {
+                return;
+            } else {
+                
+                Debug.Log(cell.line);
+
+                plant.cd -= fixdt;
+                if (plant.cd > 0) {
+                    return;
+                }
+
+                plant.intervalTimer -= fixdt;
+                if (plant.intervalTimer <= 0) {
+                    plant.intervalTimer = plant.interval;
+
+                    plant.cd = plant.maxCd;
+
+                    if (plant.isShooter) {
+                        BulletDomain.Spawn(ctx, plant.bulletTypeID, plant.transform.position);
+                        cell.isHaveMst = false;
+                    }
+                }
+
+                plant.maintainTimer -= fixdt;
+                if (plant.maintainTimer <= 0) {
+                    plant.maintainTimer = plant.maintain;
+                    plant.cd = plant.maxCd;
+                }
+            }
+        }
+    }
+
+
 
 }

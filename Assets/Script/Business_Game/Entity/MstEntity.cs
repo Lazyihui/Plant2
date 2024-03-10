@@ -11,6 +11,8 @@ public class MstEntity : MonoBehaviour {
 
     public bool isLive;
 
+    public int line;
+
     public SpriteRenderer spriteRenderer;
 
 

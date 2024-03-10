@@ -64,8 +64,11 @@ public static class GameBusiness {
 
         // 生成地块
         for (int i = -3; i < 2; i++) {
+
             for (int j = -8; j < 9; j++) {
+
                 CellDomain.Spawn(ctx, new Vector2(j, i));
+
             }
         }
         // CellDomain.Spawn(ctx, new Vector2(0, 0));
@@ -118,8 +121,10 @@ public static class GameBusiness {
         int basesLen = ctx.baseRepository.TakeAll(out BaseEntity[] bases);
 
         int a = Common.Random(0, 5);
+
         BaseEntity baseEntity = bases[a];
-        BaseDomain.TrySpawnMst(ctx, baseEntity, fixdt);
+        BaseDomain.TrySpawnMst(ctx, baseEntity, fixdt, a);
+
 
         for (int i = 0; i < basesLen; i++) {
             // BaseEntity baseEntity = bases[i];
@@ -142,7 +147,7 @@ public static class GameBusiness {
         for (int i = 0; i < panelLen; i++) {
             PlantEntity plant = plants[i];
             if (plant.isPlanted == true) {
-
+                PlantDomain.TrySpawnNoBlt(ctx, plant, fixdt);
                 PlantDomain.TrySpawnBlt(ctx, plant, fixdt);
 
             }
@@ -159,7 +164,6 @@ public static class GameBusiness {
 
                 if (plant.intervalTimer <= 0) {
                     plant.intervalTimer = plant.interval;
-                    Debug.Log("aa");
                     PlantDomain.OverLapMst(ctx, plant);
                 }
 
@@ -187,16 +191,18 @@ public static class GameBusiness {
             CartEntity cart = carts[i];
             CartDomain.OverLapMst(ctx, cart, fixdt);
             if (cart.isMove == true) {
-                Debug.Log("cart");
                 CartDomain.Move(cart, new Vector2(1, 0), fixdt);
                 if (cart.transform.position.x > 8) {
                     CartDomain.UnSpawn(ctx, cart);
                 }
             }
         }
-
-
-
+        // for cell 
+        int cellLen = ctx.cellRepository.TakeAll(out CellEntity[] cells);
+        for (int i = 0; i < cellLen; i++) {
+            CellEntity cell = cells[i];
+            CellDomain.MstOnCell(ctx, cell);
+        }
     }
     //每针一次
     public static void LateTick(GameContext ctx, float dt) {

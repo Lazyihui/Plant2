@@ -4,7 +4,7 @@ public static class BaseDomain {
 
 
     public static BaseEntity Spawn(GameContext ctx, int typeID) {
-        
+
         ctx.assetsContext.Entity_TryGetPrefab("Entity_Base", out GameObject prafab);
 
         bool has = ctx.templateContext.bases.TryGetValue(typeID, out BasesTM tm);
@@ -35,7 +35,7 @@ public static class BaseDomain {
         return entity;
     }
 
-    public static void TrySpawnMst(GameContext ctx, BaseEntity bases, float fixdt) {
+    public static void TrySpawnMst(GameContext ctx, BaseEntity bases, float fixdt, int line) {
         // 单个
         bases.cd -= fixdt;
         if (bases.cd > 0) {
@@ -49,11 +49,11 @@ public static class BaseDomain {
 
             MstEntity mst = MstDomain.Spawn(ctx, bases.mstID, bases.transform.position);
             mst.path = bases.path;
-
+            mst.line = line;
 
         }
 
-        
+
 
         bases.maintainTimer -= fixdt;
         if (bases.maintainTimer <= 0) {
@@ -63,5 +63,5 @@ public static class BaseDomain {
         }
     }
 
-    
+
 }

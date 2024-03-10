@@ -17,6 +17,7 @@ public static class MstDomain {
         mstEntity.SetPos(pos);
         mstEntity.isLive = true;
         mstEntity.id = ctx.MstID++;
+        mstEntity.line = -10;
 
         mstEntity.moveSpeed = tm.moveSpeed;
         mstEntity.Init(tm.sprite);
@@ -49,7 +50,7 @@ public static class MstDomain {
             mst.Move(dir, fixdt);
         }
     }
-    
+
 
     public static void OverLapHome(GameContext ctx, MstEntity mst) {
         HomeEntity target = ctx.homeRepository.Find((home) => {
@@ -61,12 +62,12 @@ public static class MstDomain {
                 return false;
             }
         });
-        
+
         if (target != null) {
             UnSpawn(ctx, mst);
             // Debug.Log("游戏结束");
         }
     }
 
-    
+
 }

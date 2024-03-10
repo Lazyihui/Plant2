@@ -8,6 +8,10 @@ public class CellEntity : MonoBehaviour {
 
     public Vector2 size;
 
+    public int line;
+
+    public bool isHaveMst;
+
     public void Ctor() { }
 
     public CellEntity() { }
@@ -18,7 +22,7 @@ public class CellEntity : MonoBehaviour {
     }
 
     public void Init() {
-        
+
         size = new Vector2(0.5f, 0.5f);
     }
 }
