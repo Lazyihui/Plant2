@@ -29,7 +29,7 @@ public class Main : MonoBehaviour {
 
 
         // ==== Binding ====
-        Binding();
+        Binding(mainCamera);
 
         // ==== Init ====
 
@@ -40,7 +40,7 @@ public class Main : MonoBehaviour {
 
     }
 
-    void Binding() {
+    void Binding(Camera camera) {
         InputEntity input = ctx.gamaContext.inputEntity;
 
 
@@ -84,16 +84,14 @@ public class Main : MonoBehaviour {
             if (!has) {
                 Debug.LogError("ERror==" + plantClickTypeID);
             }
-
-            Vector2 pos = ctx.gamaContext.inputEntity.mouseWorldPos;
-
             if (plantTM.sun <= ctx.gamaContext.playerEntity.sun) {
-                PlantDomain.Spawn(ctx.gamaContext, plantClickTypeID, pos);
-            }
 
+                PlantDomain.Spawn(ctx.gamaContext, plantClickTypeID, Vector2.zero);
+            }
         };
 
         uiEvents.Panel_Start_StartHandle = () => {
+            UIApp.Panel_Select_Close(ctx.uiContext);
             GameBusiness.Enter(ctx.gamaContext, ctx.templateContext);
             UIApp.Panel_Start_Close(ctx.uiContext);
         };
@@ -108,9 +106,9 @@ public class Main : MonoBehaviour {
     const float FIXED_INTERVAL = 0.01f;
 
     void Update() {
+
+        //测试用
         if (Input.GetKeyDown(KeyCode.A)) {
-            UIApp.Panel_Select_Close(ctx.uiContext);
-            UIApp.Panel_Start_Open(ctx.uiContext);
         }
 
         if (ctx.gamaContext.playerEntity.enterGame == true) {

@@ -13,7 +13,7 @@ public static class PlantDomain {
         PlantEntity plantEntity = GameObject.Instantiate(prefab).GetComponent<PlantEntity>();
 
         plantEntity.Ctor();
-        plantEntity.SetPos(tm.plantPos);
+        plantEntity.SetPos(pos);
         plantEntity.id = ctx.plantID++;
         plantEntity.isPlanted = false;
         plantEntity.isShooter = tm.isShooter;
@@ -76,13 +76,6 @@ public static class PlantDomain {
                     MstDomain.UnSpawn(ctx, mst);
                 }
             }
-            // if(mst.isLive == true && plant.isPlanted == true){
-            //     float dirSqr = Vector2.SqrMagnitude(mst.transform.position - plant.transform.position);
-            //     if(dirSqr < 0.1f){
-            //         mst.isLive = false;
-            //         UnSpawn(ctx, mst);
-            //     }
-            // }
         }
     }
     public static void UnSpawn(GameContext ctx, PlantEntity plant) {

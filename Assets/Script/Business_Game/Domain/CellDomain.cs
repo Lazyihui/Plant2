@@ -13,12 +13,29 @@ public static class CellDomain {
         cellEntity.id = ctx.cellID++;
         cellEntity.line = (int)pos.y + 3;
         cellEntity.isHaveMst = false;
+        cellEntity.isHavePlant = false;
+        cellEntity.isPlant = false;
         ctx.cellRepository.Add(cellEntity);
         return cellEntity;
     }
+    //鼠标和cell的检测
+    public static void OverLapMouse(GameContext ctx) {
+        InputEntity input = ctx.inputEntity;
+        int cellLen = ctx.cellRepository.TakeAll(out CellEntity[] cells);
+        for (int i = 0; i < cellLen; i++) {
+            CellEntity cell = cells[i];
+                Vector3 pos = new Vector3((int)input.mouseWorldPos.x, (int)input.mouseWorldPos.y);
+                float dirSqr = Vector2.SqrMagnitude(cell.transform.position - pos);
+                if (dirSqr < 0.1f) {
+                    Debug.Log(cell.isPlant);
+                    cell.isPlant = true;
+                    Debug.Log(cell.isPlant);
+            }
+        }
+    }
 
     //Cell 和 mst 的看在不在一条路上
-    public static void  MstOnCell(GameContext ctx, CellEntity cell) {
+    public static void MstOnCell(GameContext ctx, CellEntity cell) {
         int mstLen = ctx.mstRepository.TakeAll(out MstEntity[] msts);
 
         for (int i = 0; i < mstLen; i++) {

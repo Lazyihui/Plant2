@@ -16,26 +16,32 @@ public static class UserIntetfaceDomain {
                 if (Input.GetMouseButtonDown(0)) {
                     input.isMouseLeftDown = true;
                 }
+                //遍历格子
 
 
+                //植物的位置
                 if (plant.isPlanted == false && plant.sun <= ctx.playerEntity.sun) {
                     Vector2 posz = new Vector2((int)input.mouseWorldPos.x, (int)input.mouseWorldPos.y);
                     plant.transform.position = posz;
                 }
-                Vector2 posInt = new Vector2((int)input.mouseWorldPos.x, (int)input.mouseWorldPos.y);
 
-                Vector2 pos = posInt;
+                int cellLen = ctx.cellRepository.TakeAll(out CellEntity[] cells);
+                for (int j = 0; j < cellLen; j++) {
+                    Vector2 posInt = new Vector2((int)input.mouseWorldPos.x, (int)input.mouseWorldPos.y);
+                    Vector2 pos = posInt;
 
-                if (input.isMouseLeftDown && plant.isPlanted == false && plant.sun <= ctx.playerEntity.sun) {
+                    CellEntity cell = cells[j];
+                    if (input.isMouseLeftDown && plant.isPlanted == false && plant.sun <= ctx.playerEntity.sun && cell.isPlant == false) {
+                        Debug.Log("cell.isPlant");
+                        plant.transform.position = pos;
+                        ctx.playerEntity.sun -= plant.sun;
+                        plant.isPlanted = true;
 
-                    plant.transform.position = pos;
-                    ctx.playerEntity.sun -= plant.sun;
-                    plant.isPlanted = true;
-
+                    }
+                    input.isMouseLeftDown = false;
                 }
-                input.isMouseLeftDown = false;
             }
-
+            //铲子
             if (plant.isShovel == true) {
                 if (Input.GetMouseButtonDown(0)) {
                     input.isMouseLeftDown = true;

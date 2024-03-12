@@ -28,7 +28,6 @@ public class PlantTM : ScriptableObject {
     [Header("Sprite")]
     public Sprite sprite;
 
-    public Vector2 plantPos;
 
 
     // 好像没用

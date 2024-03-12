@@ -109,8 +109,6 @@ public static class GameBusiness {
 
         input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
 
-
-
         //植物跟着鼠标走
         UserIntetfaceDomain.PreTick(ctx, dt);
 
@@ -128,7 +126,6 @@ public static class GameBusiness {
 
         for (int i = 0; i < basesLen; i++) {
             // BaseEntity baseEntity = bases[i];
-
         }
 
 
@@ -198,6 +195,7 @@ public static class GameBusiness {
             }
         }
         // for cell 
+        CellDomain.OverLapMouse(ctx);
         int cellLen = ctx.cellRepository.TakeAll(out CellEntity[] cells);
         for (int i = 0; i < cellLen; i++) {
             CellEntity cell = cells[i];

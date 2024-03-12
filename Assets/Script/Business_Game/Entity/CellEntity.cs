@@ -12,6 +12,10 @@ public class CellEntity : MonoBehaviour {
 
     public bool isHaveMst;
 
+    public bool isHavePlant;
+
+    public bool isPlant;
+
     public void Ctor() { }
 
     public CellEntity() { }

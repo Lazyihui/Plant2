@@ -67,6 +67,7 @@ public static class UIApp {
         Panel_PlantManifest panel_PlantManifest = ctx.panel_PlantManifest;
         panel_PlantManifest.elementCount += 1;
         if (panel_PlantManifest.elementCount > count) {
+            Panel_Start_Open(ctx);
             return;
         }
         panel_PlantManifest.AddElement(typeID, sprite, plantName, plantPrice, ctx, plantClickID);
