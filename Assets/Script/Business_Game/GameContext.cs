@@ -2,6 +2,8 @@ using UnityEngine;
 public class GameContext {
 
     public PlayerEntity playerEntity;
+    public GridEntity gridEntity;
+
     public AssetsContext assetsContext;
 
     public InputEntity inputEntity;
@@ -43,7 +45,7 @@ public class GameContext {
         homeRepository = new HomeRepository();
         baseRepository = new BaseRepository();
         mstRepository = new MstRepository();
-        bulletRepository = new BulletRepository();  
+        bulletRepository = new BulletRepository();
         cellRepository = new CellRepository();
         plantRepository = new plantRepository();
         inputEntity = new InputEntity();

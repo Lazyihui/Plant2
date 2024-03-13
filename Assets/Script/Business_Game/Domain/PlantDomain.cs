@@ -99,10 +99,9 @@ public static class PlantDomain {
             if (plant.isSun) {
                 // 生成阳光
                 Vector2 pos = new Vector2(plant.transform.position.x + 1, plant.transform.position.y - 1);
-
                 BulletDomain.Spawn(ctx, plant.bulletTypeID, pos);
             }
-
+ 
             if (plant.isShovel) {
                 // 生成铲子
                 return;
@@ -125,12 +124,13 @@ public static class PlantDomain {
 
         int cellLen = ctx.cellRepository.TakeAll(out CellEntity[] cells);
 
+
         for (int i = 0; i < cellLen; i++) {
             CellEntity cell = cells[i];
             if (!cell.isHaveMst == true) {
                 return;
             } else {
-                
+
                 Debug.Log(cell.line);
 
                 plant.cd -= fixdt;

@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+
 public class PlantEntity : MonoBehaviour {
 
     public int id;
@@ -41,7 +42,9 @@ public class PlantEntity : MonoBehaviour {
 
     public  bool isMine;
 
-
+    public  Vector2Int cellPos;
+    
+    
 
 
     public void Ctor() { }

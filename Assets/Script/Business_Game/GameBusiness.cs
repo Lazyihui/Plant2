@@ -37,6 +37,8 @@ public static class GameBusiness {
         PlayerDomain.init(ctx);
         // PlayerDomain.Add(ctx);
 
+        CellDomain.SpawnGrid(ctx);
+
         InputEntity input = ctx.inputEntity;
 
         // 生成home界面
@@ -64,7 +66,7 @@ public static class GameBusiness {
 
             for (int j = -8; j < 9; j++) {
 
-                CellDomain.Spawn(ctx, new Vector2(j, i));
+                // CellDomain.Spawn(ctx, new Vector2(j, i));
 
             }
         }
@@ -103,6 +105,14 @@ public static class GameBusiness {
         Camera camera = ctx.camera;
         input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
         input.isMouseLeftDown = Input.GetMouseButtonDown(0);
+        if (input.isMouseLeftDown) {
+            Vector3Int offset = new Vector3Int(-8, -3, 0);
+            Vector3Int intPos = ctx.gridEntity.tilemap.WorldToCell(input.mouseWorldPos);
+            Debug.Log(intPos - offset);
+        }
+
+
+
 
         //植物跟着鼠标走
         UserIntetfaceDomain.PreTick(ctx, dt);

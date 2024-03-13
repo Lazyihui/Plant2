@@ -1,6 +1,14 @@
 using UnityEngine;
 
 public static class CellDomain {
+
+    public static void SpawnGrid(GameContext ctx) {
+        ctx.assetsContext.Entity_TryGetPrefab("Entity_Grid", out GameObject prefab);
+        GridEntity gridEntity = GameObject.Instantiate(prefab).GetComponent<GridEntity>();
+        gridEntity.Ctor();
+        ctx.gridEntity = gridEntity;
+    }
+
     public static CellEntity Spawn(GameContext ctx, Vector2 pos) {
 
         ctx.assetsContext.Entity_TryGetPrefab("Entity_Cell", out GameObject prefab);
@@ -41,8 +49,10 @@ public static class CellDomain {
         for (int i = 0; i < mstLen; i++) {
             MstEntity mst = msts[i];
             if (mst.line == cell.line) {
+                
                 cell.isHaveMst = true;
-            }
+
+            } 
         }
     }
 }
