@@ -110,6 +110,7 @@ public class Main : MonoBehaviour {
 
         //测试用
         if (Input.GetKeyDown(KeyCode.A)) {
+            UIApp.Panel_Start_Open(ctx.uiContext);
         }
 
         if (ctx.gamaContext.playerEntity.enterGame == true) {

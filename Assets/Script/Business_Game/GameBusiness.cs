@@ -62,14 +62,14 @@ public static class GameBusiness {
         }
 
         // 生成地块
-        for (int i = -3; i < 2; i++) {
+        // for (int i = -3; i < 2; i++) {
 
-            for (int j = -8; j < 9; j++) {
+        //     for (int j = -8; j < 9; j++) {
 
-                // CellDomain.Spawn(ctx, new Vector2(j, i));
+        //         // CellDomain.Spawn(ctx, new Vector2(j, i));
 
-            }
-        }
+        //     }
+        // }
         // CellDomain.Spawn(ctx, new Vector2(0, 0));
         //打开UI
         UIApp.Panel_PlantManifest_Open(ctx.uiContext);
@@ -106,7 +106,7 @@ public static class GameBusiness {
         input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
         input.isMouseLeftDown = Input.GetMouseButtonDown(0);
         if (input.isMouseLeftDown) {
-            Vector3Int offset = new Vector3Int(-8, -3, 0);
+            Vector3Int offset = new Vector3Int(-6, -3, 0);
             Vector3Int intPos = ctx.gridEntity.tilemap.WorldToCell(input.mouseWorldPos);
             Debug.Log(intPos - offset);
         }
@@ -200,12 +200,12 @@ public static class GameBusiness {
             }
         }
         // for cell 
-        CellDomain.OverLapMouse(ctx);
-        int cellLen = ctx.cellRepository.TakeAll(out CellEntity[] cells);
-        for (int i = 0; i < cellLen; i++) {
-            CellEntity cell = cells[i];
-            CellDomain.MstOnCell(ctx, cell);
-        }
+        // CellDomain.OverLapMouse(ctx);
+        // int cellLen = ctx.cellRepository.TakeAll(out CellEntity[] cells);
+        // for (int i = 0; i < cellLen; i++) {
+        //     CellEntity cell = cells[i];
+        //     CellDomain.MstOnCell(ctx, cell);
+        // }
     }
     //每针一次
     public static void LateTick(GameContext ctx, float dt) {

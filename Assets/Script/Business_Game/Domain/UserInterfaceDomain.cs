@@ -25,21 +25,16 @@ public static class UserIntetfaceDomain {
                 plant.transform.position = posz;
             }
 
-            int cellLen = ctx.cellRepository.TakeAll(out CellEntity[] cells);
-            for (int j = 0; j < cellLen; j++) {
-                Vector2 posInt = new Vector2((int)input.mouseWorldPos.x, (int)input.mouseWorldPos.y);
-                Vector2 pos = posInt;
+            Vector2 posInt = new Vector2((int)input.mouseWorldPos.x, (int)input.mouseWorldPos.y);
+            Vector2 pos = posInt;
 
-                CellEntity cell = cells[j];
-                if (input.isMouseLeftDown) {
-                    if (!plant.isPlanted && plant.sun <= ctx.playerEntity.sun && cell.isPlant&&!cell.isHavePlant) {
-                        plant.transform.position = pos;
-                        ctx.playerEntity.sun -= plant.sun;
-                        plant.isPlanted = true;
-                        cell.isHavePlant = true;
-                    }
-
+            if (input.isMouseLeftDown) {
+                if (!plant.isPlanted && plant.sun <= ctx.playerEntity.sun) {
+                    plant.transform.position = pos;
+                    ctx.playerEntity.sun -= plant.sun;
+                    plant.isPlanted = true;
                 }
+
             }
         }
         //铲子
