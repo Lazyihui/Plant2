@@ -32,6 +32,7 @@ public class Main : MonoBehaviour {
         Binding(mainCamera);
 
         // ==== Init ====
+        PlayerDomain.InitSelect(ctx.gamaContext);
 
 
 

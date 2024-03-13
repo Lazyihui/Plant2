@@ -24,12 +24,12 @@ public static class CellDomain {
         int cellLen = ctx.cellRepository.TakeAll(out CellEntity[] cells);
         for (int i = 0; i < cellLen; i++) {
             CellEntity cell = cells[i];
-                Vector3 pos = new Vector3((int)input.mouseWorldPos.x, (int)input.mouseWorldPos.y);
-                float dirSqr = Vector2.SqrMagnitude(cell.transform.position - pos);
-                if (dirSqr < 0.1f) {
-                    Debug.Log(cell.isPlant);
-                    cell.isPlant = true;
-                    Debug.Log(cell.isPlant);
+            Vector3 pos = new Vector3((int)input.mouseWorldPos.x, (int)input.mouseWorldPos.y);
+            float dirSqr = Vector2.SqrMagnitude(cell.transform.position - pos);
+            if (dirSqr < 0.1f) {
+                cell.isPlant = true;
+            } else {
+                cell.isPlant = false;
             }
         }
     }

@@ -79,10 +79,8 @@ public static class BulletDomain {
         bullet.tearDown();
     }
 
-
     public static void MoveX(BulletEntity bullet, float x, float dt) {
         bullet.MoveX(x, dt);
     }
-
 
 }

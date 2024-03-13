@@ -6,7 +6,6 @@ public static class GameBusiness {
         InputEntity input = ctx.inputEntity;
         UIApp.Panel_Login_Close(ctx.uiContext);
         PlayerDomain.Add(ctx);
-        PlayerDomain.InitSelect(ctx);
 
         // 打开UI
         UIApp.Panel_Sun_Open(ctx.uiContext);
@@ -20,8 +19,6 @@ public static class GameBusiness {
 
 
         int[] manifest = ctx.playerEntity.plantManifestTypeIDs;
-
-
 
         for (int i = 0; i < manifest.Length; i++) {
             int plantTypeID = manifest[i];
@@ -100,14 +97,12 @@ public static class GameBusiness {
     }
     // 每帧一次
     public static void PreTick(GameContext ctx, float dt) {
-
+        //input
         InputEntity input = ctx.inputEntity;
-
         input.mouseScreenPos = Input.mousePosition;
-
         Camera camera = ctx.camera;
-
         input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
+        input.isMouseLeftDown = Input.GetMouseButtonDown(0);
 
         //植物跟着鼠标走
         UserIntetfaceDomain.PreTick(ctx, dt);
