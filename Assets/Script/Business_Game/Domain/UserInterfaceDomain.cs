@@ -32,11 +32,12 @@ public static class UserIntetfaceDomain {
 
                 CellEntity cell = cells[j];
                 if (input.isMouseLeftDown) {
-                    if (!plant.isPlanted && plant.sun <= ctx.playerEntity.sun && cell.isPlant) {
+                    if (!plant.isPlanted && plant.sun <= ctx.playerEntity.sun && cell.isPlant&&!cell.isHavePlant) {
                         Debug.Log("plant.sun" + cell.isPlant);
                         plant.transform.position = pos;
                         ctx.playerEntity.sun -= plant.sun;
                         plant.isPlanted = true;
+                        cell.isHavePlant = true;
                     }
 
                 }
