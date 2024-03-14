@@ -33,6 +33,15 @@ public static class PlantDomain {
         ctx.plantRepository.Add(plantEntity);
         return plantEntity;
     }
+
+    //格子上是否有植物
+    public  static bool IsHavePlant(GameContext ctx,Vector2 pos, out PlantEntity plant) {
+
+        plant =ctx. plantRepository.FindByPos(new Vector2Int((int)pos.x, (int)pos.y));
+    
+        return plant != null;
+    }
+    
     public static void OverLapShovel(GameContext ctx, PlantEntity shovel) {
         // 植物和植物的交叉检测
         int plantLen = ctx.plantRepository.TakeAll(out PlantEntity[] plants);
@@ -121,7 +130,6 @@ public static class PlantDomain {
     }
 
     public static void TrySpawnBlt(GameContext ctx, PlantEntity plant, float fixdt) {
-
 
         plant.cd -= fixdt;
         if (plant.cd > 0) {

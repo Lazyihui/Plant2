@@ -37,7 +37,7 @@ public static class GameBusiness {
         PlayerDomain.init(ctx);
         // PlayerDomain.Add(ctx);
 
-        CellDomain.SpawnGrid(ctx);
+        GridDomain.SpawnGrid(ctx);
 
         InputEntity input = ctx.inputEntity;
 
@@ -106,8 +106,11 @@ public static class GameBusiness {
         input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
         input.isMouseLeftDown = Input.GetMouseButtonDown(0);
         if (input.isMouseLeftDown) {
+
             Vector3Int offset = new Vector3Int(-6, -3, 0);
             Vector3Int intPos = ctx.gridEntity.tilemap.WorldToCell(input.mouseWorldPos);
+
+            
             Debug.Log(intPos - offset);
         }
 
