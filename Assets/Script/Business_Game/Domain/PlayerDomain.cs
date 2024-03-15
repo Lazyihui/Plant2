@@ -12,7 +12,7 @@ public static class PlayerDomain {
     }
 
     public static void InitSelect(GameContext ctx) {
-        ctx.playerEntity.sun = 100;
+        ctx.playerEntity.sun = 1000;
         ctx.playerEntity.plantCount = 7;
     }
 

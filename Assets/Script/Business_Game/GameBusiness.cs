@@ -153,9 +153,6 @@ public static class GameBusiness {
         for (int i = 0; i < panelLen; i++) {
             PlantEntity plant = plants[i];
 
-            if(Input.GetMouseButtonDown(1)){
-                Debug.Log(plant.gridPos);
-            }
 
             if (plant.isPlanted == true) {
                 PlantDomain.TrySpawnNoBlt(ctx, plant, fixdt);
