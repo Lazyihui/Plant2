@@ -42,7 +42,7 @@ public class PlantEntity : MonoBehaviour {
 
     public  bool isMine;
 
-    public  Vector2Int cellPos;
+    public  Vector2Int gridPos;
     
     
 

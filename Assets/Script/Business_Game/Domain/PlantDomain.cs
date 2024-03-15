@@ -35,11 +35,16 @@ public static class PlantDomain {
     }
 
     //格子上是否有植物
-    public  static bool IsHavePlant(GameContext ctx,Vector2 pos, out PlantEntity plant) {
+    public  static void IsHavePlant(GameContext ctx,Vector2 pos, out PlantEntity plant) {
 
         plant =ctx. plantRepository.FindByPos(new Vector2Int((int)pos.x, (int)pos.y));
-    
-        return plant != null;
+        if(plant!=null){
+            Debug.Log("这个位置有植物");
+            return;
+        }
+
+
+        
     }
     
     public static void OverLapShovel(GameContext ctx, PlantEntity shovel) {

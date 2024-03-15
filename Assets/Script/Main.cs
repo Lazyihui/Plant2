@@ -57,6 +57,7 @@ public class Main : MonoBehaviour {
             Vector2 pos = input.mouseWorldPos;
             //11是铲子
             PlantDomain.Spawn(ctx.gamaContext, 11, pos);
+
         };
 
         //选择植物的点击
@@ -85,9 +86,11 @@ public class Main : MonoBehaviour {
             if (!has) {
                 Debug.LogError("ERror==" + plantClickTypeID);
             }
+            
             if (plantTM.sun <= ctx.gamaContext.playerEntity.sun) {
 
                 PlantDomain.Spawn(ctx.gamaContext, plantClickTypeID, Vector2.zero);
+
             }
         };
 

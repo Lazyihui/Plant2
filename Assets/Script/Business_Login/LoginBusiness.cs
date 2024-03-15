@@ -5,7 +5,6 @@ public static class LoginBusiness {
     public static void Enter(MainContext ctx) {
         UIApp.Panel_Login_Open(ctx.uiContext);
 
-
         
     }
 

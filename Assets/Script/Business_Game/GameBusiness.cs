@@ -38,6 +38,7 @@ public static class GameBusiness {
         // PlayerDomain.Add(ctx);
 
         GridDomain.SpawnGrid(ctx);
+        // GridDomain.GridInit(ctx);
 
         InputEntity input = ctx.inputEntity;
 
@@ -105,13 +106,13 @@ public static class GameBusiness {
         Camera camera = ctx.camera;
         input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
         input.isMouseLeftDown = Input.GetMouseButtonDown(0);
+
+        
         if (input.isMouseLeftDown) {
 
             Vector3Int offset = new Vector3Int(-6, -3, 0);
             Vector3Int intPos = ctx.gridEntity.tilemap.WorldToCell(input.mouseWorldPos);
 
-            
-            Debug.Log(intPos - offset);
         }
 
 
@@ -151,9 +152,15 @@ public static class GameBusiness {
         int panelLen = ctx.plantRepository.TakeAll(out PlantEntity[] plants);
         for (int i = 0; i < panelLen; i++) {
             PlantEntity plant = plants[i];
+
+            if(Input.GetMouseButtonDown(1)){
+                Debug.Log(plant.gridPos);
+            }
+
             if (plant.isPlanted == true) {
                 PlantDomain.TrySpawnNoBlt(ctx, plant, fixdt);
                 PlantDomain.TrySpawnBlt(ctx, plant, fixdt);
+                // PlantDomain.IsHavePlant(ctx,plant);  
 
             }
             if (plant.isShovel == true) {

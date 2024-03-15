@@ -25,12 +25,17 @@ public class plantRepository {
 
     public void Add(PlantEntity entity) {
         all.Add(entity.id, entity);
-        posDict.Add(entity.cellPos, entity);
+    }
+
+    public void AddVector2Int(PlantEntity entity) {
+        posDict.Add(entity.gridPos, entity);
     }
 
     public void Remove(PlantEntity plant) {
         all.Remove(plant.id);
-        posDict.Remove(plant.cellPos);
+    }
+    public void RemoveVector2Int(PlantEntity plant) {
+        posDict.Remove(plant.gridPos);
     }
     //这个没有兼顾超过all数量的情况
     public int TakeAll(out PlantEntity[] array) {
