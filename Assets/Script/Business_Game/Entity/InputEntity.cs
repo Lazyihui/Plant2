@@ -15,6 +15,4 @@ public class InputEntity {
         isMouseLeftDown = false;
     }
 
-
-
 }

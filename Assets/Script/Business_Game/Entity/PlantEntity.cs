@@ -43,9 +43,6 @@ public class PlantEntity : MonoBehaviour {
     public  bool isMine;
 
     public  Vector2Int gridPos;
-    
-    
-
 
     public void Ctor() { }
 

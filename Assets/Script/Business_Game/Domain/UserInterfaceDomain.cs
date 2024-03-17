@@ -35,10 +35,6 @@ public static class UserIntetfaceDomain {
                     
                 PlantEntity plantTemp = ctx.plantRepository.FindByPos(gridPos);
 
-
-
-                Debug.Log(gridPos);
-
                 if (!plant.isPlanted && plant.sun <= ctx.playerEntity.sun && plantTemp == null) {
 
                     if (gridPos.x >= 0 && gridPos.y >= 0 && gridPos.x <= 13 && gridPos.y <= 4) {

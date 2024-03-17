@@ -9,6 +9,11 @@ public static class GridDomain {
         ctx.gridEntity = gridEntity;
     }
 
+
+    public static void isHaveMst(GameContext ctx) {
+        
+    }
+
     // 格子上是否有植物
 
     // public static void IsHavePlant(GameContext ctx, Vector2 pos, out PlantEntity plant) {
@@ -27,7 +32,7 @@ public static class GridDomain {
         Vector3Int offset = new Vector3Int(-6, -3, 0);
         Vector3Int intPos = ctx.gridEntity.tilemap.WorldToCell(input.mouseWorldPos);
         Vector3Int gridPos = intPos - offset;
-        
+
         ctx.gridEntity.tilemap.transform.position = gridPos;
 
     }

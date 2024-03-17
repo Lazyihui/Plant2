@@ -30,10 +30,7 @@ public class CellRepository {
         all.Values.CopyTo(temArray, 0);
         array = temArray;
         return all.Count;
-
-
     }
-
     public CellEntity Find(Predicate<CellEntity> predicate) {
         foreach (CellEntity cell in all.Values) {
             bool isMatch = predicate(cell);
