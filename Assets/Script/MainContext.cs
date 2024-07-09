@@ -8,9 +8,6 @@ public class MainContext {
 
     public UIcontext uiContext;
 
-
-
-
     public TemplateContext templateContext;
 
     public MainContext() {

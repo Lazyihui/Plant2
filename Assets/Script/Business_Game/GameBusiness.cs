@@ -107,7 +107,7 @@ public static class GameBusiness {
         input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
         input.isMouseLeftDown = Input.GetMouseButtonDown(0);
 
-        
+
         if (input.isMouseLeftDown) {
 
             Vector3Int offset = new Vector3Int(-6, -3, 0);
@@ -169,8 +169,7 @@ public static class GameBusiness {
             }
             if (plant.isMine == true) {
 
-                plant.intervalTimer -= fixdt;
-
+                Debug.Log(plant.intervalTimer);
                 if (plant.intervalTimer <= 0) {
                     plant.intervalTimer = plant.interval;
                     PlantDomain.OverLapMst(ctx, plant);

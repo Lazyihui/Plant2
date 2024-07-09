@@ -16,13 +16,14 @@ MonoBehaviour:
   plantName: "\u592A\u9633"
   plantPrice: 50
   sun: 50
-  isShooter: 0
-  isSun: 1
-  isShovel: 0
   cd: 5
   maintain: 1
   interval: 1
   bulletTypeID: 2
   sprite: {fileID: 21300000, guid: aa9bd265e51ab2d4fba40b4f8f8e198d, type: 3}
-  plantPos: {x: 0, y: 0}
   shapeSize: {x: 1, y: 1}
+  isShooter: 0
+  isSun: 1
+  isShovel: 0
+  isDisposable: 0
+  isMine: 0
